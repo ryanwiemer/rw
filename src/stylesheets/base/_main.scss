@@ -1,0 +1,32 @@
+/* ------- *
+ *   Main  *
+ * ------- */
+
+* {
+  min-height: 0;
+  min-width: 0;
+	box-sizing: border-box;
+	-webkit-backface-visibility: hidden;
+}
+
+body {
+	font-size: 100%;
+	-webkit-text-size-adjust: 100%;
+	font-variant-ligatures: none;
+	-webkit-font-variant-ligatures: none;
+	text-rendering: optimizeLegibility;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+	font-weight: 400;
+	font-family: $sans;
+	color: $base;
+}
+
+//Progress Bar
+#nprogress .peg {
+  display: none !important; //Removes glow effect
+}
+#nprogress .bar {
+  height: 4px !important; //Increases the height of the bar itself
+}

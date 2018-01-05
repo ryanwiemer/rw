@@ -1,0 +1,11 @@
+/* ---------- *
+ *  Clearfix  *
+ * ---------- */
+
+%clearfix {
+	&:after {
+    	display: table;
+    	content: "";
+		clear: both;
+	}
+}

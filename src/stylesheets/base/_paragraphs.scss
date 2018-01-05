@@ -1,0 +1,16 @@
+/* ------------ *
+ *  Paragraphs  *
+ * ------------ */
+
+.container p {
+	line-height: 1.75;
+}
+
+.container .strike {
+	text-decoration: line-through;
+	color: gray;
+}
+
+.container strong, .container em {
+	font-weight: bold;
+}

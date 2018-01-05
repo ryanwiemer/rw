@@ -1,0 +1,20 @@
+/* ------- *
+ *  LINKS  *
+ * ------- */
+
+a {
+	color: $base;
+}
+
+.container a {
+	text-decoration: underline;
+	&:hover {
+		color: lighten($base,25%);
+	}
+}
+
+@media (hover: none) {
+  .container a:hover {
+		color: $base;
+	}
+}
