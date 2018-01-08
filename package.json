@@ -6,10 +6,10 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "gatsby": "^1.9.149",
+    "gatsby": "^1.9.150",
     "gatsby-cli": "^1.1.28",
     "gatsby-image": "^1.0.31",
-    "gatsby-link": "^1.6.32",
+    "gatsby-link": "^1.6.33",
     "gatsby-plugin-fastclick": "^1.0.1",
     "gatsby-plugin-google-analytics": "^1.0.15",
     "gatsby-plugin-netlify": "^1.0.12",
