@@ -36,6 +36,8 @@ const TemplateWrapper = ({ children, location }) => (
       <Footer/>
     </section>
 
+    <Footer/>
+
   </div>
 )
 
