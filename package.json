@@ -6,11 +6,10 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "dotenv": "^4.0.0",
-    "gatsby": "^1.9.150",
+    "gatsby": "^1.9.151",
     "gatsby-cli": "^1.1.28",
     "gatsby-image": "^1.0.31",
-    "gatsby-link": "^1.6.33",
-    "gatsby-plugin-fastclick": "^1.0.1",
+    "gatsby-link": "^1.6.34",
     "gatsby-plugin-google-analytics": "^1.0.15",
     "gatsby-plugin-netlify": "^1.0.12",
     "gatsby-plugin-nprogress": "^1.0.9",
@@ -20,17 +19,13 @@
     "gatsby-plugin-styled-components": "^2.0.4",
     "gatsby-source-contentful": "^1.3.31",
     "gatsby-source-filesystem": "^1.5.11",
-    "gatsby-transformer-remark": "^1.7.26",
+    "gatsby-transformer-remark": "^1.7.27",
     "lodash.find": "^4.6.0",
     "moment": "^2.20.1",
     "object-fit-images": "^3.2.3",
     "promise-polyfill": "^7.0.0",
     "react-addons-shallow-compare": "^15.6.2",
-    "react-datepicker": "^1.0.4",
-    "react-headroom": "^2.2.2",
     "react-helmet": "^5.2.0",
-    "react-slick": "^0.16.0",
-    "react-tabs": "^2.1.1",
     "scrollprogress": "^3.0.2",
     "smoothscroll-polyfill": "^0.4.0",
     "styled-components": "^2.4.0",
@@ -48,7 +43,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.9.2"
+    "prettier": "^1.10.1"
   },
   "browserslist": [
     "> 1%",

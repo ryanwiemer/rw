@@ -63,7 +63,7 @@ const IndexPage = ({data}) => {
 }
 
 export const query = graphql`
-  query ProjectQuery {
+  query HomeQuery {
     allContentfulProject(limit: 1000, sort: {fields: [date], order: DESC}) {
       edges {
         node {
