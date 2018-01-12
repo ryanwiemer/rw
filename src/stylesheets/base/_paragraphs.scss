@@ -3,7 +3,10 @@
  * ------------ */
 
 .container p {
-	line-height: 1.75;
+	font-size: 1em;
+	line-height: 1.65;
+	max-width: 600px;
+	margin: 0 0 2em 0;
 }
 
 .container .strike {

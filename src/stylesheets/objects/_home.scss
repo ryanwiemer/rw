@@ -1,3 +1,81 @@
-/* ------- *
- *   Home  *
- * ------- */
+/* ------ *
+ *  Home  *
+ * ------ */
+
+.bio {
+  margin: 0 0 2em 0;
+}
+
+.bio__intro__img {
+  background: $secondary;
+  height: 400px;
+  width: 300px;
+  border-radius: 2px;
+  margin: 0 0 2em 0;
+}
+
+.bio h2 {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.bio__intro--large {
+  display: none;
+}
+
+
+.work {}
+
+.work h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  display: none;
+}
+
+.work h3 {
+  font-size: 1.25em;
+  margin: 0 0 1rem 0;
+  display: none;
+}
+
+.work__list {
+  display: flex;
+   flex-flow: row wrap;
+   justify-content: space-between;
+}
+
+.work__list li {
+  position: relative;
+  margin: 0 0 1em 0;
+  width: 100%;
+  border: 1px solid $secondary;
+  @include bp(medium) {
+    flex: 0 0 49%;
+  }
+}
+
+
+.work__list h4 {
+  display: flex;
+  flex-fow: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $base;
+  background: rgba(0,0,0,.7);
+  opacity: 0;
+  z-index: 1;
+}
+
+.work__list li:hover h4 {
+  opacity: 1;
+}

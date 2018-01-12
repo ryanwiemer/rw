@@ -1,12 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
+import BgImg from '../components/background'
 import Helmet from 'react-helmet'
 
 const IndexPage = ({data}) => {
 
   const projects = data.allContentfulProject.edges;
-  console.log(projects);
 
   return (
     <div>
@@ -26,9 +26,9 @@ const IndexPage = ({data}) => {
             <img />
           </div>
           <div className="bio__intro__text cell">
-            <h2>Hello there!</h2>
+            <h2>Hi.</h2>
             <p>My name is Ryan Wiemer and I am an account manager that enjoys working on web and interactive projects. While client calls and scrum meetings take up most of my day I strive to keep my development skills sharp with open source and side projects.</p>
-            <button className="btn">learn more</button>
+            <button className="btn">read more</button>
           </div>
         </div>
         <div className="bio__intro bio__intro--large">
@@ -50,8 +50,8 @@ const IndexPage = ({data}) => {
           {projects.map(({ node: project, index }) => (
             <li key={project.id}>
               <Link to={project.slug}>
-                <Img sizes={project.cover.sizes} alt={project.cover.title} title={project.cover.title} backgroundColor={"#f1f1f1"} />
-                <h4>view gallery</h4>
+                <BgImg height={'50vh'} sizes={project.cover.sizes} alt={project.cover.title} title={project.cover.title} backgroundColor={"#f1f1f1"} />
+                <h4>{project.title}</h4>
               </Link>
             </li>
             ))}

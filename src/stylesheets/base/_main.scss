@@ -23,6 +23,15 @@ body {
 	color: $base;
 }
 
+.container {
+  margin: 100px auto 0;
+  max-width: 1000px;
+  padding: 0 1em;
+  @include bp(medium) {
+    padding: 0 2em;
+  }
+}
+
 //Progress Bar
 #nprogress .peg {
   display: none !important; //Removes glow effect

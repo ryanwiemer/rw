@@ -1,0 +1,38 @@
+/* --------- *
+ *  Buttons  *
+ * --------- */
+
+ button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+ 	background: none;
+ 	border: none;
+ 	outline: none;
+ 	-webkit-appearance: none;
+ 	-moz-appearance: none;
+ 	border-radius: 0;
+ 	&:focus {
+ 		outline: none;
+ 	}
+ }
+
+ button, input[type=submit] {
+ 	cursor: pointer;
+ }
+
+ input:invalid, textarea:invalid {
+   box-shadow: none;
+ }
+
+ ::-webkit-input-placeholder {color: gray;} /* Chrome/Opera/Safari */
+ ::-moz-placeholder {color: gray; opacity: 1;} /* Firefox 19+ */
+ :-ms-input-placeholder {color: gray;} /* IE 10+ */
+ :-moz-placeholder {color: gray; opacity: 1;} /* Firefox 18- */
+
+.btn {
+	background: $base;
+	color: white;
+	padding: 1em;
+	text-transform: capitalize;
+	border-radius: 2px;
+}

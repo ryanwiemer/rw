@@ -1,0 +1,27 @@
+/* ------ *
+ *  Menu  *
+ * ------ */
+
+header {
+  background: $secondary;
+  padding: 1em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+nav {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 1em;
+  @include bp(medium) {
+    padding: 0 2em;
+  }
+}
+
+nav a {
+  text-decoration: none;
+}
+
+.site-nav {}

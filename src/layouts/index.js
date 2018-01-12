@@ -8,11 +8,6 @@ import Footer from '../components/footer'
 
 import '../stylesheets/style.scss'
 
-const closeOverlay = () => {
-  const wrapper = document.getElementById('wrapper');
-  wrapper.className = '';
-}
-
 const TemplateWrapper = ({ children, location }) => (
   <div id="wrapper">
 
@@ -31,7 +26,7 @@ const TemplateWrapper = ({ children, location }) => (
 
     <Menu/>
 
-    <section className="container" onClick={closeOverlay}>
+    <section className="container">
       {children()}
       <Footer/>
     </section>
