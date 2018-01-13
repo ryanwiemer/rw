@@ -6,56 +6,38 @@
   margin: 0 0 2em 0;
 }
 
-.bio__intro__img {
+.bio__img {
   background: $secondary;
-  height: 400px;
-  width: 300px;
+  width: 100%;
   border-radius: 2px;
   margin: 0 0 2em 0;
 }
 
-.bio h2 {
+.bio__container {
+
+}
+
+.bio__text {}
+.bio__text--short {}
+.bio__text--long {
+  display: none;
+}
+
+.bio h1, .bio h2, .bio h3 {
   font-size: 3em;
   font-weight: bold;
   margin: 0 0 1rem 0;
 }
 
-.bio__intro--large {
-  display: none;
-}
-
 
 .work {}
-
-.work h2 {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0 0 1rem 0;
-  display: none;
-}
-
-.work h3 {
-  font-size: 1.25em;
-  margin: 0 0 1rem 0;
-  display: none;
-}
-
-.work__list {
-  display: flex;
-   flex-flow: row wrap;
-   justify-content: space-between;
-}
+.work__list {}
 
 .work__list li {
   position: relative;
   margin: 0 0 1em 0;
-  width: 100%;
   border: 1px solid $secondary;
-  @include bp(medium) {
-    flex: 0 0 49%;
-  }
 }
-
 
 .work__list h4 {
   display: flex;

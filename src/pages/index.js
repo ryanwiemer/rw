@@ -7,12 +7,13 @@ import Helmet from 'react-helmet'
 const IndexPage = ({data}) => {
 
   const projects = data.allContentfulProject.edges;
+  const page = data.contentfulHome;
 
   return (
     <div>
 
       <Helmet>
-        <title>RW</title>
+        <title>Ryan Wiemer</title>
         <meta name="description" content="RW" />
         <meta property="og:title" content="RW"/>
         <meta property="og:image" content="" />
@@ -20,35 +21,24 @@ const IndexPage = ({data}) => {
         <meta property="og:image:height" content="1200" />
       </Helmet>
 
-      <section className="bio">
-        <div className="bio__intro bio__intro--small grid">
-          <div className="bio__intro__img cell">
-            <img />
-          </div>
-          <div className="bio__intro__text cell">
-            <h2>Hi.</h2>
-            <p>My name is Ryan Wiemer and I am an account manager that enjoys working on web and interactive projects. While client calls and scrum meetings take up most of my day I strive to keep my development skills sharp with open source and side projects.</p>
-            <button className="btn">read more</button>
-          </div>
+      <section className="bio grid">
+
+        <div className="bio__img cell cell--third">
+          <BgImg height={'40vh'} sizes={page.profileImage.sizes} alt={page.profileImage.title} title={page.profileImage.title} />
         </div>
-        <div className="bio__intro bio__intro--large">
-          <div className="bio__intro__text cell">
-            <p>
-               Nullam fringilla nulla vel pretium semper. Nunc ut mi semper metus aliquam maximus sed at metus. In laoreet metus sit amet interdum ullamcorper. Vestibulum posuere pharetra purus, eu sollicitudin orci. Fusce non libero ut augue ultrices tempus. Integer id faucibus nunc. In eget orci id nisi faucibus.
-            </p>
-            <p>
-              Aenean blandit consequat magna iaculis euismod. Donec sodales magna finibus enim ultricies luctus. Nullam scelerisque hendrerit tellus, eget interdum elit ornare et. Sed id diam ullamcorper dui fermentum malesuada. Etiam faucibus finibus dui id pretium. Vestibulum tempor consequat cursus. Curabitur scelerisque magna sed elit dignissim commodo. Fusce quis augue accumsan, tristique odio a, commodo ligula.
-            </p>
-          </div>
+
+        <div  className="bio__container cell cell--two-thirds">
+          <div  className="bio__text bio__text--short cell" dangerouslySetInnerHTML={{ __html: page.bioShort.childMarkdownRemark.html }}/>
+          <div className="bio__text bio__text--long cell" dangerouslySetInnerHTML={{ __html: page.bioLong.childMarkdownRemark.html }}/>
+          <button className="btn">read more</button>
         </div>
+
       </section>
 
       <section className="work">
-        <h2>Side Projects</h2>
-        <h3>Things I've made outside of my 9 - 5. <span className="emoji emoji--briefcase">💼</span></h3>
-        <ul className="work__list">
+        <ul className="work__list grid grid--wrap">
           {projects.map(({ node: project, index }) => (
-            <li key={project.id}>
+            <li key={project.id} className="cell cell--third">
               <Link to={project.slug}>
                 <BgImg height={'50vh'} sizes={project.cover.sizes} alt={project.cover.title} title={project.cover.title} backgroundColor={"#f1f1f1"} />
                 <h4>{project.title}</h4>
@@ -64,6 +54,25 @@ const IndexPage = ({data}) => {
 
 export const query = graphql`
   query HomeQuery {
+    contentfulHome {
+      title
+      profileImage {
+        title
+        sizes(maxWidth: 1800) {
+          ...GatsbyContentfulSizes_noBase64
+        }
+      }
+      bioShort {
+        childMarkdownRemark {
+          html
+        }
+      }
+      bioLong {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
     allContentfulProject(limit: 1000, sort: {fields: [date], order: DESC}) {
       edges {
         node {

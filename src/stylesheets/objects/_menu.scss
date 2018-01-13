@@ -3,7 +3,7 @@
  * ------ */
 
 header {
-  background: $secondary;
+  background: white;
   padding: 1em;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@ header {
 
 nav {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: $max;
   padding: 0 1em;
   @include bp(medium) {
     padding: 0 2em;

@@ -12,7 +12,7 @@ const TemplateWrapper = ({ children, location }) => (
   <div id="wrapper">
 
     <Helmet>
-      <title>RW</title>
+      <title>Ryan Wiemer</title>
       <link rel="icon" href={favicon} />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />

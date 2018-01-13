@@ -25,7 +25,7 @@ body {
 
 .container {
   margin: 100px auto 0;
-  max-width: 1000px;
+  max-width: $max;
   padding: 0 1em;
   @include bp(medium) {
     padding: 0 2em;

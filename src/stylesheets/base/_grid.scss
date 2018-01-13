@@ -11,19 +11,19 @@
    }
  }
 
- .grid--wrap {
-   &:after {
-     content: "";
-     flex: auto;
-   }
- }
-
  .grid--container {
    max-width: $max;
    margin: 0 auto;
    padding: 1em;
    @include bp(medium) {
      padding: 2em;
+   }
+ }
+
+ .grid--wrap {
+   &:after {
+     content: "";
+     flex: auto;
    }
  }
 
@@ -66,21 +66,21 @@
  .cell--third {
   width: 100%;
   @include bp(medium) {
-    flex: 0 0 33%;
+    flex: 0 0 33.333%;
   }
  }
 
  .cell--half {
   width: 100%;
   @include bp(medium) {
-    flex: 0 0 49%;
+    flex: 0 0 50%;
   }
  }
 
  .cell--two-thirds {
   width: 100%;
   @include bp(medium) {
-    flex: 0 0 66%;
+    flex: 0 0 66.666%;
   }
  }
 
