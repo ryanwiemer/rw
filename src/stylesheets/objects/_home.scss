@@ -4,6 +4,9 @@
 
 .bio {
   margin: 0 0 2em 0;
+  @include bp(medium) {
+    margin: 0 0 4em 0;
+  }
 }
 
 .bio__img {
@@ -11,16 +14,27 @@
   width: 100%;
   border-radius: 2px;
   margin: 0 0 2em 0;
+  @include bp(medium) {
+    position: relative;
+    top: 1em;
+    position: sticky;
+    position: -webkit-sticky;
+    margin: 0;
+  }
 }
 
 .bio__container {
-
+  @include bp(medium) {
+    border-left: 2em solid white;
+  }
 }
 
-.bio__text {}
-.bio__text--short {}
 .bio__text--long {
   display: none;
+}
+
+.bio--expanded .bio__text--long {
+  display: block;
 }
 
 .bio h1, .bio h2, .bio h3 {
@@ -35,29 +49,86 @@
 
 .work__list li {
   position: relative;
-  margin: 0 0 1em 0;
+  margin: 0 0 2em 0;
+  width: 100%;
+  border-bottom: 1px solid $secondary;
+  @include bp(medium) {
+
+  }
+}
+
+.work__list a {
+  text-decoration: none;
+}
+
+.work__title {
+  font-size: 2em;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+}
+
+.work__description {
+  color: gray;
+}
+
+
+
+
+
+// Right Side
+.work__read {
   border: 1px solid $secondary;
-}
-
-.work__list h4 {
-  display: flex;
-  flex-fow: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
+  background: $secondary;
+  border-radius: 2px;
+  padding: 1em;
   text-transform: capitalize;
-  font-size: 1em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: $base;
-  background: rgba(0,0,0,.7);
-  opacity: 0;
-  z-index: 1;
+  margin-left: 1em;
+  border: 1px solid $secondary;
+  @include bp(medium) {
+    text-align: right;
+    float: right;
+  }
+  &:hover {
+    border-color: darken($secondary, 10%);
+  }
 }
 
-.work__list li:hover h4 {
-  opacity: 1;
+.work__live {
+  background: $secondary;
+  border-radius: 2px;
+  padding: 1em 1em 1em 2em;
+  border: 1px solid $secondary;
+  text-transform: capitalize;
+  margin-left: 1em;
+  position: relative;
+  @include bp(medium) {
+    text-align: right;
+    float: right;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    background: gray;
+
+  }
+}
+
+.work__live:hover {
+  border-color: darken($secondary, 10%);
+  color: $base !important;
+  &:before {
+    background: #fdc02f;
+  }
+}
+
+.work__live:visited {
+  &:before {
+    background: #fdc02f;
+  }
 }
