@@ -10,6 +10,7 @@
 }
 
 body {
+  background: $base;
 	font-size: 100%;
 	-webkit-text-size-adjust: 100%;
 	font-variant-ligatures: none;
@@ -20,15 +21,16 @@ body {
 	text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
 	font-weight: 400;
 	font-family: $sans;
-	color: $base;
+	color: white;
 }
 
 .container {
-  margin: 100px auto 0;
+  margin: 2em auto;
   max-width: $max;
-  padding: 0 1em;
+  padding: 0 2em;
   @include bp(medium) {
-    padding: 0 2em;
+    margin: 4em auto;
+    padding: 0 4em;
   }
 }
 

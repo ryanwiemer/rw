@@ -5,26 +5,10 @@ import Img from 'gatsby-image'
 import BgImg from '../components/background'
 import Helmet from 'react-helmet'
 
-class IndexPage extends React.Component {
+const IndexPage = ({data}) =>  {
 
-constructor (props) {
-    super(props)
-    this.state = {
-      expandContent: false
-    };
-    this.expandContent = this.expandContent.bind(this);
-  }
-
-expandContent() {
-  this.setState({
-    expandContent: !this.state.expandContent
-  });
-}
-
-render () {
-
-  const projects = this.props.data.allContentfulProject.edges;
-  const page = this.props.data.contentfulHome;
+  const projects = data.allContentfulProject.edges;
+  const page = data.contentfulHome;
 
   return (
     <div>
@@ -38,16 +22,20 @@ render () {
         <meta property="og:image:height" content="1200" />
       </Helmet>
 
-      <section className={(this.state.expandContent ? "bio bio--expanded grid" : "bio grid")}>
+      <section className="bio grid">
 
         <div className="bio__img cell cell--third">
-          <BgImg height={'40vh'} sizes={page.profileImage.sizes} alt={page.profileImage.title} title={page.profileImage.title} />
+          <Img sizes={page.profileImage.sizes} alt={page.profileImage.title} title={page.profileImage.title} />
         </div>
 
         <div  className="bio__container cell cell--two-thirds">
-          <div  className="bio__text bio__text--short cell" dangerouslySetInnerHTML={{ __html: page.bioShort.childMarkdownRemark.html }}/>
-          <div className="bio__text bio__text--long cell" dangerouslySetInnerHTML={{ __html: page.bioLong.childMarkdownRemark.html }}/>
-          <button className="btn" onClick={this.expandContent}>read {(this.state.expandContent ? "less" : "more")}</button>
+          <h2>Hi. <span className="emoji emoji--hand">👋</span></h2>
+          <div className="bio__text cell" dangerouslySetInnerHTML={{ __html: page.bioShort.childMarkdownRemark.html }}/>
+          <ul className="bio__social">
+            <li><a target="_blank" href="https://github.com/ryanwiemer">GitHub</a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/ryanwiemer">LinkedIn</a></li>
+            <li><a href="mailto:ryan@ryanwiemer.com">Email</a></li>
+          </ul>
         </div>
 
       </section>
@@ -57,17 +45,19 @@ render () {
           {projects.map(({ node: project, index }) => (
             <li key={project.id} className="grid">
                 <div className="cell cell--half">
-                  <h4 className="work__title">{project.title}</h4>
+                  <Link to={project.slug}><h3 className="work__title">{project.title}</h3></Link>
                   <div className="work__description" dangerouslySetInnerHTML={{ __html: project.description.childMarkdownRemark.html }} />
                   {project.awards && (
                     <ul className="work__awards">
-
+                      {project.awards.map(({ awards, index }) => (
+                        <li key={project.awards.id}>{project.awards}</li>
+                      ))}
                     </ul>
                   )}
                 </div>
                 <div className="cell cell--half">
-                  {project.url && (<a className="work__live cell" href={project.url} target="_blank"><span></span>View Site</a>)}
-                  <Link className="work__read cell" to={project.slug}>Info</Link>
+                  {project.url && (<a className="work__live cell btn" href={project.url} target="_blank"><span></span>View Site</a>)}
+                  <Link className="work__read cell btn" to={project.slug}>Info</Link>
                 </div>
             </li>
             ))}
@@ -75,13 +65,7 @@ render () {
       </section>
 
     </div>
-    )
-  }
-}
-
-IndexPage.propTypes = {
-  data: PropTypes.object,
-  toggleBio: PropTypes.func
+  )
 }
 
 export const query = graphql`

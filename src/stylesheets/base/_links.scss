@@ -3,16 +3,15 @@
  * ------- */
 
 a {
-	color: $base;
+	color: white;
 }
 
 .container a {
 	text-decoration: underline;
-
 }
 
 @media (hover: none) {
   .container a:hover {
-		//color: $base;
+
 	}
 }

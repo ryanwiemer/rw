@@ -2,7 +2,9 @@
  *  Home  *
  * ------ */
 
+//Bio
 .bio {
+  position: relative;
   margin: 0 0 2em 0;
   @include bp(medium) {
     margin: 0 0 4em 0;
@@ -10,51 +12,50 @@
 }
 
 .bio__img {
-  background: $secondary;
+  background: $tertiary;
   width: 100%;
-  border-radius: 2px;
   margin: 0 0 2em 0;
-  @include bp(medium) {
-    position: relative;
-    top: 1em;
-    position: sticky;
-    position: -webkit-sticky;
-    margin: 0;
-  }
 }
 
 .bio__container {
   @include bp(medium) {
-    border-left: 2em solid white;
+    border-left: 2em solid $base;
   }
 }
 
-.bio__text--long {
-  display: none;
+.bio__text p {
+  font-size: 1.5em;
+  line-height: 1.5;
+  margin: 0 0 1.5em 0;
 }
 
-.bio--expanded .bio__text--long {
-  display: block;
-}
-
-.bio h1, .bio h2, .bio h3 {
+.bio h2 {
   font-size: 3em;
   font-weight: bold;
   margin: 0 0 1rem 0;
 }
 
+.bio__social li {
+  display: inline-block;
+  margin: 0 1em 0 0;
+  font-size: 1.25em;
+}
 
-.work {}
-.work__list {}
+.bio__social a:hover {
+  opacity: .7;
+}
+
+
+//Work
+.work {
+  position: relative;
+}
 
 .work__list li {
   position: relative;
   margin: 0 0 2em 0;
   width: 100%;
-  border-bottom: 1px solid $secondary;
-  @include bp(medium) {
-
-  }
+  border-bottom: 1px solid $tertiary;
 }
 
 .work__list a {
@@ -62,46 +63,53 @@
 }
 
 .work__title {
+  color: white;
+  display: inline-block;
   font-size: 2em;
   font-weight: 600;
   margin: 0 0 1rem 0;
+  &:hover {
+    opacity: .7;
+  }
 }
 
 .work__description {
-  color: gray;
+  color: $secondary;
+  a {
+    color: $secondary;
+    text-decoration: underline;
+    &:hover {
+      opacity: .7;
+    }
+  }
 }
 
+.work__awards li {
+  list-style: disc;
+  list-style-position: inside;
+  border: none;
+  margin: 0 0 1em 0;
+  &:last-child {
+    margin: 0 0 2em 0;
+  }
+}
 
-
-
-
-// Right Side
 .work__read {
-  border: 1px solid $secondary;
-  background: $secondary;
-  border-radius: 2px;
-  padding: 1em;
-  text-transform: capitalize;
-  margin-left: 1em;
-  border: 1px solid $secondary;
+  display: inline-block;
+  margin: 0 0 0 1em;
   @include bp(medium) {
     text-align: right;
     float: right;
   }
-  &:hover {
-    border-color: darken($secondary, 10%);
-  }
 }
 
 .work__live {
-  background: $secondary;
-  border-radius: 2px;
+  display: inline-block;
   padding: 1em 1em 1em 2em;
-  border: 1px solid $secondary;
-  text-transform: capitalize;
-  margin-left: 1em;
   position: relative;
+  margin: 0 0 2em 0;
   @include bp(medium) {
+    margin-left: 1em;
     text-align: right;
     float: right;
   }
@@ -114,21 +122,18 @@
     height: 8px;
     width: 8px;
     border-radius: 50%;
-    background: gray;
-
+    background: $highlight;
   }
 }
 
 .work__live:hover {
-  border-color: darken($secondary, 10%);
-  color: $base !important;
   &:before {
-    background: #fdc02f;
+    background: $highlight !important;
   }
 }
 
 .work__live:visited {
   &:before {
-    background: #fdc02f;
+    background: $tertiary;
   }
 }

@@ -2,6 +2,6 @@
  *  Animation  *
  * ----------- */
 
-a, a:before {
-  transition: all .23s;
+a, a:before, .btn, .work__title {
+  transition: color .23s, background-color .23s, opacity .23s, border-color .23s;
 }

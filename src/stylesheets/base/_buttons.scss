@@ -30,9 +30,15 @@
  :-moz-placeholder {color: gray; opacity: 1;} /* Firefox 18- */
 
 .btn {
-	background: $base;
-	color: white;
+  font-size: 1em;
+  text-transform: capitalize;
+	border: 1px solid $secondary;
+  color: white;
 	padding: 1em;
-	text-transform: capitalize;
 	border-radius: 2px;
+  &:hover {
+    background: white;
+    border-color: white;
+    color: $base;
+  }
 }

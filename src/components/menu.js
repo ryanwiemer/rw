@@ -7,7 +7,7 @@ const Menu = () => {
       <header>
         <nav>
           <ul className="site-nav">
-            <li><Link to="/">Ryan Wiemer</Link></li>
+            <li><Link to="/">&larr; About + Projects</Link></li>
           </ul>
         </nav>
       </header>
