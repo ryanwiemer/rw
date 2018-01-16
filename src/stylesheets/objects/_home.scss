@@ -7,7 +7,7 @@
   position: relative;
   margin: 0 0 2em 0;
   @include bp(medium) {
-    margin: 0 0 4em 0;
+    margin: 0 0 3em 0;
   }
 }
 
@@ -37,7 +37,7 @@
 
 .bio__social li {
   display: inline-block;
-  margin: 0 1em 0 0;
+  margin: 0 1em 2em 0;
   font-size: 1.25em;
 }
 
@@ -45,6 +45,11 @@
   opacity: .7;
 }
 
+@media (hover: none) {
+  .bio__social a:hover {
+    opacity: 1;
+  }
+}
 
 //Work
 .work {
@@ -73,6 +78,12 @@
   }
 }
 
+@media (hover: none) {
+  .work__title:hover {
+    opacity: 1;
+	}
+}
+
 .work__description {
   color: $secondary;
   a {
@@ -84,32 +95,40 @@
   }
 }
 
+@media (hover: none) {
+  .work__description a:hover {
+    opacity: 1;
+  }
+}
+
 .work__awards li {
   list-style: disc;
   list-style-position: inside;
   border: none;
+  line-height: 1.5;
   margin: 0 0 1em 0;
   &:last-child {
     margin: 0 0 2em 0;
   }
 }
 
-.work__read {
+.work__info {
   display: inline-block;
-  margin: 0 0 0 1em;
+  margin: 0 1em 2em 0;
   @include bp(medium) {
+    margin: 0 0 0 1em;
     text-align: right;
     float: right;
   }
 }
 
-.work__live {
+.work__site {
   display: inline-block;
   padding: 1em 1em 1em 2em;
   position: relative;
-  margin: 0 0 2em 0;
+  margin: 0 1em 2em 0;
   @include bp(medium) {
-    margin-left: 1em;
+    margin: 0 0 0 1em;
     text-align: right;
     float: right;
   }
@@ -126,13 +145,19 @@
   }
 }
 
-.work__live:hover {
+.work__site:hover {
   &:before {
     background: $highlight !important;
   }
 }
 
-.work__live:visited {
+@media (hover: none) {
+  .work__site:hover:before {
+    background: $tertiary;
+  }
+}
+
+.work__site:visited {
   &:before {
     background: $tertiary;
   }

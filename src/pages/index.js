@@ -25,15 +25,14 @@ const IndexPage = ({data}) =>  {
       <section className="bio grid">
 
         <div className="bio__img cell cell--third">
-          <Img sizes={page.profileImage.sizes} alt={page.profileImage.title} title={page.profileImage.title} />
+          <Img sizes={page.profile.sizes} alt={page.profile.title} title={page.profile.title} />
         </div>
 
         <div  className="bio__container cell cell--two-thirds">
           <h2>Hi. <span className="emoji emoji--hand">👋</span></h2>
-          <div className="bio__text cell" dangerouslySetInnerHTML={{ __html: page.bioShort.childMarkdownRemark.html }}/>
+          <div className="bio__text cell" dangerouslySetInnerHTML={{ __html: page.bio.childMarkdownRemark.html }}/>
           <ul className="bio__social">
             <li><a target="_blank" href="https://github.com/ryanwiemer">GitHub</a></li>
-            <li><a target="_blank" href="https://www.linkedin.com/in/ryanwiemer">LinkedIn</a></li>
             <li><a href="mailto:ryan@ryanwiemer.com">Email</a></li>
           </ul>
         </div>
@@ -56,8 +55,8 @@ const IndexPage = ({data}) =>  {
                   )}
                 </div>
                 <div className="cell cell--half">
-                  {project.url && (<a className="work__live cell btn" href={project.url} target="_blank"><span></span>View Site</a>)}
-                  <Link className="work__read cell btn" to={project.slug}>Info</Link>
+                  {project.url && (<a className="work__site cell btn" href={project.url} target="_blank"><span></span>View Site</a>)}
+                  <Link className="work__info cell btn" to={project.slug}>Info</Link>
                 </div>
             </li>
             ))}
@@ -72,18 +71,13 @@ export const query = graphql`
   query HomeQuery {
     contentfulHome {
       title
-      profileImage {
+      profile {
         title
         sizes(maxWidth: 1800) {
           ...GatsbyContentfulSizes_noBase64
         }
       }
-      bioShort {
-        childMarkdownRemark {
-          html
-        }
-      }
-      bioLong {
+      bio {
         childMarkdownRemark {
           html
         }
@@ -102,7 +96,7 @@ export const query = graphql`
           }
           date
           url
-          sourceCode
+          source
           awards
           cover {
             title

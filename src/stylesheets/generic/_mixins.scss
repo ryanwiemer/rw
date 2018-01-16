@@ -10,12 +10,12 @@
     }
   }
   @else if $breakpoint == "large" {
-    @media (min-width: 60em) {
+    @media (min-width: 80em) {
       @content;
     }
   }
   @else if $breakpoint == "xl" {
-    @media (min-width: 80em) {
+    @media (min-width: 100em) {
       @content;
     }
   }

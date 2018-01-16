@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import Img from 'gatsby-image'
 import find from "lodash.find"
 import Helmet from 'react-helmet'
+import Menu from '../components/menu'
 
 const ProjectTemplate = ({data}) => {
 
@@ -12,6 +13,9 @@ const ProjectTemplate = ({data}) => {
     slug,
     description,
     cover,
+    url,
+    source,
+    awards,
     images
   } = data.contentfulProject;
 
@@ -22,6 +26,8 @@ const ProjectTemplate = ({data}) => {
 
   return(
     <div>
+
+    <Menu/>
 
     <Helmet>
       <title>{title} - Ryan Wiemer</title>
@@ -34,24 +40,36 @@ const ProjectTemplate = ({data}) => {
     </Helmet>
 
     <div className="project">
-      <div className="project-cover">
-        <Img sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={"#f1f1f1"} />
+      <div className="project__cover">
+        <Img sizes={cover.sizes} alt={cover.title} title={cover.title} backgroundColor={"#272727"} />
+        <h1 className="project__title">{title}</h1>
       </div>
-      <div className="project-info">
-        <div className="project-info__left">
-          <h2 className="project-info-title">Details</h2>
-          {projectIndex.previous && (<Link className="project-previous" to={projectIndex.previous.slug}>Previous</Link>)}
-          {projectIndex.next && (<Link className="project-next" to={projectIndex.next.slug}>Next</Link>)}
+      <div className="project__links">
+        {projectIndex.previous && (<Link className="project__previous" to={projectIndex.previous.slug}>Prev</Link>)}
+        {projectIndex.next && (<Link className="project__next" to={projectIndex.next.slug}>Next</Link>)}
+      </div>
+      <div className="project__info grid">
+        <div className="cell">
+          <div className="project__description cell" dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
+          {awards && (
+            <ul className="work__awards">
+              {awards.map(({ awards, index }) => (
+                <li key={index}>{awards}</li>
+              ))}
+            </ul>
+          )}
         </div>
-        <div className="project-info__right">
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
+
+        <div className="cell">
+            {url && (<a className="work__site btn" href={url} target="_blank"><span></span>View Site</a>)}
+          {source && (<a className="work__source btn" href={source} target="_blank">Source</a>)}
         </div>
       </div>
-      <ul className="project-images">
+      <ul className="project__images">
         {images && (
           images.map((images, index) => (
             <li key={index}>
-              <Img sizes={images.sizes} alt={images.title} title={images.title} outerWrapperClassName={images.description} backgroundColor={"#f1f1f1"} />
+              <Img sizes={images.sizes} alt={images.title} title={images.title} outerWrapperClassName={images.description} backgroundColor={"#272727"} />
             </li>
           ))
         )}
@@ -68,6 +86,9 @@ export const query = graphql`
       id
       slug
       date(formatString: "M.DD.YYYY")
+      url
+      source
+      awards
       description {
         childMarkdownRemark {
           html

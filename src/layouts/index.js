@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import favicon from '../images/favicon.ico'
-import Menu from '../components/menu'
 import Footer from '../components/footer'
 
 import '../stylesheets/style.scss'
@@ -24,14 +23,9 @@ const TemplateWrapper = ({ children, location }) => (
       <meta property="og:url" content="https://www.ryanwiemer.com" />
     </Helmet>
 
-    <Menu/>
-
     <section className="container">
       {children()}
-      <Footer/>
     </section>
-
-    <Footer/>
 
   </div>
 )

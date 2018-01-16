@@ -1,0 +1,98 @@
+/* --------- *
+ *  Project  *
+ * --------- */
+
+.project {
+
+}
+
+.project__cover {
+  position: relative;
+  margin: 0 0 2em 0;
+}
+
+.project__title {
+  font-size: 2em;
+  font-weight: bold;
+  background: $base;
+  margin: 2rem 0 0 0;
+  @include bp(medium) {
+    padding: 1rem 2rem 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 75%;
+    font-size: 3em;
+  }
+}
+
+.project__links {
+  margin: 0 0 2em 0;
+}
+
+.project__info {
+  margin: 0 0 2em 0;
+}
+
+.project__description a:hover {
+  opacity: .7;
+}
+
+@media (hover: none) {
+  .project__description a:hover {
+    opacity: 1;
+  }
+}
+
+.project .btn {
+  float: right;
+  text-align: right;
+  display: inline-block;
+}
+
+.work__source {
+  margin: 0 1em 0 0;
+  @include bp(medium) {
+    margin: 0;
+  }
+}
+
+.project__links {
+
+}
+
+.project__links a {
+  margin: 0 1em 0 0;
+  @include bp(medium) {
+    position: fixed;
+    top: 50%;
+    color: $highlight;
+    text-decoration: none;
+  }
+}
+
+.project__previous {
+  @include bp(medium) {
+    left: .25em;
+    transform: rotate(-90deg);
+    transform-origin: center;
+  }
+  @include bp(large) {
+    left: 1.25em;
+  }
+}
+
+.project__next {
+  @include bp(medium) {
+    right: -.5em;
+    transform: rotate(90deg);
+    transform-origin: center;
+  }
+  @include bp(large) {
+    right: .5em;
+  }
+}
+
+.project__images li {
+  margin: 0 0 1em 0;
+}

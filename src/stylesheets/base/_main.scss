@@ -3,10 +3,7 @@
  * ------- */
 
 * {
-  min-height: 0;
-  min-width: 0;
 	box-sizing: border-box;
-	-webkit-backface-visibility: hidden;
 }
 
 body {
@@ -27,10 +24,10 @@ body {
 .container {
   margin: 2em auto;
   max-width: $max;
-  padding: 0 2em;
+  padding: 0 1.5em;
   @include bp(medium) {
     margin: 4em auto;
-    padding: 0 4em;
+    padding: 0 3em;
   }
 }
 

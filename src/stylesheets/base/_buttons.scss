@@ -33,6 +33,7 @@
   font-size: 1em;
   text-transform: capitalize;
 	border: 1px solid $secondary;
+  text-decoration: none !important;
   color: white;
 	padding: 1em;
 	border-radius: 2px;
@@ -41,4 +42,12 @@
     border-color: white;
     color: $base;
   }
+}
+
+@media (hover: none) {
+  .btn:hover {
+    background: none;
+    border-color: $secondary;
+    color: white;
+	}
 }
