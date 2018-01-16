@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Img from 'gatsby-image'
-import BgImg from '../components/background'
 import Helmet from 'react-helmet'
 
 const IndexPage = ({data}) =>  {
@@ -15,11 +14,11 @@ const IndexPage = ({data}) =>  {
 
       <Helmet>
         <title>Ryan Wiemer</title>
-        <meta name="description" content="RW" />
-        <meta property="og:title" content="RW"/>
-        <meta property="og:image" content="" />
-        <meta property="og:image:width" content="1800" />
-        <meta property="og:image:height" content="1200" />
+        <meta name="description" content="Ryan Wiemer" />
+        <meta property="og:title" content="Ryan Wiemer"/>
+        <meta property="og:image" content={page.profile.sizes.src} />
+        <meta property="og:image:width" content="1437" />
+        <meta property="og:image:height" content="1365" />
       </Helmet>
 
       <section className="bio grid">

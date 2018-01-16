@@ -1,9 +1,14 @@
 import React from 'react'
+import Link from 'gatsby-link'
 
 const NotFoundPage = () => (
   <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <div className="error grid grid--center">
+      <div className="cell">
+        <h2>Error 404</h2>
+        <p>Sorry, that page can't be found. Please return <Link to="/">home</Link>.</p>
+      </div>
+    </div>
   </div>
 )
 

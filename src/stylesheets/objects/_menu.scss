@@ -25,7 +25,8 @@ nav {
 
 nav a {
   text-decoration: none !important;
-  color: $highlight;
+  color: white;
+  font-weight: 600;
   &:hover {
     opacity: .7;
   }

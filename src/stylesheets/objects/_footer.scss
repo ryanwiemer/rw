@@ -1,0 +1,39 @@
+/* -------- *
+ *  Footer  *
+ * -------- */
+
+footer {
+  background: $tertiary;
+  color: $secondary;
+  a {
+    color: $secondary;
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+@media (hover: none) {
+  footer a {
+    opacity: 1;
+  }
+}
+
+footer ul {
+  width: 100%;
+  max-width: $max;
+  margin: 0 auto;
+  padding: 2em 1.5em;
+  @include bp(medium) {
+    padding: 0 3em;
+    height: 8em;
+  }
+}
+
+footer ul li {
+  display: inline-block;
+  padding: .25em 0;
+  width: 100%;
+  @include bp(medium) {
+    width: auto;
+  }
+}

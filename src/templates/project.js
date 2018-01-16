@@ -59,7 +59,6 @@ const ProjectTemplate = ({data}) => {
             </ul>
           )}
         </div>
-
         <div className="cell">
             {url && (<a className="work__site btn" href={url} target="_blank"><span></span>View Site</a>)}
           {source && (<a className="work__source btn" href={source} target="_blank">Source</a>)}
@@ -85,7 +84,7 @@ export const query = graphql`
       title
       id
       slug
-      date(formatString: "M.DD.YYYY")
+      date
       url
       source
       awards

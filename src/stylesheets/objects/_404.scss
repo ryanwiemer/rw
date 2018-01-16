@@ -1,0 +1,21 @@
+/* ----- *
+ *  404  *
+ * ----- */
+
+.error {
+  text-align: center;
+  min-height: 200px;
+  @include bp(medium) {
+    min-height: calc(100vh - 16em);
+  }
+}
+
+.error h2 {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.error p {
+  margin: 0 auto;
+}
