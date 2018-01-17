@@ -15,11 +15,11 @@ const TemplateWrapper = ({ children, location }) => (
       <link rel="icon" href={favicon} />
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-      <meta name="description" content="RW" />
-      <meta property="og:title" content="RW" />
+      <meta name="description" content="Ryan Wiemer is an account manager based in Oakland, CA working in the web industry." />
+      <meta property="og:title" content="Ryan Wiemer" />
       <meta property="og:locale" content="en_US" />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="RW" />
+      <meta property="og:site_name" content="Ryan Wiemer" />
       <meta property="og:url" content="https://www.ryanwiemer.com" />
     </Helmet>
 

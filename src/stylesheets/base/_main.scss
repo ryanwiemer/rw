@@ -31,10 +31,20 @@ body {
   }
 }
 
+//Text Selection Color
+::-moz-selection {
+	background-color: lighten(gray, 5%);
+}
+
+::selection {
+	background-color: lighten(gray, 5%);
+}
+
 //Progress Bar
 #nprogress .peg {
   display: none !important; //Removes glow effect
 }
+
 #nprogress .bar {
   height: 4px !important; //Increases the height of the bar itself
 }

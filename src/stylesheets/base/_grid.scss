@@ -8,25 +8,11 @@
    align-items: flex-start;
  }
 
- .grid--container {
-   max-width: $max;
-   margin: 0 auto;
-   padding: 1em;
-   @include bp(medium) {
-     padding: 2em;
-   }
- }
-
  .grid--wrap {
    &:after {
      content: "";
      flex: auto;
    }
- }
-
- .grid--stretch {
-   align-items: stretch !important; /* align items in Cross Axis */
-   align-content: stretch !important; /* Extra space in Cross Axis */
  }
 
  .grid--center {

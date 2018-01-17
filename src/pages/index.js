@@ -28,7 +28,7 @@ const IndexPage = ({data}) =>  {
         </div>
 
         <div  className="bio__container cell cell--two-thirds">
-          <h2>Hi. <span className="emoji emoji--hand">👋</span></h2>
+          <h2>Hi. <span>👋</span></h2>
           <div className="bio__text cell" dangerouslySetInnerHTML={{ __html: page.bio.childMarkdownRemark.html }}/>
           <ul className="bio__social">
             <li><a target="_blank" href="https://github.com/ryanwiemer">GitHub</a></li>

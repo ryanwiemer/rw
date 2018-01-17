@@ -2,10 +2,6 @@
  *  Project  *
  * --------- */
 
-.project {
-
-}
-
 .project__cover {
   position: relative;
   margin: 0 0 2em 0;
@@ -55,10 +51,6 @@
   @include bp(medium) {
     margin: 0;
   }
-}
-
-.project__links {
-
 }
 
 .project__links a {
