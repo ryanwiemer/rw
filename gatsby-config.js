@@ -6,11 +6,10 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-transformer-remark',
-    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: '######',
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
         anonymize: false,
       },
     },

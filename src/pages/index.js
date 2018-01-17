@@ -14,7 +14,7 @@ const IndexPage = ({data}) =>  {
 
       <Helmet>
         <title>Ryan Wiemer</title>
-        <meta name="description" content="Ryan Wiemer" />
+        <meta name="description" content="Ryan Wiemer is an account manager based in Oakland, CA working in the web industry." />
         <meta property="og:title" content="Ryan Wiemer"/>
         <meta property="og:image" content={page.profile.sizes.src} />
         <meta property="og:image:width" content="1437" />
@@ -47,8 +47,8 @@ const IndexPage = ({data}) =>  {
                   <div className="work__description" dangerouslySetInnerHTML={{ __html: project.description.childMarkdownRemark.html }} />
                   {project.awards && (
                     <ul className="work__awards">
-                      {project.awards.map(({ awards, index }) => (
-                        <li key={project.awards.id}>{project.awards}</li>
+                      {project.awards.map(( awards, index ) => (
+                        <li key={index}>{awards}</li>
                       ))}
                     </ul>
                   )}

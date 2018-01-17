@@ -51,16 +51,16 @@ const ProjectTemplate = ({data}) => {
       <div className="project__info grid">
         <div className="cell">
           <div className="project__description cell" dangerouslySetInnerHTML={{ __html: description.childMarkdownRemark.html }} />
-          {awards && (
             <ul className="work__awards">
-              {awards.map(({ awards, index }) => (
+              {awards && (
+                awards.map(( awards, index ) => (
                 <li key={index}>{awards}</li>
-              ))}
+              ))
+            )}
             </ul>
-          )}
         </div>
         <div className="cell">
-            {url && (<a className="work__site btn" href={url} target="_blank"><span></span>View Site</a>)}
+          {url && (<a className="work__site btn" href={url} target="_blank"><span></span>View Site</a>)}
           {source && (<a className="work__source btn" href={source} target="_blank">Source</a>)}
         </div>
       </div>
