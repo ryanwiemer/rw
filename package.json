@@ -20,7 +20,6 @@
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-remark": "^1.7.28",
     "lodash.find": "^4.6.0",
-    "object-fit-images": "^3.2.3",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
