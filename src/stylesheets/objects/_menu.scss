@@ -47,6 +47,7 @@ nav a {
   display: inline-block;
   margin-left: 1em;
   &:first-child {
+    position: relative;
     margin: 0;
     flex-basis: 100%;
   }
