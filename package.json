@@ -1,7 +1,7 @@
 {
   "name": "rw",
   "description": "Digital portfolio for Ryan Wiemer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": "https://github.com/ryanwiemer/rw",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
