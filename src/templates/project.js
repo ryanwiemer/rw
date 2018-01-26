@@ -36,7 +36,7 @@ const ProjectTemplate = ({data}) => {
       <meta property="og:image" content={cover.sizes.src} />
       <meta property="og:image:width" content="1800" />
       <meta property="og:image:height" content="1200" />
-      <meta property="og:url" content={"https://www.ryanwiemer.com" + slug} />
+      <meta property="og:url" content={"https://www.ryanwiemer.com/" + slug + "/"} />
     </Helmet>
 
     <div className="project">
@@ -45,8 +45,8 @@ const ProjectTemplate = ({data}) => {
         <h1 className="project__title">{title}</h1>
       </div>
       <div className="project__links">
-        {projectIndex.previous && (<Link className="project__previous" to={projectIndex.previous.slug}>Prev</Link>)}
-        {projectIndex.next && (<Link className="project__next" to={projectIndex.next.slug}>Next</Link>)}
+        {projectIndex.previous && (<Link className="project__previous" to={"/" + projectIndex.previous.slug + "/"}>Prev</Link>)}
+        {projectIndex.next && (<Link className="project__next" to={"/" + projectIndex.next.slug + "/"}>Next</Link>)}
       </div>
       <div className="project__info grid">
         <div className="cell">

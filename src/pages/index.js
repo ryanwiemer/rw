@@ -43,7 +43,7 @@ const IndexPage = ({data}) =>  {
           {projects.map(({ node: project, index }) => (
             <li key={project.id} className="grid">
                 <div className="cell cell--half">
-                  <Link to={project.slug}><h3 className="work__title">{project.title}</h3></Link>
+                  <Link to={"/" + project.slug + "/"}><h3 className="work__title">{project.title}</h3></Link>
                   <div className="work__description" dangerouslySetInnerHTML={{ __html: project.description.childMarkdownRemark.html }} />
                   {project.awards && (
                     <ul className="work__awards">
@@ -55,7 +55,7 @@ const IndexPage = ({data}) =>  {
                 </div>
                 <div className="cell cell--half">
                   {project.url && (<a className="work__site cell btn" href={project.url} target="_blank"><span></span>View Site</a>)}
-                  <Link className="work__info cell btn" to={project.slug}>Info</Link>
+                  <Link className="work__info cell btn" to={"/" + project.slug + "/"}>Info</Link>
                 </div>
             </li>
             ))}
