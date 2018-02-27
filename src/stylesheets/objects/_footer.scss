@@ -5,17 +5,6 @@
 footer {
   background: $tertiary;
   color: $secondary;
-  a {
-    color: $secondary;
-    &:hover {
-      opacity: .7;
-    }
-  }
-}
-@media (hover: none) {
-  footer a {
-    opacity: 1;
-  }
 }
 
 footer ul {
@@ -35,5 +24,9 @@ footer ul li {
   width: 100%;
   @include bp(medium) {
     width: auto;
+    padding: .25em 0 !important;
+  }
+  &:last-child {
+    padding: 1em 0 .25em;
   }
 }
