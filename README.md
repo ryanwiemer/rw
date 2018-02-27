@@ -13,7 +13,7 @@ CONTENTFUL_SPACE_ID=
 CONTENTFUL_DELIVERY_API_TOKEN=
 ```
 
-**NOTE:** This repo is mostly just for me. It is publicly available if you are interested in exploring how it works or what I used. It is NOT a template. 
+**NOTE:** This repo is mostly just for me. If you are interested in a starter template for Gatsby, Contentful and Netlify checkout: https://github.com/ryanwiemer/gatsby-starter-gcn. 
 
 
 ## Tools & Frameworks Used
