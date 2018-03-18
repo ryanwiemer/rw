@@ -96,14 +96,14 @@ export const query = graphql`
       cover {
         title
         sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+          ...GatsbyContentfulSizes_withWebp_noBase64
         }
       }
       images {
         title
         description
         sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+          ...GatsbyContentfulSizes_withWebp_noBase64
         }
       }
     }
@@ -121,7 +121,7 @@ export const query = graphql`
             title
             cover {
               sizes(maxWidth: 1800) {
-                ...GatsbyContentfulSizes_noBase64
+                ...GatsbyContentfulSizes_withWebp_noBase64
               }
             }
           }

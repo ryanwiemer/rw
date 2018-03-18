@@ -73,7 +73,7 @@ export const query = graphql`
       profile {
         title
         sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_noBase64
+          ...GatsbyContentfulSizes_withWebp_noBase64
         }
       }
       bio {
@@ -100,7 +100,7 @@ export const query = graphql`
           cover {
             title
             sizes(maxWidth: 1800) {
-              ...GatsbyContentfulSizes_noBase64
+              ...GatsbyContentfulSizes_withWebp_noBase64
             }
           }
         }
