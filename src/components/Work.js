@@ -89,9 +89,11 @@ const ProjectLink = styled(Link)`
   }
   &:hover ${Cover} {
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-      display: block;
-      opacity: 1;
-      visibility: visible;
+      @supports (object-fit: cover) {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 `
