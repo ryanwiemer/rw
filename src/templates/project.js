@@ -36,9 +36,9 @@ const ProjectTemplate = ({data}) => {
     <div>
       <Helmet>
         <title>{`${title} - Ryan Wiemer`}</title>
-        <meta name="description" content={description} />
+        <meta name="description" content={description.internal.content} />
         <meta property="og:title" content={`${title} - Ryan Wiemer`} />
-        <meta property="og:description" content={description} />
+        <meta property="og:description" content={description.internal.content} />
         <meta property="og:url" content={`https://www.ryanwiemer.com/${slug}/`} />
         <meta property="og:image" content={cover.sizes.src} />
       </Helmet>
@@ -73,6 +73,9 @@ export const query = graphql`
       source
       awards
       description {
+        internal {
+          content
+        }
         childMarkdownRemark {
           html
         }
