@@ -1,21 +1,39 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
+import Up from '../components/Up'
 
-const Wordmark = styled.img`
-  max-width: 100px;
-  opacity: .8;
+const List = styled.ul`
+  width: 100%;
+  max-width: ${props => props.theme.sizes.maxWidth};
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 4rem;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    padding: 0 3rem;
+  }
 `
 
-const Footer = () => (
-  <footer className="footer">
-    <ul className="grid">
-      <li className="cell cell--middle">Copyright &copy; {new Date().getFullYear()} Ryan Wiemer</li>
-      <li className="cell cell--middle">
-        <a href="https://www.contentful.com/" rel="nofollow" target="_blank"><Wordmark src="https://images.contentful.com/fo9twyrwpveg/7Htleo27dKYua8gio8UEUy/0797152a2d2f8e41db49ecbf1ccffdaa/PoweredByContentful_DarkBackground_MonochromeLogo.svg" alt="Powered by Contentful" /></a>
-      </li>
-    </ul>
-  </footer>
+const Item = styled.li`
+  color: white;
+  font-weight: bold;
+  a {
+    margin: 0 1rem 0 0;
+  }
+`
+
+const Footer = (props) => (
+  <List>
+    <Item>
+      <a href="mailto:ryan@ryanwiemer.com">Email</a>
+      <a href="https://twitter.com/ryanwiemer" target="_blank">Twitter</a>
+    </Item>
+    {props.up && (<Item><Up/></Item>)}
+  </List>
 )
 
 export default Footer
