@@ -38,6 +38,7 @@ const ProjectTemplate = ({data}) => {
         <title>{`${title} - Ryan Wiemer`}</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={`${title} - Ryan Wiemer`} />
+        <meta property="og:description" content={description} />
         <meta property="og:url" content={`https://www.ryanwiemer.com/${slug}/`} />
         <meta property="og:image" content={cover.sizes.src} />
       </Helmet>

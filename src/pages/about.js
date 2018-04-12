@@ -71,7 +71,6 @@ const AboutPage  = ({data}) =>  {
     <div>
       <Helmet>
         <title>About - Ryan Wiemer</title>
-        <meta name="description" content="Ryan Wiemer is an account manager based in Oakland, CA working in the web industry." />
         <meta property="og:title" content="About - Ryan Wiemer" />
         <meta property="og:url" content="https://www.ryanwiemer.com/about/" />
         <meta property="og:image" content={cover.sizes.src} />
