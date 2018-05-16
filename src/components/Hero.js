@@ -45,11 +45,18 @@ const Title = styled.h2`
   }
 `
 
-const Hero = (props) => {
+const Hero = props => {
   return (
     <Wrapper>
-      <BgImg sizes={props.image.sizes} height={props.height} position={props.position} alt={props.image.title} title={props.image.title} backgroundColor={"#272727"} />
-      {props.title && (<Title>{props.title}</Title>)}
+      <BgImg
+        sizes={props.image.sizes}
+        height={props.height}
+        position={props.position}
+        alt={props.image.title}
+        title={props.image.title}
+        backgroundColor={'#272727'}
+      />
+      {props.title && <Title>{props.title}</Title>}
     </Wrapper>
   )
 }

@@ -20,7 +20,7 @@ const Description = styled.div`
     line-height: 1.5;
   }
   a {
-    transition: .3s;
+    transition: 0.3s;
     border-bottom: 2px solid ${props => props.theme.colors.secondary};
     &:hover {
       border-color: white;
@@ -38,14 +38,14 @@ const Awards = styled.ul`
     list-style-position: inside;
     border: none;
     line-height: 1.5;
-    margin: 0 0 .5rem 0;
+    margin: 0 0 0.5rem 0;
   }
 `
 
 const Resources = styled.div`
   margin: 1rem 0 2rem 0;
   a {
-    transition: .2s;
+    transition: 0.2s;
     margin: 0 1rem 0 0;
     &:nth-child(2) {
       margin: 0;
@@ -53,22 +53,23 @@ const Resources = styled.div`
   }
 `
 
-const ProjectDetails = (props) => {
+const ProjectDetails = props => {
   return (
     <Wrapper>
       <div>
-        <Description dangerouslySetInnerHTML={{ __html: props.description.childMarkdownRemark.html }} />
+        <Description
+          dangerouslySetInnerHTML={{
+            __html: props.description.childMarkdownRemark.html,
+          }}
+        />
         <Awards>
-          {props.awards && (
-            props.awards.map(( award, index ) => (
-            <li key={index}>{award}</li>
-            ))
-          )}
+          {props.awards &&
+            props.awards.map((award, index) => <li key={index}>{award}</li>)}
         </Awards>
       </div>
       <Resources>
-        {props.source && (<Button href={props.source}>Source</Button>)}
-        {props.url && (<Button href={props.url}>View Site</Button>)}
+        {props.source && <Button href={props.source}>Source</Button>}
+        {props.url && <Button href={props.url}>View Site</Button>}
       </Resources>
     </Wrapper>
   )

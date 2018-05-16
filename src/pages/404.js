@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 
@@ -23,9 +22,9 @@ const Wrapper = styled.div`
   a {
     font-size: 2em;
     font-size: 4vw;
-    border-bottom: .09em solid #414141;
-    transition: .3s border-color;
-    &:hover{
+    border-bottom: 0.09em solid #414141;
+    transition: 0.3s border-color;
+    &:hover {
       border-color: white;
     }
     @media (hover: none) {
@@ -49,7 +48,9 @@ const NotFoundPage = () => (
     <Container>
       <Wrapper>
         <Title>Page Not Found</Title>
-        <p><a href="/">Return Home</a></p>
+        <p>
+          <a href="/">Return Home</a>
+        </p>
       </Wrapper>
     </Container>
   </div>

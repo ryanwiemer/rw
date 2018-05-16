@@ -1,16 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 import Helmet from 'react-helmet'
-import Container from  '../components/Container'
-import Footer from  '../components/Footer'
-import Button from '../components/Button'
+import Container from '../components/Container'
+import Footer from '../components/Footer'
 import Hero from '../components/Hero'
-
-const Cover = styled.div`
-  margin: 0 0 2rem 0;
-`
 
 const Title = styled.h2`
   font-weight: bold;
@@ -47,9 +40,9 @@ const Bio = styled.div`
     margin: 0 0 2rem 0;
   }
   a {
-    border-bottom: .09em solid ${props => props.theme.colors.secondary};
-    transition: .3s border-color;
-    &:hover{
+    border-bottom: 0.09em solid ${props => props.theme.colors.secondary};
+    transition: 0.3s border-color;
+    &:hover {
       border-color: white;
     }
     @media (hover: none) {
@@ -58,14 +51,8 @@ const Bio = styled.div`
   }
 `
 
-const AboutPage  = ({data}) =>  {
-
-  const {
-     title,
-     id,
-     cover,
-     bio,
-   } = data.contentfulAbout;
+const AboutPage = ({ data }) => {
+  const { title, cover, bio } = data.contentfulAbout
 
   return (
     <div>
@@ -76,35 +63,33 @@ const AboutPage  = ({data}) =>  {
         <meta property="og:image" content={cover.sizes.src} />
       </Helmet>
       <Container>
-        <Hero
-          image={cover}
-          position="50% 100%"
-        />
+        <Hero image={cover} position="50% 100%" />
         <Wrapper>
           <Title>Hello 👋</Title>
-          <Bio dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}/>
+          <Bio
+            dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}
+          />
         </Wrapper>
       </Container>
-      <Footer/>
+      <Footer />
     </div>
-    )
-  }
+  )
+}
 
 export const query = graphql`
   query AboutQuery {
     contentfulAbout {
       title
-      id
       cover {
-       title
-       sizes(maxWidth: 1800) {
-         ...GatsbyContentfulSizes_withWebp_noBase64
-       }
+        title
+        sizes(maxWidth: 1800) {
+          ...GatsbyContentfulSizes_withWebp_noBase64
+        }
       }
       bio {
-       childMarkdownRemark {
-         html
-       }
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

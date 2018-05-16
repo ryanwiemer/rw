@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Up from '../components/Up'
 
@@ -26,13 +25,23 @@ const Item = styled.li`
   }
 `
 
-const Footer = (props) => (
+const Footer = props => (
   <List>
     <Item>
       <a href="mailto:ryan@ryanwiemer.com">Email</a>
-      <a href="https://twitter.com/ryanwiemer" target="_blank">Twitter</a>
+      <a
+        href="https://twitter.com/ryanwiemer"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Twitter
+      </a>
     </Item>
-    {props.up && (<Item><Up/></Item>)}
+    {props.up && (
+      <Item>
+        <Up />
+      </Item>
+    )}
   </List>
 )
 

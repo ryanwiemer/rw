@@ -1,8 +1,7 @@
 const path = require(`path`)
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  
-  const { createPage } = boundActionCreators;
+  const { createPage } = boundActionCreators
 
   const loadProjects = new Promise((resolve, reject) => {
     graphql(`
@@ -15,9 +14,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       }
-    `
-    ).then(result => {
-        result.data.allContentfulProject.edges.map(({ node }) => {
+    `).then(result => {
+      result.data.allContentfulProject.edges.map(({ node }) => {
         createPage({
           path: node.slug,
           component: path.resolve(`./src/templates/project.js`),
@@ -31,4 +29,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 
   return Promise.all([loadProjects])
-};
+}

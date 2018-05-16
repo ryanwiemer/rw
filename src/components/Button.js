@@ -9,10 +9,10 @@ const ExternalLink = styled.a`
   color: white;
   padding: 1em;
   border-radius: 2px;
-  transition: background-color .3s, border-color .3s, color .3s;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     font-size: 1.1em;
-    padding: .9em;
+    padding: 0.9em;
   }
   &:hover {
     color: ${props => props.theme.colors.base};
@@ -26,9 +26,9 @@ const ExternalLink = styled.a`
   }
 `
 
-const Button = (props) => {
+const Button = props => {
   return (
-    <ExternalLink href={props.href} target="_blank">
+    <ExternalLink href={props.href} target="_blank" rel="noopener noreferrer">
       {props.children}
     </ExternalLink>
   )

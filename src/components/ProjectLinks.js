@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 `
 
 const PreviousLink = styled(Link)`
-  left: .25rem;
+  left: 0.25rem;
   transform: rotate(-90deg);
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
     left: 1.25rem;
@@ -32,18 +32,20 @@ const PreviousLink = styled(Link)`
 `
 
 const NextLink = styled(Link)`
-  right: -.5rem;
+  right: -0.5rem;
   transform: rotate(90deg);
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
-    right: .5rem;
+    right: 0.5rem;
   }
 `
 
-const ProjectLinks = (props) => {
+const ProjectLinks = props => {
   return (
     <Wrapper>
-      {props.previous && (<PreviousLink to={`/${props.previous.slug}/`}>Prev</PreviousLink>)}
-      {props.next && (<NextLink to={`/${props.next.slug}/`}>Next</NextLink>)}
+      {props.previous && (
+        <PreviousLink to={`/${props.previous.slug}/`}>Prev</PreviousLink>
+      )}
+      {props.next && <NextLink to={`/${props.next.slug}/`}>Next</NextLink>}
     </Wrapper>
   )
 }

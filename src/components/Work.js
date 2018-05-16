@@ -35,9 +35,9 @@ const Item = styled.li`
 const Title = styled.h3`
   z-index: 99;
   font-size: 1em;
-  margin: .5rem 0 0 0;
+  margin: 0.5rem 0 0 0;
   display: inline-block;
-  transition: color .3s, border-color .3s;
+  transition: color 0.3s, border-color 0.3s;
   border-bottom: 2px solid ${props => props.theme.colors.secondary};
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     font-size: 1.1em;
@@ -63,7 +63,7 @@ const Cover = styled.div`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     position: fixed !important;
     pointer-events: none;
-    transition: opacity .3s, visibility .3s;
+    transition: opacity 0.3s, visibility 0.3s;
     width: 50%;
     height: 100%;
     top: 0;
@@ -79,15 +79,15 @@ const Cover = styled.div`
 `
 
 const ProjectLink = styled(Link)`
-  &:hover ${Title} {
+  &:hover h3 {
     border-color: white;
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-      color:  white;
+      color: white;
       opacity: 1;
-      text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     }
   }
-  &:hover ${Cover} {
+  &:hover div {
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
       @supports (object-fit: cover) {
         display: block;
@@ -98,19 +98,24 @@ const ProjectLink = styled(Link)`
   }
 `
 
-const Work = (props) => {
+const Work = props => {
   return (
     <List>
       {props.projects.map(({ node: project }) => (
         <Item key={project.id}>
           <ProjectLink to={`/${project.slug}/`}>
             <Cover>
-              <Img sizes={project.cover.sizes} alt={project.cover.title} title={project.cover.title} backgroundColor={"#272727"} />
+              <Img
+                sizes={project.cover.sizes}
+                alt={project.cover.title}
+                title={project.cover.title}
+                backgroundColor={'#272727'}
+              />
             </Cover>
             <Title>{project.title}</Title>
           </ProjectLink>
         </Item>
-       ))}
+      ))}
     </List>
   )
 }

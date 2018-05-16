@@ -16,7 +16,7 @@ const Nav = styled.nav`
   a {
     color: white;
     font-weight: bold;
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
   }
 `
 
@@ -35,19 +35,29 @@ const List = styled.ul`
 `
 
 const activeLinkStyle = {
-  borderBottom: "2px solid white"
-};
+  borderBottom: '2px solid white',
+}
 
 const Menu = () => {
-    return (
-      <Nav>
-        <List>
-          <li><Link to="/">Ryan Wiemer</Link></li>
-          <li><Link to="/" activeStyle={activeLinkStyle} exact>Work</Link></li>
-          <li><Link to="/about/" activeStyle={activeLinkStyle}>About</Link></li>
-        </List>
-      </Nav>
-    )
+  return (
+    <Nav>
+      <List>
+        <li>
+          <Link to="/">Ryan Wiemer</Link>
+        </li>
+        <li>
+          <Link to="/" activeStyle={activeLinkStyle} exact>
+            Work
+          </Link>
+        </li>
+        <li>
+          <Link to="/about/" activeStyle={activeLinkStyle}>
+            About
+          </Link>
+        </li>
+      </List>
+    </Nav>
+  )
 }
 
 export default Menu

@@ -11,14 +11,10 @@ const Wrapper = styled.section`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     padding: 0 3rem;
   }
-`;
+`
 
-const Container = (props) => {
-  return (
-    <Wrapper>
-      {props.children}
-    </Wrapper>
-  )
+const Container = props => {
+  return <Wrapper>{props.children}</Wrapper>
 }
 
 export default Container

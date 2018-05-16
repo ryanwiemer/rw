@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
 
 const Wrapper = styled.div`
   display: none;
@@ -11,19 +10,27 @@ const Wrapper = styled.div`
     pointer-events: none;
     width: 100%;
     border: 1rem solid ${props => props.theme.colors.base};
-    border-radius: .5rem;
+    border-radius: 0.5rem;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     display: block;
   }
 `
 
-const Video = (props) => {
+const Video = props => {
   return (
     <div>
       {props.video && (
         <Wrapper>
-          <video preload="true" loop autoPlay muted playsInline src={props.video.file.url} poster={props.thumbnail.sizes.src} />
+          <video
+            preload="true"
+            loop
+            autoPlay
+            muted
+            playsInline
+            src={props.video.file.url}
+            poster={props.thumbnail.sizes.src}
+          />
         </Wrapper>
       )}
     </div>

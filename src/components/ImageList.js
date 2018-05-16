@@ -13,16 +13,20 @@ const List = styled.ul`
   }
 `
 
-const ImageList = (props) => {
+const ImageList = props => {
   return (
     <List>
-      {props.images && (
+      {props.images &&
         props.images.map((image, index) => (
           <li key={index}>
-            <Img sizes={image.sizes} alt={image.title} title={image.title} backgroundColor={"#272727"} />
+            <Img
+              sizes={image.sizes}
+              alt={image.title}
+              title={image.title}
+              backgroundColor={'#272727'}
+            />
           </li>
-        ))
-      )}
+        ))}
     </List>
   )
 }
