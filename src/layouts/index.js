@@ -13,10 +13,7 @@ const TemplateWrapper = ({ children }) => (
         <title>Ryan Wiemer</title>
         <link rel="icon" href={favicon} />
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="description"
           content="Ryan Wiemer is an account manager based in Oakland, CA working in the web industry."
