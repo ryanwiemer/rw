@@ -18,10 +18,9 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   text-align: center;
-  font-weight: bold;
+
   a {
-    font-size: 2em;
-    font-size: 4vw;
+    font-size: 1.1em;
     border-bottom: 0.09em solid #414141;
     transition: 0.3s border-color;
     &:hover {
@@ -34,10 +33,9 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h2`
-  margin: 0 0 2rem 0;
-  margin: 0 0 4vw 0;
-  font-size: 4em;
-  font-size: 10vw;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  font-size: 2.5em;
 `
 
 const NotFoundPage = () => (
