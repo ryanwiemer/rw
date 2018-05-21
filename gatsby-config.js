@@ -14,11 +14,29 @@ try {
 }
 
 module.exports = {
+  siteMetadata: {
+    title: 'Ryan Wiemer',
+    siteUrl: 'https://www.ryanwiemer.com',
+    description: 'Digital portfolio for Ryan Wiemer',
+  },
   plugins: [
     'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'Ryan Wiemer',
+        short_name: 'Ryan Wiemer',
+        start_url: '/',
+        background_color: '#121212',
+        theme_color: '#FFFFFF',
+        display: 'minimal-ui',
+        icon: 'static/logos/logo-512.png', // This path is relative to the root of the site.
+      },
+    },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
