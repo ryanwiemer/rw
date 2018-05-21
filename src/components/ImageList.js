@@ -23,7 +23,7 @@ const ImageList = props => {
               sizes={image.sizes}
               alt={image.title}
               title={image.title}
-              backgroundColor={'#272727'}
+              backgroundColor={'#414141'}
             />
           </li>
         ))}

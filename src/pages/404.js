@@ -18,7 +18,6 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   text-align: center;
-
   a {
     font-size: 1.1em;
     border-bottom: 0.09em solid #414141;
