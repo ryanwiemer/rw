@@ -25,7 +25,7 @@
     "lodash.find": "^4.6.0",
     "react-helmet": "^5.2.0",
     "smoothscroll-polyfill": "^0.4.3",
-    "styled-components": "3.2.6"
+    "styled-components": "3.3.0"
   },
   "keywords": [
     "rw"
@@ -44,7 +44,7 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-gatsby-standard": "^1.2.1",
-    "prettier": "^1.12.1",
+    "prettier": "^1.13.2",
     "stylelint": "9.2.1",
     "stylelint-config-prettier": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
