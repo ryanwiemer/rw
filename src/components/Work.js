@@ -106,7 +106,7 @@ const Work = props => {
           <ProjectLink to={`/${project.slug}/`}>
             <Cover>
               <Img
-                sizes={project.cover.sizes}
+                fluid={project.cover.fluid}
                 alt={project.cover.title}
                 title={project.cover.title}
                 backgroundColor={'#272727'}

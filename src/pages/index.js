@@ -1,28 +1,30 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Work from '../components/Work'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
   const about = data.contentfulAbout
 
   return (
-    <div>
+    <Layout>
       <Helmet>
-        <meta property="og:image" content={about.cover.sizes.src} />
+        <meta property="og:image" content={about.cover.fluid.src} />
       </Helmet>
       <Container>
         <Work projects={projects} />
       </Container>
       <Footer />
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query HomeQuery {
+  query {
     allContentfulProject(limit: 1000, sort: { fields: [date], order: DESC }) {
       edges {
         node {
@@ -32,8 +34,8 @@ export const query = graphql`
           date
           cover {
             title
-            sizes(maxWidth: 1800) {
-              ...GatsbyContentfulSizes_withWebp_noBase64
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
         }
@@ -42,8 +44,8 @@ export const query = graphql`
     contentfulAbout {
       cover {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

@@ -20,7 +20,7 @@ const ImageList = props => {
         props.images.map((image, index) => (
           <li key={index}>
             <Img
-              sizes={image.sizes}
+              fluid={image.fluid}
               alt={image.title}
               title={image.title}
               backgroundColor={'#414141'}

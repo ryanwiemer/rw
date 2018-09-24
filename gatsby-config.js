@@ -23,7 +23,6 @@ module.exports = {
     description: 'Digital portfolio for Ryan Wiemer',
   },
   plugins: [
-    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-transformer-remark',
@@ -36,7 +35,7 @@ module.exports = {
         background_color: '#121212',
         theme_color: '#FFFFFF',
         display: 'minimal-ui',
-        icon: 'static/logos/logo-512.png', // This path is relative to the root of the site.
+        icon: 'static/logos/logo-512.png',
       },
     },
     `gatsby-plugin-offline`,

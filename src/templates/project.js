@@ -1,5 +1,5 @@
 import React from 'react'
-import find from 'lodash.find'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Container from '../components/Container'
 import Hero from '../components/Hero'
@@ -8,11 +8,11 @@ import ProjectLinks from '../components/ProjectLinks'
 import ImageList from '../components/ImageList'
 import Video from '../components/Video'
 import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 
-const ProjectTemplate = ({ data }) => {
+const ProjectTemplate = ({ data, pageContext }) => {
   const {
     title,
-    id,
     slug,
     description,
     cover,
@@ -24,13 +24,11 @@ const ProjectTemplate = ({ data }) => {
     thumbnail,
   } = data.contentfulProject
 
-  const projectIndex = find(
-    data.allContentfulProject.edges,
-    ({ node: project }) => project.id === id
-  )
+  const previous = pageContext.prev
+  const next = pageContext.next
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>{`${title} - Ryan Wiemer`}</title>
         <meta name="description" content={description.internal.content} />
@@ -43,14 +41,11 @@ const ProjectTemplate = ({ data }) => {
           property="og:url"
           content={`https://www.ryanwiemer.com/${slug}/`}
         />
-        <meta property="og:image" content={cover.sizes.src} />
+        <meta property="og:image" content={cover.fluid.src} />
       </Helmet>
       <Container>
         <Hero image={cover} title={title} />
-        <ProjectLinks
-          previous={projectIndex.previous}
-          next={projectIndex.next}
-        />
+        <ProjectLinks previous={previous} next={next} />
         <ProjectDetails
           description={description}
           awards={awards}
@@ -61,12 +56,12 @@ const ProjectTemplate = ({ data }) => {
         <ImageList images={images} />
       </Container>
       <Footer up />
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query ProjectQuery($slug: String!) {
+  query($slug: String!) {
     contentfulProject(slug: { eq: $slug }) {
       title
       id
@@ -85,20 +80,20 @@ export const query = graphql`
       }
       cover {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
       thumbnail {
         title
-        sizes {
+        fluid {
           src
         }
       }
       images {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
       video {

@@ -3,10 +3,10 @@ import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
 import favicon from '../images/favicon.ico'
 import Menu from '../components/Menu'
-import '../styles/global'
+import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 
-const TemplateWrapper = ({ children }) => (
+const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Helmet>
@@ -29,9 +29,10 @@ const TemplateWrapper = ({ children }) => (
         <meta property="og:url" content="https://www.ryanwiemer.com" />
       </Helmet>
       <Menu />
-      {children()}
+      {children}
+      <GlobalStyle />
     </div>
   </ThemeProvider>
 )
 
-export default TemplateWrapper
+export default Layout

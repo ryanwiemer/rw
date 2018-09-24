@@ -1,9 +1,11 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
+import Layout from '../components/Layout'
 
 const Title = styled.h2`
   font-weight: bold;
@@ -55,12 +57,12 @@ const AboutPage = ({ data }) => {
   const { title, cover, bio } = data.contentfulAbout
 
   return (
-    <div>
+    <Layout>
       <Helmet>
         <title>About - Ryan Wiemer</title>
         <meta property="og:title" content="About - Ryan Wiemer" />
         <meta property="og:url" content="https://www.ryanwiemer.com/about/" />
-        <meta property="og:image" content={cover.sizes.src} />
+        <meta property="og:image" content={cover.fluid.src} />
       </Helmet>
       <Container>
         <Hero image={cover} position="50% 100%" />
@@ -72,18 +74,18 @@ const AboutPage = ({ data }) => {
         </Wrapper>
       </Container>
       <Footer />
-    </div>
+    </Layout>
   )
 }
 
 export const query = graphql`
-  query AboutQuery {
+  query {
     contentfulAbout {
       title
       cover {
         title
-        sizes(maxWidth: 1800) {
-          ...GatsbyContentfulSizes_withWebp_noBase64
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
       bio {

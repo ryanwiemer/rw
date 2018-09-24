@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
@@ -46,7 +46,7 @@ const Menu = () => {
           <Link to="/">Ryan Wiemer</Link>
         </li>
         <li>
-          <Link to="/" activeStyle={activeLinkStyle} exact>
+          <Link to="/" activeStyle={activeLinkStyle}>
             Work
           </Link>
         </li>

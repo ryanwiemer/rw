@@ -49,7 +49,7 @@ const Hero = props => {
   return (
     <Wrapper>
       <BgImg
-        sizes={props.image.sizes}
+        fluid={props.image.fluid}
         height={props.height}
         position={props.position}
         alt={props.image.title}

@@ -29,7 +29,7 @@ const Video = props => {
             muted
             playsInline
             src={props.video.file.url}
-            poster={props.thumbnail.sizes.src}
+            poster={props.thumbnail.fluid.src}
           />
         </Wrapper>
       )}
