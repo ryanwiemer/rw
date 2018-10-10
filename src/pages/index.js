@@ -4,14 +4,13 @@ import Helmet from 'react-helmet'
 import Work from '../components/Work'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
-import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
   const about = data.contentfulAbout
 
   return (
-    <Layout>
+    <>
       <Helmet>
         <meta property="og:image" content={about.cover.fluid.src} />
       </Helmet>
@@ -19,7 +18,7 @@ const IndexPage = ({ data }) => {
         <Work projects={projects} />
       </Container>
       <Footer />
-    </Layout>
+    </>
   )
 }
 

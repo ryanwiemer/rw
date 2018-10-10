@@ -5,7 +5,6 @@ import Helmet from 'react-helmet'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero'
-import Layout from '../components/Layout'
 
 const Title = styled.h2`
   font-weight: bold;
@@ -57,7 +56,7 @@ const AboutPage = ({ data }) => {
   const { title, cover, bio } = data.contentfulAbout
 
   return (
-    <Layout>
+    <>
       <Helmet>
         <title>About - Ryan Wiemer</title>
         <meta property="og:title" content="About - Ryan Wiemer" />
@@ -74,7 +73,7 @@ const AboutPage = ({ data }) => {
         </Wrapper>
       </Container>
       <Footer />
-    </Layout>
+    </>
   )
 }
 
