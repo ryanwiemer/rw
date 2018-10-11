@@ -7,16 +7,17 @@ import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import posed, { PoseGroup } from 'react-pose'
 
-const transitionDelay = 300
+const transitionDuration = 300
+const transitionDelay = 350
 
 const Transition = posed.div({
   enter: {
     opacity: 1,
-    transition: { duration: transitionDelay },
+    transition: { duration: transitionDuration },
     delay: transitionDelay,
     beforeChildren: true,
   },
-  exit: { opacity: 0, transition: { duration: transitionDelay } },
+  exit: { opacity: 0, transition: { duration: transitionDuration } },
 })
 
 const Layout = ({ children, ...props }) => (
