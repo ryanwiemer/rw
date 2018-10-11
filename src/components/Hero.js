@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import posed from 'react-pose'
 
 const Wrapper = styled.div`
   position: relative;
@@ -26,7 +27,26 @@ const BgImg = styled(Img)`
   }
 `
 
-const Title = styled.h2`
+const AnimatedTitle = posed.h2({
+  enter: {
+    width: 'auto',
+    color: '#ffffff',
+    height: 'auto',
+    y: 0,
+    transition: {
+      color: { duration: 300, delay: 300 },
+      default: { duration: 300 },
+    },
+  },
+  exit: {
+    height: 0,
+    y: '1rem',
+    color: '#121212',
+    delay: 300,
+  },
+})
+
+const Title = styled(AnimatedTitle)`
   text-transform: capitalize;
   font-weight: bold;
   position: absolute;
