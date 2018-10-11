@@ -10,8 +10,13 @@ import posed, { PoseGroup } from 'react-pose'
 const transitionDelay = 300
 
 const Transition = posed.div({
-  enter: { opacity: 1, delay: transitionDelay, beforeChildren: true },
-  exit: { opacity: 0 },
+  enter: {
+    opacity: 1,
+    transition: { duration: transitionDelay },
+    delay: transitionDelay,
+    beforeChildren: true,
+  },
+  exit: { opacity: 0, transition: { duration: transitionDelay } },
 })
 
 const Layout = ({ children, ...props }) => (
