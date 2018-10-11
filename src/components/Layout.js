@@ -44,7 +44,7 @@ const Layout = ({ children, ...props }) => (
       </Helmet>
       <Menu />
       <PoseGroup>
-        <Transition key={props.location.key}>{children}</Transition>
+        <Transition key={props.location.pathname}>{children}</Transition>
       </PoseGroup>
       <GlobalStyle />
     </div>
