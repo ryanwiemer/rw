@@ -5,8 +5,16 @@ import favicon from '../images/favicon.ico'
 import Menu from '../components/Menu'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
+import posed, { PoseGroup } from 'react-pose'
 
-const Layout = ({ children }) => (
+const transitionDelay = 300
+
+const Transition = posed.div({
+  enter: { opacity: 1, delay: transitionDelay, beforeChildren: true },
+  exit: { opacity: 0 },
+})
+
+const Layout = ({ children, ...props }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Helmet>
@@ -29,7 +37,9 @@ const Layout = ({ children }) => (
         <meta property="og:url" content="https://www.ryanwiemer.com" />
       </Helmet>
       <Menu />
-      {children}
+      <PoseGroup>
+        <Transition key={props.location.pathname}>{children}</Transition>
+      </PoseGroup>
       <GlobalStyle />
     </div>
   </ThemeProvider>
