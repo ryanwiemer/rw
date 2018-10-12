@@ -42,9 +42,7 @@ const Menu = () => {
     <Nav id="nav">
       <List>
         <li>
-          <Link to="/">
-            <h1>Ryan Wiemer</h1>
-          </Link>
+          <Link to="/">Ryan Wiemer</Link>
         </li>
         <li>
           <Link to="/" className="link--work">
