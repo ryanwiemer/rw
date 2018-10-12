@@ -21,6 +21,24 @@ class Layout extends React.Component {
     this.setState({ loaded: true })
   }
 
+  renderNoScript() {
+    return (
+      <noscript>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              .initial,
+              .loaded {
+                visibility: visible !important;
+                cursor: auto !important;
+              }
+        `,
+          }}
+        />
+      </noscript>
+    )
+  }
+
   render() {
     const props = this.props
     const children = this.props.children

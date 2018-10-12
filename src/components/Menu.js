@@ -17,6 +17,8 @@ const Nav = styled.nav`
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid transparent;
+    transition: 0.3s all;
   }
 `
 
@@ -35,7 +37,7 @@ const List = styled.ul`
 `
 
 const activeLinkStyle = {
-  borderBottom: '2px solid white',
+  borderColor: 'white',
 }
 
 const Menu = () => {

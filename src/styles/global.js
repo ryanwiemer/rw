@@ -87,11 +87,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .initial {
-    opacity: 0;
+    visibility: hidden;
+    cursor: wait; 
   }
 
   .loaded {
-    opacity: 1;
+    visibility: visible;
   }
 `
 
