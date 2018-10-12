@@ -58,7 +58,11 @@ const AboutPage = ({ data }) => {
 
   return (
     <>
-      <Helmet>
+      <Helmet
+        bodyAttributes={{
+          class: 'page--about',
+        }}
+      >
         <title>About - Ryan Wiemer</title>
         <meta property="og:title" content="About - Ryan Wiemer" />
         <meta property="og:url" content="https://www.ryanwiemer.com/about/" />

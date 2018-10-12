@@ -10,7 +10,11 @@ const IndexPage = ({ data }) => {
 
   return (
     <>
-      <Helmet>
+      <Helmet
+        bodyAttributes={{
+          class: 'page--work',
+        }}
+      >
         <meta property="og:image" content={about.cover.fluid.src} />
       </Helmet>
       <Container>

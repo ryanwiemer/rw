@@ -6,8 +6,8 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.21",
-    "gatsby-image": "^2.0.13",
+    "gatsby": "^2.0.22",
+    "gatsby-image": "^2.0.14",
     "gatsby-link": "^2.0.4",
     "gatsby-plugin-canonical-urls": "^2.0.6",
     "gatsby-plugin-google-analytics": "^2.0.6",
@@ -43,7 +43,7 @@
     "test": "npm run lint:css && npm run lint:js && npm run check-pretty"
   },
   "devDependencies": {
-    "eslint": "^5.6.1",
+    "eslint": "^5.7.0",
     "eslint-config-gatsby-standard": "^2.0.0",
     "prettier": "^1.14.3",
     "stylelint": "9.6.0",

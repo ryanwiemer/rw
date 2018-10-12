@@ -21,9 +21,6 @@ const Nav = styled.nav`
     border-bottom: 2px solid transparent;
     transition: 0.3s all;
   }
-  a.active {
-    border-color: white;
-  }
 `
 
 const List = styled.ul`
@@ -40,10 +37,6 @@ const List = styled.ul`
   }
 `
 
-const isActive = ({ isCurrent }) => {
-  return isCurrent ? { className: 'active' } : null
-}
-
 const Menu = () => {
   return (
     <Nav id="nav">
@@ -54,12 +47,12 @@ const Menu = () => {
           </Link>
         </li>
         <li>
-          <Link to="/" getProps={isActive}>
+          <Link to="/" className="link--work">
             Work
           </Link>
         </li>
         <li>
-          <Link to="/about/" getProps={isActive}>
+          <Link to="/about/" className="link--about">
             About
           </Link>
         </li>

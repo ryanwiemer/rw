@@ -88,7 +88,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
-/* Loading for mounting the Layout component */
+  /* Loading for mounting the Layout component */
   .initial {
     #content {
       visibility: hidden;
@@ -108,6 +108,16 @@ const GlobalStyle = createGlobalStyle`
       transform: translateY(0px);
     }
   }
+
+  /*
+    Manually styling active nav links.
+    There was an issue with reach-router
+    and react-pose interfering with each other.
+  */
+  .page--about .link--about, .page--work .link--work {
+    border-color: white;
+  }
+
 `
 
 export default GlobalStyle
