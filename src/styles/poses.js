@@ -26,8 +26,8 @@ export const delayChildren = {
 }
 
 export const slideUp = {
-  initial: { y: '110%', opacity: 0 },
-  enter: { y: 0, opacity: 1, transition: { duration: transitionDuration } },
+  initial: { y: '110%' },
+  enter: { y: 0, transition: { duration: transitionDuration } },
 }
 
 export const appear = {

@@ -85,6 +85,14 @@ const GlobalStyle = createGlobalStyle`
   #nprogress .bar {
     height: 4px !important;
   }
+
+  .initial {
+    opacity: 0;
+  }
+
+  .loaded {
+    opacity: 1;
+  }
 `
 
 export default GlobalStyle
