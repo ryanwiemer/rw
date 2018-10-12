@@ -2,10 +2,10 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import posed from 'react-pose'
+import { appear } from '../styles/poses'
 import Container from '../components/Container'
-import Footer from '../components/Footer'
 import Hero from '../components/Hero'
-import Layout from '../components/Layout'
 
 const Title = styled.h2`
   font-weight: bold;
@@ -21,7 +21,7 @@ const Title = styled.h2`
   }
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(posed.div(appear))`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     display: flex;
     flex-flow: row;
@@ -57,8 +57,12 @@ const AboutPage = ({ data }) => {
   const { title, cover, bio } = data.contentfulAbout
 
   return (
-    <Layout>
-      <Helmet>
+    <>
+      <Helmet
+        bodyAttributes={{
+          class: 'page--about',
+        }}
+      >
         <title>About - Ryan Wiemer</title>
         <meta property="og:title" content="About - Ryan Wiemer" />
         <meta property="og:url" content="https://www.ryanwiemer.com/about/" />
@@ -73,8 +77,7 @@ const AboutPage = ({ data }) => {
           />
         </Wrapper>
       </Container>
-      <Footer />
-    </Layout>
+    </>
   )
 }
 

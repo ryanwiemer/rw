@@ -2,8 +2,10 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import posed from 'react-pose'
+import { appear, slideUp, staggerChildren } from '../styles/poses'
 
-const List = styled.ul`
+const List = styled(posed.ul(staggerChildren))`
   width: 100%;
   display: inline-flex;
   flex-flow: row wrap;
@@ -18,6 +20,13 @@ const List = styled.ul`
   }
 `
 
+const Overflow = styled.span`
+  display: inline-block;
+  padding: 0.25em 0;
+  overflow: hidden;
+  position: relative;
+`
+
 const Item = styled.li`
   width: 100%;
   margin: 0 0 1.5rem 0;
@@ -25,14 +34,14 @@ const Item = styled.li`
     flex: 0 1 49%;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 0.75rem 0;
     &:last-child {
       margin: 0;
     }
   }
 `
 
-const Title = styled.h3`
+const Title = styled(posed.h2(slideUp))`
   z-index: 99;
   font-size: 1em;
   margin: 0.5rem 0 0 0;
@@ -57,29 +66,31 @@ const Title = styled.h3`
   }
 `
 
-const Cover = styled.div`
+const Cover = styled(posed.div(appear))`
   position: relative;
   transition: none;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     position: fixed !important;
     pointer-events: none;
-    transition: opacity 0.3s, visibility 0.3s;
     width: 50%;
     height: 100%;
     top: 0;
     right: 0;
     z-index: -99;
-    opacity: 0;
-    visibility: hidden;
     div {
       height: 100% !important;
       object-fit: cover !important;
+    }
+    .gatsby-image-wrapper {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
     }
   }
 `
 
 const ProjectLink = styled(Link)`
-  &:hover h3 {
+  &:hover h2 {
     border-color: white;
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
       color: white;
@@ -87,7 +98,7 @@ const ProjectLink = styled(Link)`
       text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     }
   }
-  &:hover div {
+  &:hover .gatsby-image-wrapper {
     @media screen and (min-width: ${props => props.theme.responsive.medium}) {
       @supports (object-fit: cover) {
         display: block;
@@ -112,7 +123,9 @@ const Work = props => {
                 backgroundColor={'#272727'}
               />
             </Cover>
-            <Title>{project.title}</Title>
+            <Overflow>
+              <Title>{project.title}</Title>
+            </Overflow>
           </ProjectLink>
         </Item>
       ))}

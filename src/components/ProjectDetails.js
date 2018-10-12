@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
+import posed from 'react-pose'
+import { appear, delayChildren } from '../styles/poses'
 
-const Wrapper = styled.div`
+const Wrapper = styled(posed.div(delayChildren))`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -10,8 +12,16 @@ const Wrapper = styled.div`
   margin: 0 0 2rem 0;
 `
 
+const Overflow = styled.span`
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+`
+
+const Info = posed.div(appear)
+
 const Description = styled.div`
-  margin: 1rem 0 2rem 0;
+  padding: 1rem 0 2rem 0;
   max-width: 600px;
   font-size: 1em;
   line-height: 1.6;
@@ -42,8 +52,8 @@ const Awards = styled.ul`
   }
 `
 
-const Resources = styled.div`
-  margin: 1rem 0 2rem 0;
+const Resources = styled(posed.div(appear))`
+  padding: 1rem 0 2rem 0;
   a {
     transition: 0.2s;
     margin: 0 1rem 0 0;
@@ -56,21 +66,24 @@ const Resources = styled.div`
 const ProjectDetails = props => {
   return (
     <Wrapper>
-      <div>
+      <Info>
         <Description
           dangerouslySetInnerHTML={{
             __html: props.description.childMarkdownRemark.html,
           }}
         />
+
         <Awards>
           {props.awards &&
             props.awards.map((award, index) => <li key={index}>{award}</li>)}
         </Awards>
-      </div>
-      <Resources>
-        {props.source && <Button href={props.source}>Source</Button>}
-        {props.url && <Button href={props.url}>View Site</Button>}
-      </Resources>
+      </Info>
+      <Overflow>
+        <Resources>
+          {props.source && <Button href={props.source}>Source</Button>}
+          {props.url && <Button href={props.url}>View Site</Button>}
+        </Resources>
+      </Overflow>
     </Wrapper>
   )
 }

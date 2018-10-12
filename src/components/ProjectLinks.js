@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import posed from 'react-pose'
+import { fade, delayChildren } from '../styles/poses'
 
-const Wrapper = styled.div`
+const Wrapper = styled(posed.div(delayChildren))`
   margin: 0 0 2rem 0;
-  a {
+  span {
     border-bottom: 2px solid ${props => props.theme.colors.secondary};
     margin: 0 1rem 0 0;
     @media screen and (min-width: ${props => props.theme.responsive.small}) {
@@ -23,15 +25,15 @@ const Wrapper = styled.div`
   }
 `
 
-const PreviousLink = styled(Link)`
-  left: 0.25rem;
+const Previous = styled(posed.span(fade))`
   transform: rotate(-90deg);
+  left: 0.25rem;
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
     left: 1.25rem;
   }
 `
 
-const NextLink = styled(Link)`
+const Next = styled(posed.span(fade))`
   right: -0.5rem;
   transform: rotate(90deg);
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
@@ -43,9 +45,15 @@ const ProjectLinks = props => {
   return (
     <Wrapper>
       {props.previous && (
-        <PreviousLink to={`/${props.previous.slug}/`}>Prev</PreviousLink>
+        <Previous>
+          <Link to={`/${props.previous.slug}/`}>Prev</Link>
+        </Previous>
       )}
-      {props.next && <NextLink to={`/${props.next.slug}/`}>Next</NextLink>}
+      {props.next && (
+        <Next>
+          <Link to={`/${props.next.slug}/`}>Next</Link>
+        </Next>
+      )}
     </Wrapper>
   )
 }

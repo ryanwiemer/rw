@@ -3,23 +3,24 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Work from '../components/Work'
 import Container from '../components/Container'
-import Footer from '../components/Footer'
-import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
   const about = data.contentfulAbout
 
   return (
-    <Layout>
-      <Helmet>
+    <>
+      <Helmet
+        bodyAttributes={{
+          class: 'page--work',
+        }}
+      >
         <meta property="og:image" content={about.cover.fluid.src} />
       </Helmet>
       <Container>
         <Work projects={projects} />
       </Container>
-      <Footer />
-    </Layout>
+    </>
   )
 }
 

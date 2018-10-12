@@ -7,8 +7,6 @@ import ProjectDetails from '../components/ProjectDetails'
 import ProjectLinks from '../components/ProjectLinks'
 import ImageList from '../components/ImageList'
 import Video from '../components/Video'
-import Footer from '../components/Footer'
-import Layout from '../components/Layout'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const {
@@ -28,7 +26,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
   const next = pageContext.next
 
   return (
-    <Layout>
+    <>
       <Helmet>
         <title>{`${title} - Ryan Wiemer`}</title>
         <meta name="description" content={description.internal.content} />
@@ -55,8 +53,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
         <Video video={video} thumbnail={thumbnail} />
         <ImageList images={images} />
       </Container>
-      <Footer up />
-    </Layout>
+    </>
   )
 }
 
