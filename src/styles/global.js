@@ -74,6 +74,7 @@ const GlobalStyle = createGlobalStyle`
     color: white;
   }
 
+  /* NProgress stles */
   .nprogress-busy {
     cursor: wait;
   }
@@ -86,13 +87,26 @@ const GlobalStyle = createGlobalStyle`
     height: 4px !important;
   }
 
+
+/* Loading for mounting the Layout component */
   .initial {
-    visibility: hidden;
-    cursor: wait; 
+    #content {
+      visibility: hidden;
+    }
+    #nav {
+      opacity: 0;
+      transform: translateY(10px);
+    }
   }
 
   .loaded {
-    visibility: visible;
+    #content {
+      visibility: visible;
+    }
+    #nav {
+      opacity: 1;
+      transform: translateY(0px);
+    }
   }
 `
 

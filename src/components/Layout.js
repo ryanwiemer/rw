@@ -27,10 +27,12 @@ class Layout extends React.Component {
         <style
           dangerouslySetInnerHTML={{
             __html: `
-              .initial,
-              .loaded {
+              #content {
                 visibility: visible !important;
-                cursor: auto !important;
+              }
+              #nav {
+                opacity: 1 !important;
+                transform: translateY(0px) !important;
               }
         `,
           }}
@@ -71,8 +73,10 @@ class Layout extends React.Component {
           </Helmet>
           <Menu />
           <PoseGroup animateOnMount preEnterPose="initial">
-            <Transition key={props.location.pathname}>
-              {children} <Footer up={props.location.pathname !== '/'} />
+            <Transition key={props.location.pathname} id="content">
+              {children}
+              <Footer up={props.location.pathname !== '/'} />
+              {this.renderNoScript()}
             </Transition>
           </PoseGroup>
           <GlobalStyle />

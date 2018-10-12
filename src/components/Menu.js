@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
+  transition: 0.3s all;
   position: relative;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
@@ -20,6 +21,9 @@ const Nav = styled.nav`
     border-bottom: 2px solid transparent;
     transition: 0.3s all;
   }
+  a.active {
+    border-color: white;
+  }
 `
 
 const List = styled.ul`
@@ -36,13 +40,13 @@ const List = styled.ul`
   }
 `
 
-const activeLinkStyle = {
-  borderColor: 'white',
+const isActive = ({ isCurrent }) => {
+  return isCurrent ? { className: 'active' } : null
 }
 
 const Menu = () => {
   return (
-    <Nav>
+    <Nav id="nav">
       <List>
         <li>
           <Link to="/">
@@ -50,12 +54,12 @@ const Menu = () => {
           </Link>
         </li>
         <li>
-          <Link to="/" activeStyle={activeLinkStyle}>
+          <Link to="/" getProps={isActive}>
             Work
           </Link>
         </li>
         <li>
-          <Link to="/about/" activeStyle={activeLinkStyle}>
+          <Link to="/about/" getProps={isActive}>
             About
           </Link>
         </li>
