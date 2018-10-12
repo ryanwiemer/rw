@@ -2,6 +2,9 @@ const transitionDuration = 300
 const transitionDelay = 350
 
 export const pageFade = {
+  initial: {
+    opacity: 0,
+  },
   enter: {
     opacity: 1,
     transition: { duration: transitionDuration },
@@ -23,23 +26,23 @@ export const delayChildren = {
 }
 
 export const slideUp = {
+  initial: { y: '110%' },
   enter: { y: 0, transition: { duration: transitionDuration } },
-  exit: { y: '110%', delay: transitionDelay },
 }
 
 export const appear = {
+  initial: { opacity: 0, y: 10 },
   enter: {
     opacity: 1,
     y: 0,
     transition: { duration: transitionDuration },
   },
-  exit: { opacity: 0, y: 10, delay: transitionDelay },
 }
 
 export const fade = {
+  initial: { opacity: 0 },
   enter: {
     opacity: 1,
     transition: { duration: transitionDuration },
   },
-  exit: { opacity: 0, delay: transitionDelay },
 }

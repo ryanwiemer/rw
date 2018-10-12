@@ -34,7 +34,7 @@ const Layout = ({ children, ...props }) => (
         <meta property="og:url" content="https://www.ryanwiemer.com" />
       </Helmet>
       <Menu />
-      <PoseGroup animateOnMount>
+      <PoseGroup animateOnMount preEnterPose="initial">
         <Transition key={props.location.pathname}>
           {children} <Footer up={props.location.pathname !== '/'} />
         </Transition>
