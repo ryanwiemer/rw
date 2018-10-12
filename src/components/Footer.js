@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import posed from 'react-pose'
+import { appear, delayChildren } from '../styles/poses'
 import Up from '../components/Up'
 
-const List = styled.ul`
+const List = styled(posed.ul(delayChildren))`
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
@@ -17,7 +19,7 @@ const List = styled.ul`
   }
 `
 
-const Item = styled.li`
+const Item = styled(posed.li(appear))`
   color: white;
   font-weight: bold;
   a {

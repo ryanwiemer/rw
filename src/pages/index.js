@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Work from '../components/Work'
 import Container from '../components/Container'
-import Footer from '../components/Footer'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
@@ -17,7 +16,6 @@ const IndexPage = ({ data }) => {
       <Container>
         <Work projects={projects} />
       </Container>
-      <Footer />
     </>
   )
 }

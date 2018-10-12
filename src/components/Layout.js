@@ -1,24 +1,15 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { ThemeProvider } from 'styled-components'
+import posed, { PoseGroup } from 'react-pose'
 import favicon from '../images/favicon.ico'
-import Menu from '../components/Menu'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
-import posed, { PoseGroup } from 'react-pose'
+import { pageFade } from '../styles/poses'
+import Menu from '../components/Menu'
+import Footer from '../components/Footer'
 
-const transitionDuration = 300
-const transitionDelay = 350
-
-const Transition = posed.div({
-  enter: {
-    opacity: 1,
-    transition: { duration: transitionDuration },
-    delay: transitionDelay,
-    beforeChildren: true,
-  },
-  exit: { opacity: 0, transition: { duration: transitionDuration } },
-})
+const Transition = posed.div(pageFade)
 
 const Layout = ({ children, ...props }) => (
   <ThemeProvider theme={theme}>
@@ -43,8 +34,10 @@ const Layout = ({ children, ...props }) => (
         <meta property="og:url" content="https://www.ryanwiemer.com" />
       </Helmet>
       <Menu />
-      <PoseGroup>
-        <Transition key={props.location.pathname}>{children}</Transition>
+      <PoseGroup animateOnMount>
+        <Transition key={props.location.pathname}>
+          {children} <Footer up={props.location.pathname !== '/'} />
+        </Transition>
       </PoseGroup>
       <GlobalStyle />
     </div>

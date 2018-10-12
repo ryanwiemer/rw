@@ -43,7 +43,9 @@ const Menu = () => {
     <Nav>
       <List>
         <li>
-          <Link to="/">Ryan Wiemer</Link>
+          <Link to="/">
+            <h1>Ryan Wiemer</h1>
+          </Link>
         </li>
         <li>
           <Link to="/" activeStyle={activeLinkStyle}>

@@ -7,7 +7,6 @@ import ProjectDetails from '../components/ProjectDetails'
 import ProjectLinks from '../components/ProjectLinks'
 import ImageList from '../components/ImageList'
 import Video from '../components/Video'
-import Footer from '../components/Footer'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const {
@@ -54,7 +53,6 @@ const ProjectTemplate = ({ data, pageContext }) => {
         <Video video={video} thumbnail={thumbnail} />
         <ImageList images={images} />
       </Container>
-      <Footer up />
     </>
   )
 }

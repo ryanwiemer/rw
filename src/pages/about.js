@@ -2,8 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import posed from 'react-pose'
+import { appear } from '../styles/poses'
 import Container from '../components/Container'
-import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 
 const Title = styled.h2`
@@ -20,7 +21,7 @@ const Title = styled.h2`
   }
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(posed.div(appear))`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     display: flex;
     flex-flow: row;
@@ -72,7 +73,6 @@ const AboutPage = ({ data }) => {
           />
         </Wrapper>
       </Container>
-      <Footer />
     </>
   )
 }

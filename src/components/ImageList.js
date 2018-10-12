@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import Reveal from 'react-reveal/Reveal'
 
 const List = styled.ul`
   li {
@@ -19,12 +20,14 @@ const ImageList = props => {
       {props.images &&
         props.images.map((image, index) => (
           <li key={index}>
-            <Img
-              fluid={image.fluid}
-              alt={image.title}
-              title={image.title}
-              backgroundColor={'#414141'}
-            />
+            <Reveal>
+              <Img
+                fluid={image.fluid}
+                alt={image.title}
+                title={image.title}
+                backgroundColor={'#414141'}
+              />
+            </Reveal>
           </li>
         ))}
     </List>
