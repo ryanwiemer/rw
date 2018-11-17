@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   background: ${props => props.theme.colors.tertiary};
   padding: 7.5% 10%;
   video {
+    background: ${props => props.theme.colors.base};
     pointer-events: none;
     width: 100%;
     border: 1rem solid ${props => props.theme.colors.base};
@@ -23,7 +24,7 @@ const Video = props => {
       {props.video && (
         <Wrapper>
           <video
-            preload="true"
+            preload
             loop
             autoPlay
             muted
