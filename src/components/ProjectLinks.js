@@ -26,7 +26,7 @@ const Wrapper = styled(posed.div(delayChildren))`
 `
 
 const Previous = styled(posed.span(fade))`
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) !important;
   left: 0.25rem;
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
     left: 1.25rem;
@@ -34,8 +34,8 @@ const Previous = styled(posed.span(fade))`
 `
 
 const Next = styled(posed.span(fade))`
+  transform: rotate(90deg) !important;
   right: -0.5rem;
-  transform: rotate(90deg);
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
     right: 0.5rem;
   }
