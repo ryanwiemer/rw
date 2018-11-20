@@ -6,7 +6,7 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.50",
+    "gatsby": "^2.0.52",
     "gatsby-image": "^2.0.20",
     "gatsby-link": "^2.0.6",
     "gatsby-plugin-canonical-urls": "^2.0.7",
@@ -16,7 +16,7 @@
     "gatsby-plugin-nprogress": "^2.0.6",
     "gatsby-plugin-offline": "^2.0.15",
     "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-plugin-styled-components": "^3.0.2",
+    "gatsby-plugin-styled-components": "^3.0.3",
     "gatsby-source-contentful": "^2.0.14",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-remark": "^2.1.12",
@@ -51,6 +51,6 @@
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.5.0"
+    "stylelint-processor-styled-components": "^1.5.1"
   }
 }
