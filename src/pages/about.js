@@ -6,6 +6,7 @@ import posed from 'react-pose'
 import { appear } from '../styles/poses'
 import Container from '../components/Container'
 import Hero from '../components/Hero'
+import SEO from '../components/SEO'
 
 const Title = styled.h2`
   font-weight: bold;
@@ -54,20 +55,14 @@ const Bio = styled.div`
 `
 
 const AboutPage = ({ data }) => {
-  const { title, cover, bio } = data.contentfulAbout
+  const { cover, bio } = data.contentfulAbout
 
   return (
     <>
-      <Helmet
-        bodyAttributes={{
-          class: 'page--about',
-        }}
-      >
-        <title>About - Ryan Wiemer</title>
-        <meta property="og:title" content="About - Ryan Wiemer" />
-        <meta property="og:url" content="https://www.ryanwiemer.com/about/" />
-        <meta property="og:image" content={cover.fluid.src} />
+      <Helmet>
+        <body className="page--about" />
       </Helmet>
+      <SEO title="About - Ryan Wiemer" image={cover} />
       <Container>
         <Hero image={cover} position="50% 100%" />
         <Wrapper>
@@ -89,6 +84,11 @@ export const query = graphql`
         title
         fluid(maxWidth: 1800) {
           ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
         }
       }
       bio {

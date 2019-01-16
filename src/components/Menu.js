@@ -3,7 +3,6 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
-  transition: 0.3s all;
   position: relative;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};

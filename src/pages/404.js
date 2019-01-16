@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Helmet from 'react-helmet'
 import { Link } from 'gatsby'
+import SEO from '../components/SEO'
 
 const Container = styled.div`
   height: 100%;
@@ -40,9 +40,7 @@ const Title = styled.h2`
 
 const NotFoundPage = () => (
   <>
-    <Helmet>
-      <title>404 - Page Not Found</title>
-    </Helmet>
+    <SEO title="404 - Page Not Found" />
     <Container>
       <Wrapper>
         <Title>Page Not Found</Title>

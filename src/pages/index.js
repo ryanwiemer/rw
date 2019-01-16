@@ -6,16 +6,11 @@ import Container from '../components/Container'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
-  const about = data.contentfulAbout
 
   return (
     <>
-      <Helmet
-        bodyAttributes={{
-          class: 'page--work',
-        }}
-      >
-        <meta property="og:image" content={about.cover.fluid.src} />
+      <Helmet>
+        <body className="page--work" />
       </Helmet>
       <Container>
         <Work projects={projects} />
@@ -39,14 +34,6 @@ export const query = graphql`
               ...GatsbyContentfulFluid_withWebp_noBase64
             }
           }
-        }
-      }
-    }
-    contentfulAbout {
-      cover {
-        title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
     }

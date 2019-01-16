@@ -1,17 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
 import Container from '../components/Container'
 import Hero from '../components/Hero'
 import ProjectDetails from '../components/ProjectDetails'
 import ProjectLinks from '../components/ProjectLinks'
 import ImageList from '../components/ImageList'
 import Video from '../components/Video'
+import SEO from '../components/SEO'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const {
     title,
-    slug,
     description,
     cover,
     url,
@@ -27,20 +26,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
 
   return (
     <>
-      <Helmet>
-        <title>{`${title} - Ryan Wiemer`}</title>
-        <meta name="description" content={description.internal.content} />
-        <meta property="og:title" content={`${title} - Ryan Wiemer`} />
-        <meta
-          property="og:description"
-          content={description.internal.content}
-        />
-        <meta
-          property="og:url"
-          content={`https://www.ryanwiemer.com/${slug}/`}
-        />
-        <meta property="og:image" content={cover.fluid.src} />
-      </Helmet>
+      <SEO title={`${title} - Ryan Wiemer`} image={cover} />
       <Container>
         <Hero image={cover} title={title} />
         <ProjectLinks previous={previous} next={next} />
@@ -67,18 +53,23 @@ export const query = graphql`
       url
       source
       awards
+      cover {
+        title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
+        }
+      }
       description {
         internal {
           content
         }
         childMarkdownRemark {
           html
-        }
-      }
-      cover {
-        title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
       thumbnail {
@@ -98,19 +89,6 @@ export const query = graphql`
         title
         file {
           url
-        }
-      }
-    }
-    allContentfulProject(limit: 1000, sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          id
-        }
-        previous {
-          slug
-        }
-        next {
-          slug
         }
       }
     }

@@ -12,6 +12,7 @@ const List = styled(posed.ul(staggerChildren))`
   justify-content: space-between;
   margin: 0 0 -1.5rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    padding: 1rem 0;
     margin: 0;
     flex-flow: column;
     justify-content: center;
@@ -34,7 +35,7 @@ const Item = styled.li`
     flex: 0 1 49%;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    margin: 0 0 0.75rem 0;
+    margin: 0 0 0.6rem 0;
     &:last-child {
       margin: 0;
     }
