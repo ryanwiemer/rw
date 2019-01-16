@@ -7,7 +7,7 @@ const Container = styled.div`
   height: 100%;
   background: #121212;
   min-height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -15,6 +15,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 999;
 `
 
 const Wrapper = styled.div`
