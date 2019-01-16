@@ -1,0 +1,5 @@
+# Redirect default Netlify subdomain to primary domain
+https://ryanwiemer.netlify.com/* https://www.ryanwiemer.com/:splat 301!
+
+# Redirect KNW Photography to Kirsten Noelle
+https://www.ryanwiemer.com/knw-photography/ https://www.ryanwiemer.com/kirsten-noelle/
