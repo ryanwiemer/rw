@@ -17,11 +17,6 @@ try {
 }
 
 module.exports = {
-  siteMetadata: {
-    title: 'Ryan Wiemer',
-    siteUrl: 'https://www.ryanwiemer.com',
-    description: 'Digital portfolio for Ryan Wiemer',
-  },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',

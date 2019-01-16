@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 
 const defaultTitle = 'Ryan Wiemer'
 const defaultDescription =
-  'Ryan Wiemer is an account manager based in Oakland, CA working in the web industry.'
+  'Web developer and designer based in Oakland, California'
 const defaultImage = 'https://www.ryanwiemer.com/image.jpg'
 
 const SEO = props => (
