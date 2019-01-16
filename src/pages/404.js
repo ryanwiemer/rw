@@ -41,7 +41,7 @@ const Title = styled.h2`
 
 const NotFoundPage = () => (
   <>
-    <SEO title="404 - Page Not Found" />
+    <SEO title="Page Not Found" />
     <Container>
       <Wrapper>
         <Title>Page Not Found</Title>

@@ -3,12 +3,14 @@ import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import Work from '../components/Work'
 import Container from '../components/Container'
+import SEO from '../components/SEO'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
 
   return (
     <>
+      <SEO />
       <Helmet>
         <body className="page--work" />
       </Helmet>

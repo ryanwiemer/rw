@@ -62,11 +62,7 @@ const AboutPage = ({ data }) => {
       <Helmet>
         <body className="page--about" />
       </Helmet>
-      <SEO
-        title="About - Ryan Wiemer"
-        description={bio.internal.content}
-        image={cover}
-      />
+      <SEO title="About" description={bio.internal.content} image={cover} />
       <Container>
         <Hero image={cover} position="50% 100%" />
         <Wrapper>

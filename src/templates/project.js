@@ -27,7 +27,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
   return (
     <>
       <SEO
-        title={`${title} - Ryan Wiemer`}
+        title={title}
         image={cover}
         description={description.internal.content}
       />
