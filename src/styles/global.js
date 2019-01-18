@@ -1,10 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-  */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -95,7 +91,6 @@ const GlobalStyle = createGlobalStyle`
     }
     #nav {
       opacity: 0;
-      transform: translateY(10px);
     }
   }
 
@@ -105,7 +100,6 @@ const GlobalStyle = createGlobalStyle`
     }
     #nav {
       opacity: 1;
-      transform: translateY(0);
     }
   }
 
@@ -116,6 +110,46 @@ const GlobalStyle = createGlobalStyle`
   */
   .page--about .link--about, .page--work .link--work {
     border-color: white;
+  }
+
+  /* Hide Footer on 404 page */
+  .page--404 footer {
+    display: none;
+  }
+
+  /* Web Accessibility Stuff */
+
+  body:not(.user-is-tabbing) button:focus,
+  body:not(.user-is-tabbing) input:focus,
+  body:not(.user-is-tabbing) select:focus,
+  body:not(.user-is-tabbing) textarea:focus,
+  body:not(.user-is-tabbing) a:focus  {
+    outline: none;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    color: #121212;
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    resize: none;
+    &:invalid {
+      box-shadow: none;
+    }
+    &:focus {
+      outline: 3px solid #497ecb;
+    }
+  }
+  a:focus {
+    outline: 3px solid #497ecb;
   }
 
 `

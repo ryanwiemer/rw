@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
 import favicon from '../images/favicon.ico'
 import GlobalStyle from '../styles/global'
@@ -9,7 +9,31 @@ import { pageFade } from '../styles/poses'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 
-const Transition = posed.div(pageFade)
+const Main = posed('main')(pageFade)
+
+const Skip = styled.a`
+  border-radius: 0 !important;
+  padding: 1em;
+  background: #497ecb;
+  color: white;
+  z-index: 101;
+  position: absolute;
+  top: -100%;
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus,
+  &:active,
+  &:hover {
+    top: 0;
+  }
+`
+
+function handleFirstTab(e) {
+  if (e.keyCode === 9) {
+    document.body.classList.add('user-is-tabbing')
+  }
+}
 
 class Layout extends React.Component {
   constructor() {
@@ -19,6 +43,11 @@ class Layout extends React.Component {
 
   componentDidMount() {
     this.setState({ loaded: true })
+    window.addEventListener('keydown', handleFirstTab)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', handleFirstTab)
   }
 
   renderNoScript() {
@@ -32,7 +61,6 @@ class Layout extends React.Component {
               }
               #nav {
                 opacity: 1 !important;
-                transform: translateY(0px) !important;
               }
         `,
           }}
@@ -50,34 +78,24 @@ class Layout extends React.Component {
       <ThemeProvider theme={theme}>
         <div className={`${loaded ? ' loaded' : 'initial'}`}>
           <Helmet>
-            <title>Ryan Wiemer</title>
+            <html lang="en" />
             <link rel="icon" href={favicon} />
             <meta charSet="utf-8" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <meta
-              name="description"
-              content="Ryan Wiemer is an account manager based in Oakland, CA working in the web industry."
-            />
-            <meta property="og:title" content="Ryan Wiemer" />
-            <meta
-              property="og:description"
-              content="Ryan Wiemer is an account manager based in Oakland, CA working in the web industry."
-            />
-            <meta property="og:locale" content="en_US" />
-            <meta property="og:type" content="website" />
-            <meta property="og:site_name" content="Ryan Wiemer" />
-            <meta property="og:url" content="https://www.ryanwiemer.com" />
           </Helmet>
+          <Skip href="#content" id="skip-navigation">
+            Skip to content
+          </Skip>
           <Menu />
           <PoseGroup animateOnMount preEnterPose="initial">
-            <Transition key={props.location.pathname} id="content">
+            <Main key={props.location.pathname} id="content" role="main">
               {children}
               <Footer up={props.location.pathname !== '/'} />
               {this.renderNoScript()}
-            </Transition>
+            </Main>
           </PoseGroup>
           <GlobalStyle />
         </div>

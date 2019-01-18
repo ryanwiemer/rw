@@ -24,7 +24,7 @@ const Video = props => {
       {props.video && (
         <Wrapper>
           <video
-            preload
+            preload="auto"
             loop
             autoPlay
             muted

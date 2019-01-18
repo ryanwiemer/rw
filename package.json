@@ -1,7 +1,7 @@
 {
   "name": "rw",
   "description": "Digital portfolio for Ryan Wiemer",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "repository": "https://github.com/ryanwiemer/rw",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
@@ -24,7 +24,6 @@
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-pose": "^4.0.5",
-    "react-reveal": "^1.2.2",
     "smoothscroll-polyfill": "^0.4.3",
     "styled-components": "^4.1.3"
   },

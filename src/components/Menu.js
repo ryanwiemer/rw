@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
+  z-index: 2;
   position: relative;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
@@ -18,7 +19,6 @@ const Nav = styled.nav`
     font-weight: bold;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
     border-bottom: 2px solid transparent;
-    transition: 0.3s all;
   }
 `
 
@@ -38,7 +38,7 @@ const List = styled.ul`
 
 const Menu = () => {
   return (
-    <Nav id="nav">
+    <Nav id="nav" role="navigation">
       <List>
         <li>
           <Link to="/">Ryan Wiemer</Link>

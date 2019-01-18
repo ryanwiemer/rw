@@ -5,7 +5,7 @@ if (typeof window !== `undefined`) {
   window.__forceSmoothScrollPolyfill__ = true
 }
 
-const Arrow = styled.div`
+const Arrow = styled.button`
   color: white;
   font-weight: bold;
   cursor: pointer;

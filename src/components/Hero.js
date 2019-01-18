@@ -60,7 +60,7 @@ const Hero = props => {
         position={props.position}
         alt={props.image.title}
         title={props.image.title}
-        backgroundColor={'#272727'}
+        backgroundColor={'#212121'}
       />
       {props.title && (
         <Overflow>

@@ -28,23 +28,25 @@ const Item = styled(posed.li(appear))`
 `
 
 const Footer = props => (
-  <List>
-    <Item>
-      <a href="mailto:ryan@ryanwiemer.com">Email</a>
-      <a
-        href="https://twitter.com/ryanwiemer"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Twitter
-      </a>
-    </Item>
-    {props.up && (
+  <footer>
+    <List>
       <Item>
-        <Up />
+        <a href="mailto:ryan@ryanwiemer.com">Email</a>
+        <a
+          href="https://twitter.com/ryanwiemer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Twitter
+        </a>
       </Item>
-    )}
-  </List>
+      {props.up && (
+        <Item>
+          <Up />
+        </Item>
+      )}
+    </List>
+  </footer>
 )
 
 export default Footer
