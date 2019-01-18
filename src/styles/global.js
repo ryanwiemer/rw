@@ -137,8 +137,6 @@ const GlobalStyle = createGlobalStyle`
     background: none;
     border: none;
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     border-radius: 0;
     resize: none;
     &:invalid {
