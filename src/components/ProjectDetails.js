@@ -57,7 +57,7 @@ const Resources = styled(posed.div(appear))`
   a {
     transition: 0.2s;
     margin: 0 1rem 0 3px;
-    &:nth-child(2) {
+    &:last-child {
       margin: 0 3px 0 3px;
     }
   }
