@@ -7,6 +7,7 @@ import { appear } from '../styles/poses'
 import Container from '../components/Container'
 import Hero from '../components/Hero'
 import SEO from '../components/SEO'
+import Button from '../components/Button'
 
 const Title = styled.h2`
   font-weight: bold;
@@ -15,7 +16,6 @@ const Title = styled.h2`
   margin: 0 0 2rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     font-size: 2.5em;
-    width: 32%;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 3em;
@@ -28,6 +28,16 @@ const Wrapper = styled(posed.div(appear))`
     flex-flow: row;
     align-items: flex-start;
     justify-content: space-between;
+  }
+`
+
+const SideBar = styled.div`
+  margin: 0 0 1rem 0;
+  a {
+    margin: 0 1rem 1rem 0;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    width: 32%;
   }
 `
 
@@ -66,7 +76,13 @@ const AboutPage = ({ data }) => {
       <Container>
         <Hero image={cover} position="50% 100%" />
         <Wrapper>
-          <Title>Hello 👋</Title>
+          <SideBar>
+            <Title>Hello 👋</Title>
+            <Button href="https://github.com/ryanwiemer">View GitHub</Button>
+            <Button href="https://www.dropbox.com/s/j2oosw8hlru4b20/Ryan%20Wiemer%20-%20Resume.pdf?dl=0">
+              View Resume
+            </Button>
+          </SideBar>
           <Bio
             dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}
           />
