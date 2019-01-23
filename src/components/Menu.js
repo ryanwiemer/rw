@@ -53,6 +53,16 @@ const Menu = () => {
             About
           </Link>
         </li>
+        <li>
+          <Link to="/blog/" className="link--blog">
+            Blog
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact/" className="link--contact">
+            Contact
+          </Link>
+        </li>
       </List>
     </Nav>
   )

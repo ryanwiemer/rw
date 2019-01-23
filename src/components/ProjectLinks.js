@@ -5,7 +5,7 @@ import posed from 'react-pose'
 import { fade, delayChildren } from '../styles/poses'
 
 const Wrapper = styled(posed.div(delayChildren))`
-  margin: 0 0 2rem 0;
+  margin: 0 0 0 0;
   span {
     border-bottom: 2px solid ${props => props.theme.colors.secondary};
     margin: 0 1rem 0 0;

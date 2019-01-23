@@ -20,6 +20,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    '@contentful/gatsby-transformer-contentful-richtext',
     'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -33,7 +34,7 @@ module.exports = {
         icon: 'static/logos/logo-512.png',
       },
     },
-    `gatsby-plugin-offline`,
+    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-canonical-urls`,
       options: {
