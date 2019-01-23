@@ -3,8 +3,13 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const List = styled.ul`
-  width: 100%;
-  margin: 0 auto 1rem auto;
+  padding: 0 0 0 2em;
+  position: sticky;
+  top: 0;
+`
+
+const Title = styled.h3`
+  margin: 0 0 1rem 0;
 `
 
 const Tag = styled.li`
@@ -25,6 +30,7 @@ const Tag = styled.li`
 const TagList = props => {
   return (
     <List>
+      <Title>Tags</Title>
       {props.tags.map(tag => (
         <Tag key={tag.id}>
           <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>

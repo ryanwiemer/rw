@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Hero from './Hero'
+import TagList from './TagList'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  display: flex;
+`
 
 const Content = styled.div`
   margin: 0 0 2rem 0;
@@ -40,6 +43,7 @@ const PostLong = props => {
             __html: props.content.childContentfulRichText.html,
           }}
         />
+        {props.tags && <TagList tags={props.tags} />}
       </Wrapper>
     </>
   )

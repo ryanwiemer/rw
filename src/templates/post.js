@@ -44,6 +44,7 @@ export const query = graphql`
       featured
       tags {
         title
+        id
         slug
       }
       cover {

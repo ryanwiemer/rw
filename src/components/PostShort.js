@@ -7,16 +7,15 @@ import TagList from './TagList'
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   min-height: calc(100vh - 128px);
 `
 
 const Box = styled.div`
+  width: 100%;
+  max-width: 650px;
   background: ${props => props.theme.colors.tertiary};
   padding: 2em;
-  margin: 0 auto;
-  max-width: 650px;
 `
 
 const Title = styled.h2`
@@ -49,13 +48,13 @@ const PostShort = props => {
       <Box>
         <Title>{props.title}</Title>
         <Date>{props.date}</Date>
-        {props.tags && <TagList tags={props.tags} />}
         <Content
           dangerouslySetInnerHTML={{
             __html: props.content.childContentfulRichText.html,
           }}
         />
       </Box>
+      {props.tags && <TagList tags={props.tags} />}
     </Wrapper>
   )
 }
