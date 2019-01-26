@@ -1,9 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Container from '../components/Container'
 import PostLong from '../components/PostLong'
 import PostShort from '../components/PostShort'
-import ProjectLinks from '../components/ProjectLinks'
 import SEO from '../components/SEO'
 
 const PostTemplate = ({ data, pageContext }) => {
@@ -15,21 +13,20 @@ const PostTemplate = ({ data, pageContext }) => {
   return (
     <>
       <SEO title={title} image={cover} />
-      <Container>
-        <ProjectLinks previous={previous} next={next} />
-        {featured && (
-          <PostLong
-            title={title}
-            date={date}
-            cover={cover}
-            content={content}
-            tags={tags}
-          />
-        )}
-        {!featured && (
-          <PostShort title={title} date={date} content={content} tags={tags} />
-        )}
-      </Container>
+      {featured && (
+        <PostLong
+          title={title}
+          date={date}
+          cover={cover}
+          content={content}
+          tags={tags}
+          previous={previous}
+          next={next}
+        />
+      )}
+      {!featured && (
+        <PostShort title={title} date={date} content={content} tags={tags} />
+      )}
     </>
   )
 }

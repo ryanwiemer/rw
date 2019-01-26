@@ -7,7 +7,7 @@
   "dependencies": {
     "@contentful/gatsby-transformer-contentful-richtext": "^13.0.0",
     "babel-plugin-styled-components": "^1.10.0",
-    "gatsby": "^2.0.93",
+    "gatsby": "^2.0.96",
     "gatsby-image": "^2.0.27",
     "gatsby-link": "^2.0.9",
     "gatsby-plugin-canonical-urls": "^2.0.8",

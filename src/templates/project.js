@@ -31,7 +31,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
         image={cover}
         description={description.internal.content}
       />
-      <Hero image={cover} />
+      <Hero image={cover} title={title} />
       <Container>
         <ProjectLinks previous={previous} next={next} />
         <ProjectDetails
@@ -39,7 +39,6 @@ const ProjectTemplate = ({ data, pageContext }) => {
           awards={awards}
           url={url}
           source={source}
-          title={title}
         />
         <Video video={video} thumbnail={thumbnail} />
         <ImageList images={images} />

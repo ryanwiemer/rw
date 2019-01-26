@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import posed from 'react-pose'
-import { fade, delayChildren } from '../styles/poses'
 
-const Wrapper = styled(posed.div(delayChildren))`
+const Wrapper = styled.div`
   margin: 0 0 0 0;
   span {
     border-bottom: 2px solid ${props => props.theme.colors.secondary};
@@ -25,7 +23,8 @@ const Wrapper = styled(posed.div(delayChildren))`
   }
 `
 
-const Previous = styled(posed.span(fade))`
+const Previous = styled.span`
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
   transform: rotate(-90deg) !important;
   left: 0.25rem;
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
@@ -33,7 +32,8 @@ const Previous = styled(posed.span(fade))`
   }
 `
 
-const Next = styled(posed.span(fade))`
+const Next = styled.span`
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
   transform: rotate(90deg) !important;
   right: -0.5rem;
   @media screen and (min-width: ${props => props.theme.responsive.large}) {
