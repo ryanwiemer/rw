@@ -16,13 +16,18 @@ const Wrapper = styled(posed.div(delayChildren))`
 
 const Content = styled(posed.div(appear))`
   margin: 1rem 0 2rem 0;
-  max-width: 650px;
-  font-size: 1em;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    flex: 0 0 65%;
+  }
   p {
+    font-size: 1em;
     line-height: 1.6;
     margin: 0 0 2rem 0;
     &:last-child {
       margin: 0;
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      font-size: 1.1em;
     }
   }
   a {
@@ -39,18 +44,21 @@ const Content = styled(posed.div(appear))`
   h3 {
     font-size: 1.5em;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 1.1em;
+  img {
+    margin: 0 0 2rem 0;
   }
 `
 
 const SideBar = styled(posed.div(appear))`
   padding: 1rem 0 2rem;
   position: sticky;
-  top: 0;
+  top: 1rem;
   font-size: 1em;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     font-size: 1.1em;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    flex: 0 0 32%;
   }
 `
 

@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
       <Helmet>
         <body className="page--work" />
       </Helmet>
-      <Container>
+      <Container minHeight>
         <Work projects={projects} />
       </Container>
     </>

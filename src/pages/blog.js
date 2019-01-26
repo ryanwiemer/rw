@@ -14,8 +14,8 @@ const BlogPage = ({ data }) => {
         <body className="page--blog" />
       </Helmet>
       <SEO title="Blog" />
-      <Container>
-        <BlogList posts={posts} />
+      <Container minHeight>
+        <BlogList posts={posts} promotion />
       </Container>
     </>
   )
@@ -30,7 +30,6 @@ export const query = graphql`
           slug
           id
           date(formatString: "MMMM DD, YYYY")
-          featured
           content {
             childContentfulRichText {
               html

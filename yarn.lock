@@ -5429,10 +5429,10 @@ gatsby-cli@^2.4.8:
     yargs "^11.1.0"
     yurnalist "^1.0.2"
 
-gatsby-image@^2.0.27:
-  version "2.0.27"
-  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.0.27.tgz#2ac20c9c141dd012f8285c34cfbb040cbc60b3c0"
-  integrity sha512-f3av1nSSU6r0qGALYJ5kPRxuehiZJM/MAGXhGKCYi3eqbfWT3NERDwpjhSKHYa/P7s4gc/jAyGJXasDlxztEDQ==
+gatsby-image@^2.0.28:
+  version "2.0.28"
+  resolved "https://registry.yarnpkg.com/gatsby-image/-/gatsby-image-2.0.28.tgz#368734f2976d4664bf46c014cfb7ae33baaaba7d"
+  integrity sha512-GAJ2nZoGO1EXnB6yJN+fm9MWZxhzoYla4JwEZU7hP0VaNjZhS9mxuRGLfaBO2PxZ0k+abO69/tiRIO+NuxMg7A==
   dependencies:
     "@babel/runtime" "^7.0.0"
     prop-types "^15.6.1"
@@ -5470,10 +5470,10 @@ gatsby-plugin-manifest@^2.0.13:
     bluebird "^3.5.0"
     sharp "^0.21.0"
 
-gatsby-plugin-netlify@^2.0.6:
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.0.6.tgz#2af2efe1c013a86d20365a49378dc70a2b8b6153"
-  integrity sha512-d6oRz9rKNmtMSMeiLrtivPXjaTSZTuot1JABTNGIqTMJ4cppYSDdoEq0ZU4dUnVTl+P4m22FPjF2QwtWFj8jqg==
+gatsby-plugin-netlify@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.0.7.tgz#f204a03fe0d97fb6b0b901b336d2436d0c261093"
+  integrity sha512-t+hoR+RGrWg+wdgqjMyC84C/LEHsSXCP8xNBQXLRgxvw+iCQPSJc/U3rN0W+0k+QqRsmTBBJREQbvQa82wHUvQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     fs-extra "^4.0.2"
@@ -5624,10 +5624,10 @@ gatsby-transformer-remark@^2.2.0:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.3.0"
 
-gatsby@^2.0.96:
-  version "2.0.96"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.96.tgz#b073c2c2f355cf80ba229429e8e86c03c7203cc0"
-  integrity sha512-1KcXURXOFNiTUghY4hdPrqsZhUJmUjb2MC3HQ4aibas2URDoyMZpEpyvy8MN6jfY/EEbNfRDU1zQtDsynHc4zQ==
+gatsby@^2.0.98:
+  version "2.0.98"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.98.tgz#2f57ca467b4370e3e95cbdde45186430467cb1f6"
+  integrity sha512-Rhl2GmBZ7aVIk7ZNrXlpSU0DCGT+zQGB2dxiomWpHp3fc3pOibwxyczx59Uz6nc+gtY9R0gEIShrZnkr1g96NQ==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/core" "^7.0.0"

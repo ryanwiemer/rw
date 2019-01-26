@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import posed from 'react-pose'
-import { appear, delayChildren } from '../styles/poses'
 
-const List = styled(posed.ul(delayChildren))``
+const List = styled.ul``
 
-const Tag = styled(posed.li(appear))`
+const Tag = styled.li`
   display: inline-block;
   margin: 0 1rem 0 0;
   &:last-child {

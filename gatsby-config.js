@@ -1,4 +1,5 @@
 let contentfulConfig
+const { BLOCKS } = require('@contentful/rich-text-types')
 
 try {
   contentfulConfig = require('./.contentful')
@@ -20,7 +21,20 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    '@contentful/gatsby-transformer-contentful-richtext',
+    {
+      resolve: '@contentful/gatsby-transformer-contentful-richtext',
+      options: {
+        renderOptions: {
+          renderNode: {
+            [BLOCKS.EMBEDDED_ASSET]: node => {
+              return `
+                  <img src="${node.data.target.fields.file['en-US'].url}" />
+              `
+            },
+          },
+        },
+      },
+    },
     'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-manifest`,
