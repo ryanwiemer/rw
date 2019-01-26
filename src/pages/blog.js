@@ -4,9 +4,12 @@ import Helmet from 'react-helmet'
 import SEO from '../components/SEO'
 import Container from '../components/Container'
 import BlogList from '../components/BlogList'
+import BlogTile from '../components/BlogTile'
 
 const BlogPage = ({ data }) => {
   const posts = data.allContentfulPost.edges
+
+  console.log(posts)
 
   return (
     <>
@@ -15,7 +18,11 @@ const BlogPage = ({ data }) => {
       </Helmet>
       <SEO title="Blog" />
       <Container minHeight>
-        <BlogList posts={posts} promotion />
+        <BlogList>
+          {posts.map(({ node: post }) => (
+            <BlogTile key={post.id} {...post} />
+          ))}
+        </BlogList>
       </Container>
     </>
   )

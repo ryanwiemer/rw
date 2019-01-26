@@ -40,6 +40,7 @@ const Content = styled(posed.div(appear))`
   h3,
   h4,
   h5 {
+    line-height: 1.2;
     font-weight: bold;
     margin: 0 0 2rem 0;
   }

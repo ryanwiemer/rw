@@ -10,6 +10,8 @@ const Wrapper = styled(posed.a(appear))`
   border-radius: 2px;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: 0 0 32%;
+    position: sticky;
+    top: 1rem;
   }
   p {
     color: gray;
