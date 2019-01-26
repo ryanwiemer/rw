@@ -12,8 +12,6 @@ const Title = styled.h2`
   font-size: 1.25em;
   font-weight: bold;
   margin: 0 0 1rem 0;
-  padding: 0 0 0.25rem 0;
-  border-bottom: 1px solid ${props => props.theme.colors.secondary};
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.5em;
   }

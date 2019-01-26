@@ -2,35 +2,23 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
-const List = styled.ul``
+const List = styled.ul`
+  line-height: 1.6;
+`
 
 const Tag = styled.li`
   display: inline-block;
-  margin: 0 1rem 0 0;
-  &:last-child {
-    margin: 0;
+  margin: 0 0.5rem 0 0;
+  font-weight: bold;
+  &:hover {
+    text-decoration: underline;
   }
-  a {
-    display: inline-block;
-    text-transform: capitalize;
-    border: 2px solid ${props => props.theme.colors.secondary};
-    color: white;
-    padding: 1em;
-    border-radius: 2px;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-    @media screen and (min-width: ${props => props.theme.responsive.small}) {
-      padding: 0.9em;
-    }
-    &:hover {
-      color: ${props => props.theme.colors.base};
-      background: white;
-      border-color: white;
-    }
-    @media (hover: none) {
-      color: white !important;
-      background: transparent !important;
-      border-color: ${props => props.theme.colors.secondary} !important;
-    }
+  @media (hover: none) {
+    text-decoration: none;
+  }
+  span {
+    color: gray;
+    margin: 0 0.1rem 0 0;
   }
 `
 
@@ -39,7 +27,10 @@ const TagList = props => {
     <List>
       {props.tags.map(tag => (
         <Tag key={tag.id}>
-          <Link to={`/tag/${tag.slug}/`}>{tag.title}</Link>
+          <Link to={`/tag/${tag.slug}/`}>
+            <span>#</span>
+            {tag.title}
+          </Link>
         </Tag>
       ))}
     </List>

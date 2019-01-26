@@ -1,18 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import posed from 'react-pose'
-import { appear } from '../styles/poses'
 
-const Wrapper = styled(posed.a(appear))`
+const Wrapper = styled.a`
+  display: block;
+  width: 100%;
   position: relative;
   background: ${props => props.theme.colors.tertiary};
   padding: 2em;
   border-radius: 2px;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    flex: 0 0 32%;
-    position: sticky;
-    top: 1rem;
-  }
   p {
     color: gray;
     line-height: 1.6;

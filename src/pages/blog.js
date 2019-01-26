@@ -9,8 +9,6 @@ import BlogTile from '../components/BlogTile'
 const BlogPage = ({ data }) => {
   const posts = data.allContentfulPost.edges
 
-  console.log(posts)
-
   return (
     <>
       <Helmet>

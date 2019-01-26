@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import posed from 'react-pose'
-import { appear, staggerChildren } from '../styles/poses'
+import { appear } from '../styles/poses'
 
 const Wrapper = styled(posed.li(appear))`
   width: 100%;
