@@ -12,14 +12,11 @@ const Wrapper = styled.div`
 const BgImg = styled(Img)`
   width: 100%;
   z-index: -1;
-  max-height: 600px;
   height: auto;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    height: ${props => props.height || 'auto'};
-  }
+  max-height: 600px;
   & > img {
-    object-fit: ${props => props.fit || 'cover'} !important;
-    object-position: ${props => props.position || '50% 50%'} !important;
+    object-fit: cover !important;
+    object-position: 50% 50% !important;
   }
   &::before {
     content: '';
@@ -77,8 +74,6 @@ const Hero = props => {
       </Overflow>
       <BgImg
         fluid={props.image.fluid}
-        height={props.height}
-        position={props.position}
         alt={props.image.title}
         title={props.image.title}
         backgroundColor={'#212121'}

@@ -33,7 +33,14 @@ const Content = styled(posed.div(appear))`
     }
   }
   a {
-    text-decoration: underline;
+    border-bottom: 0.09em solid ${props => props.theme.colors.secondary};
+    transition: 0.3s border-color;
+    &:hover {
+      border-color: white;
+    }
+    @media (hover: none) {
+      border-color: ${props => props.theme.colors.secondary} !important;
+    }
   }
   h1,
   h2,

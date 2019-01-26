@@ -3,24 +3,10 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import posed from 'react-pose'
+import Img from 'gatsby-image'
 import { appear } from '../styles/poses'
 import Container from '../components/Container'
-import Hero from '../components/Hero'
 import SEO from '../components/SEO'
-import Button from '../components/Button'
-
-const Title = styled.h2`
-  font-weight: bold;
-  line-height: 1.2;
-  font-size: 2em;
-  margin: 0 0 2rem 0;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 2.5em;
-  }
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    font-size: 3em;
-  }
-`
 
 const Wrapper = styled(posed.div(appear))`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
@@ -31,23 +17,26 @@ const Wrapper = styled(posed.div(appear))`
   }
 `
 
-const SideBar = styled.div`
-  margin: 0 0 1rem 0;
-  a {
-    margin: 0 1rem 1rem 0;
-  }
+const Card = styled.div`
+  margin: 0 0 2rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    width: 32%;
+    flex: 0 0 32%;
   }
 `
 
 const Bio = styled.div`
-  font-size: 1.25em;
-  line-height: 1.5;
+  font-size: 1em;
+  line-height: 1.6;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.1em;
+    flex: 0 0 65%;
+  }
+  h1,
+  h2,
+  h3 {
+    font-weight: bold;
     font-size: 1.5em;
-    line-height: 1.4;
-    width: 65%;
+    margin: 0 0 1rem 0;
   }
   p {
     margin: 0 0 2rem 0;
@@ -73,16 +62,15 @@ const AboutPage = ({ data }) => {
         <body className="page--about" />
       </Helmet>
       <SEO title="About" description={bio.internal.content} image={cover} />
-      <Container>
-        <Hero image={cover} position="50% 100%" />
+      <Container minHeight>
         <Wrapper>
-          <SideBar>
-            <Title>Hello 👋</Title>
-            <Button href="https://github.com/ryanwiemer">View GitHub</Button>
-            <Button href="https://www.dropbox.com/s/j2oosw8hlru4b20/Ryan%20Wiemer%20-%20Resume.pdf?dl=0">
-              View Resume
-            </Button>
-          </SideBar>
+          <Card>
+            <Img
+              fluid={cover.fluid}
+              alt={cover.title}
+              backgroundColor={'#212121'}
+            />
+          </Card>
           <Bio
             dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}
           />
