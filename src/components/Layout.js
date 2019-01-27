@@ -93,7 +93,7 @@ class Layout extends React.Component {
           <PoseGroup animateOnMount preEnterPose="initial">
             <Main key={props.location.pathname} id="content" role="main">
               {children}
-              <Footer up={props.location.pathname !== '/'} />
+              <Footer />
               {this.renderNoScript()}
             </Main>
           </PoseGroup>

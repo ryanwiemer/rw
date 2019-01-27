@@ -57,6 +57,10 @@ const Content = styled(posed.div(appear))`
   img {
     margin: 0 0 2rem 0;
   }
+  strong,
+  b {
+    font-weight: bold;
+  }
 `
 
 const SideBar = styled(posed.div(appear))`

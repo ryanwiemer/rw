@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import posed from 'react-pose'
-import { appear, delayChildren } from '../styles/poses'
-import Up from '../components/Up'
 
-const List = styled(posed.ul(delayChildren))`
+const List = styled.ul`
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
@@ -19,7 +16,7 @@ const List = styled(posed.ul(delayChildren))`
   }
 `
 
-const Item = styled(posed.li(appear))`
+const Item = styled.li`
   color: white;
   font-weight: bold;
   a {
@@ -74,11 +71,6 @@ const Footer = props => (
           </svg>
         </a>
       </Item>
-      {props.up && (
-        <Item>
-          <Up />
-        </Item>
-      )}
     </List>
   </footer>
 )

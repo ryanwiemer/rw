@@ -27,6 +27,8 @@ const Cover = styled(Img)`
   width: 32%;
   height: 100%;
   position: absolute !important;
+  border-top-left-radius: 2px !important;
+  border-bottom-left-radius: 2px !important;
   top: 0;
   bottom: 0;
   left: 0;

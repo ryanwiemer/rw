@@ -5,7 +5,7 @@ import Promotion from './Promotion'
 import TagCloud from './TagCloud'
 import { staggerChildren, appear } from '../styles/poses'
 
-const Wrapper = styled.div`
+const Wrapper = styled(posed.div(staggerChildren))`
   width: 100%;
   display: flex;
   flex-flow: row wrap;
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   align-items: flex-start;
 `
 
-const List = styled(posed.ul(staggerChildren))`
+const List = styled.ul`
   display: inline-flex;
   flex-flow: row wrap;
   justify-content: space-between;

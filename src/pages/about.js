@@ -8,7 +8,7 @@ import { appear } from '../styles/poses'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 
-const Wrapper = styled(posed.div(appear))`
+const Wrapper = styled.div`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     min-height: calc(100vh - 128px);
     display: flex;
@@ -25,6 +25,10 @@ const Wrapper = styled(posed.div(appear))`
     @media (hover: none) {
       border-color: ${props => props.theme.colors.secondary} !important;
     }
+  }
+  strong,
+  b {
+    font-weight: bold;
   }
 `
 
@@ -45,7 +49,7 @@ const Card = styled.div`
   }
 `
 
-const Bio = styled.div`
+const Bio = styled(posed.div(appear))`
   font-size: 1em;
   line-height: 1.6;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
