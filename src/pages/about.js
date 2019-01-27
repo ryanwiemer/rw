@@ -10,17 +10,38 @@ import SEO from '../components/SEO'
 
 const Wrapper = styled(posed.div(appear))`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    min-height: calc(100vh - 128px);
     display: flex;
     flex-flow: row;
     align-items: flex-start;
     justify-content: space-between;
   }
+  a {
+    border-bottom: 2px solid ${props => props.theme.colors.secondary};
+    transition: 0.3s border-color;
+    &:hover {
+      border-color: white;
+    }
+    @media (hover: none) {
+      border-color: ${props => props.theme.colors.secondary} !important;
+    }
+  }
 `
 
 const Card = styled.div`
   margin: 0 0 2rem 0;
+  font-size: 1em;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.1em;
     flex: 0 0 32%;
+    margin: 0;
+  }
+  a {
+    font-weight: bold;
+    margin: 0 1rem 0 0;
+  }
+  .gatsby-image-wrapper {
+    margin: 0 0 1rem 0;
   }
 `
 
@@ -34,21 +55,26 @@ const Bio = styled.div`
   h1,
   h2,
   h3 {
+    line-height: 1;
     font-weight: bold;
-    font-size: 1.5em;
     margin: 0 0 1rem 0;
+    font-size: 2em;
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      font-size: 2.5em;
+    }
+    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+      font-size: 3em;
+    }
   }
   p {
+    font-size: 1em;
+    line-height: 1.6;
     margin: 0 0 2rem 0;
-  }
-  a {
-    border-bottom: 0.09em solid ${props => props.theme.colors.secondary};
-    transition: 0.3s border-color;
-    &:hover {
-      border-color: white;
+    &:last-child {
+      margin: 0;
     }
-    @media (hover: none) {
-      border-color: ${props => props.theme.colors.secondary} !important;
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      font-size: 1.1em;
     }
   }
 `
@@ -70,6 +96,20 @@ const AboutPage = ({ data }) => {
               alt={cover.title}
               backgroundColor={'#212121'}
             />
+            <a
+              href="https://www.dropbox.com/s/j2oosw8hlru4b20/Ryan%20Wiemer%20-%20Resume.pdf?dl=0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
+            </a>
+            <a
+              href="https://github.com/ryanwiemer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
           </Card>
           <Bio
             dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}

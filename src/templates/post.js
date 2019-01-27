@@ -33,7 +33,7 @@ const Content = styled(posed.div(appear))`
     }
   }
   a {
-    border-bottom: 0.09em solid ${props => props.theme.colors.secondary};
+    border-bottom: 2px solid ${props => props.theme.colors.secondary};
     transition: 0.3s border-color;
     &:hover {
       border-color: white;
