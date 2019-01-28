@@ -50,10 +50,8 @@ const Card = styled.div`
 `
 
 const Bio = styled(posed.div(appear))`
-  font-size: 1em;
   line-height: 1.6;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 1.1em;
     flex: 0 0 65%;
   }
   h1,
