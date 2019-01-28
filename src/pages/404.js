@@ -44,7 +44,7 @@ const NotFoundPage = () => (
     <Helmet>
       <body className="page--404" />
     </Helmet>
-    <SEO title="Page Not Found" />
+    <SEO title="Page Not Found" description="" />
     <Container>
       <Wrapper>
         <Title>Page Not Found</Title>

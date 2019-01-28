@@ -20,9 +20,27 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-twitter',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+          },
+          {
+            resolve: 'gatsby-remark-images-contentful',
+            options: {
+              maxWidth: 750,
+              backgroundColor: '#272727',
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Ryan Wiemer',
         short_name: 'Ryan Wiemer',
@@ -30,12 +48,12 @@ module.exports = {
         background_color: '#121212',
         theme_color: '#FFFFFF',
         display: 'minimal-ui',
-        icon: 'static/logos/logo-512.png',
+        icon: 'static/icon.png',
       },
     },
-    `gatsby-plugin-offline`,
+    'gatsby-plugin-offline',
     {
-      resolve: `gatsby-plugin-canonical-urls`,
+      resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: `https://www.ryanwiemer.com`,
       },

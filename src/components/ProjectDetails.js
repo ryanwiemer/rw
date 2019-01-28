@@ -56,9 +56,9 @@ const Resources = styled(posed.div(appear))`
   padding: 1rem 0 2rem 0;
   a {
     transition: 0.2s;
-    margin: 0 1rem 0 3px;
+    margin: 0 1rem 0 0;
     &:last-child {
-      margin: 0 3px 0 3px;
+      margin: 0;
     }
   }
 `
@@ -72,7 +72,6 @@ const ProjectDetails = props => {
             __html: props.description.childMarkdownRemark.html,
           }}
         />
-
         <Awards>
           {props.awards &&
             props.awards.map((award, index) => <li key={index}>{award}</li>)}

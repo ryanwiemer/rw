@@ -108,7 +108,10 @@ const GlobalStyle = createGlobalStyle`
     There was an issue with reach-router
     and react-pose interfering with each other.
   */
-  .page--about .link--about, .page--work .link--work {
+  .page--about .link--about,
+  .page--work .link--work,
+  .page--blog .link--blog,
+  .page--contact .link--contact {
     border-color: white;
   }
 
