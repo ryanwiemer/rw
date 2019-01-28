@@ -43,7 +43,7 @@ const TagCloud = () => (
   />
 )
 
-export const tagQuery = graphql`
+const tagQuery = graphql`
   query {
     allContentfulTag {
       edges {
