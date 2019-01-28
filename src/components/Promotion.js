@@ -16,10 +16,6 @@ const Wrapper = styled.a`
     color: white;
     font-weight: bold;
   }
-  svg {
-    width: 16px;
-    fill: white;
-  }
   &:hover {
     em {
       text-decoration: underline;

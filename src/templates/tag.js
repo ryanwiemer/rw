@@ -9,11 +9,15 @@ import BlogTile from '../components/BlogTile'
 import SEO from '../components/SEO'
 
 const Title = styled.h2`
-  font-size: 1.25em;
   font-weight: bold;
+  font-size: 1.25em;
   margin: 0 0 1rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.5em;
+  }
+  span {
+    font-weight: normal;
+    color: gray;
   }
 `
 
