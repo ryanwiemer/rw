@@ -33,7 +33,7 @@ const TagTemplate = ({ data }) => {
 
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} description={`View blog posts tagged as ${title}`} />
       <Container minHeight>
         <Title>
           {numberOfPosts} Tagged as {title}

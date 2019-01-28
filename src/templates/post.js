@@ -89,7 +89,7 @@ const PostTemplate = ({ data, pageContext }) => {
 
   return (
     <>
-      <SEO title={title} image={cover} />
+      <SEO title={title} image={cover} description={content.internal.content} />
       <Hero title={title} image={cover} />
       <Container>
         <ProjectLinks previous={previous} next={next} />
@@ -133,6 +133,9 @@ export const query = graphql`
         }
       }
       content {
+        internal {
+          content
+        }
         childContentfulRichText {
           html
         }
