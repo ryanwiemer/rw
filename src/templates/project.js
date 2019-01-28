@@ -29,7 +29,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
       <SEO
         title={title}
         image={cover}
-        description={description.internal.content}
+        description={description.childMarkdownRemark.excerpt}
       />
       <Hero image={cover} title={title} />
       <Container>
@@ -69,11 +69,9 @@ export const query = graphql`
         }
       }
       description {
-        internal {
-          content
-        }
         childMarkdownRemark {
           html
+          excerpt(format: PLAIN)
         }
       }
       thumbnail {

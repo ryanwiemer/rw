@@ -89,7 +89,11 @@ const AboutPage = ({ data }) => {
       <Helmet>
         <body className="page--about" />
       </Helmet>
-      <SEO title="About" description={bio.internal.content} image={cover} />
+      <SEO
+        title="About"
+        description={bio.childMarkdownRemark.excerpt}
+        image={cover}
+      />
       <Container minHeight>
         <Wrapper>
           <Card>
@@ -138,11 +142,9 @@ export const query = graphql`
         }
       }
       bio {
-        internal {
-          content
-        }
         childMarkdownRemark {
           html
+          excerpt(format: PLAIN)
         }
       }
     }

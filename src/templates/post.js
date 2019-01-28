@@ -8,6 +8,7 @@ import Container from '../components/Container'
 import ProjectLinks from '../components/ProjectLinks'
 import SEO from '../components/SEO'
 import { appear, delayChildren } from '../styles/poses'
+require('prismjs/themes/prism-tomorrow.css')
 
 const Wrapper = styled(posed.div(delayChildren))`
   display: flex;
@@ -44,22 +45,57 @@ const Content = styled(posed.div(appear))`
   }
   h1,
   h2,
-  h3,
-  h4,
-  h5 {
-    line-height: 1.2;
-    font-weight: bold;
-    margin: 0 0 2rem 0;
-  }
   h3 {
     font-size: 1.5em;
-  }
-  img {
+    line-height: 1.2;
+    font-weight: bold;
     margin: 0 0 2rem 0;
   }
   strong,
   b {
     font-weight: bold;
+  }
+  del {
+    text-decoration: line-through;
+  }
+  em {
+    font-style: italic;
+  }
+  blockquote {
+    font-style: italic;
+    font-weight: bold;
+    margin: 0 0 2rem 0;
+  }
+  ul,
+  ol {
+    margin: 0 0 2rem 0;
+  }
+  ul {
+    li {
+      list-style: disc;
+      list-style-position: inside;
+      line-height: 1.25;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  ol {
+    li {
+      list-style: decimal;
+      list-style-position: inside;
+      line-height: 1.25;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+  pre {
+    margin: 0 0 2em 0 !important;
+    border-radius: 2px;
+    span {
+      background: inherit !important;
+    }
   }
 `
 
@@ -82,21 +118,25 @@ const Date = styled.div`
 `
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, cover, date, content, tags } = data.contentfulPost
+  const { title, cover, date, body, tags } = data.contentfulPost
 
   const previous = pageContext.prev
   const next = pageContext.next
 
   return (
     <>
-      <SEO title={title} image={cover} description={content.internal.content} />
+      <SEO
+        title={title}
+        image={cover}
+        description={body.childMarkdownRemark.excerpt}
+      />
       <Hero title={title} image={cover} />
       <Container>
         <ProjectLinks previous={previous} next={next} />
         <Wrapper>
           <Content
             dangerouslySetInnerHTML={{
-              __html: content.childContentfulRichText.html,
+              __html: body.childMarkdownRemark.html,
             }}
           />
           <SideBar>
@@ -132,12 +172,10 @@ export const query = graphql`
           height
         }
       }
-      content {
-        internal {
-          content
-        }
-        childContentfulRichText {
+      body {
+        childMarkdownRemark {
           html
+          excerpt(format: PLAIN)
         }
       }
     }

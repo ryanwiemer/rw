@@ -38,8 +38,8 @@ export const query = graphql`
           slug
           id
           date(formatString: "MMMM DD, YYYY")
-          content {
-            childContentfulRichText {
+          body {
+            childMarkdownRemark {
               html
             }
           }

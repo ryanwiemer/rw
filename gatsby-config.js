@@ -1,5 +1,4 @@
 let contentfulConfig
-const { BLOCKS } = require('@contentful/rich-text-types')
 
 try {
   contentfulConfig = require('./.contentful')
@@ -21,23 +20,31 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
+    'gatsby-remark-responsive-iframe',
+    'gatsby-plugin-twitter',
     {
-      resolve: '@contentful/gatsby-transformer-contentful-richtext',
+      resolve: 'gatsby-transformer-remark',
       options: {
-        renderOptions: {
-          renderNode: {
-            [BLOCKS.EMBEDDED_ASSET]: node => {
-              return `
-                  <img src="${node.data.target.fields.file['en-US'].url}" />
-              `
+        plugins: [
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              classPrefix: ['language-js', 'language-bash'],
             },
           },
-        },
+          {
+            resolve: 'gatsby-remark-images-contentful',
+            options: {
+              maxWidth: 750,
+              backgroundColor: '#272727',
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
       },
     },
-    'gatsby-transformer-remark',
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Ryan Wiemer',
         short_name: 'Ryan Wiemer',
@@ -50,7 +57,7 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     {
-      resolve: `gatsby-plugin-canonical-urls`,
+      resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: `https://www.ryanwiemer.com`,
       },
