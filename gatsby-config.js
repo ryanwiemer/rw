@@ -20,7 +20,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
-    'gatsby-remark-responsive-iframe',
     'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-transformer-remark',
@@ -28,9 +27,6 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: ['language-js', 'language-bash'],
-            },
           },
           {
             resolve: 'gatsby-remark-images-contentful',
