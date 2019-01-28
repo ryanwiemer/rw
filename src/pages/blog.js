@@ -14,7 +14,10 @@ const BlogPage = ({ data }) => {
       <Helmet>
         <body className="page--blog" />
       </Helmet>
-      <SEO title="Blog" />
+      <SEO
+        title="Blog"
+        description="A sporadic collection of thoughts mostly about the web"
+      />
       <Container minHeight>
         <BlogList>
           {posts.map(({ node: post }) => (
