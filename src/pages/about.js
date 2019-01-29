@@ -13,6 +13,15 @@ const Wrapper = styled.div`
     min-height: calc(100vh - 128px);
     display: flex;
     flex-flow: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+`
+
+const Content = styled.div`
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    display: flex;
+    flex-flow: row;
     align-items: flex-start;
     justify-content: space-between;
   }
@@ -96,30 +105,32 @@ const AboutPage = ({ data }) => {
       />
       <Container minHeight>
         <Wrapper>
-          <Card>
-            <Img
-              fluid={cover.fluid}
-              alt={cover.title}
-              backgroundColor={'#212121'}
+          <Content>
+            <Card>
+              <Img
+                fluid={cover.fluid}
+                alt={cover.title}
+                backgroundColor={'#212121'}
+              />
+              <a
+                href="https://www.dropbox.com/s/j2oosw8hlru4b20/Ryan%20Wiemer%20-%20Resume.pdf?dl=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Resume
+              </a>
+              <a
+                href="https://github.com/ryanwiemer"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+            </Card>
+            <Bio
+              dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}
             />
-            <a
-              href="https://www.dropbox.com/s/j2oosw8hlru4b20/Ryan%20Wiemer%20-%20Resume.pdf?dl=0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Resume
-            </a>
-            <a
-              href="https://github.com/ryanwiemer"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-          </Card>
-          <Bio
-            dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}
-          />
+          </Content>
         </Wrapper>
       </Container>
     </>
