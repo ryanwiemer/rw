@@ -127,7 +127,7 @@ const ProjectLink = styled(Link)`
       }
     }
   }
-  &:hover ${Cover}:before {
+  &:hover ${Cover}::before {
     background: none;
   }
 `
