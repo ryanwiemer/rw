@@ -98,11 +98,7 @@ const AboutPage = ({ data }) => {
       <Helmet>
         <body className="page--about" />
       </Helmet>
-      <SEO
-        title="About"
-        description={bio.childMarkdownRemark.excerpt}
-        image={cover}
-      />
+      <SEO title="About" description={bio.childMarkdownRemark.excerpt} />
       <Container minHeight>
         <Wrapper>
           <Content>
@@ -145,11 +141,6 @@ export const query = graphql`
         title
         fluid(maxWidth: 1800) {
           ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 1800) {
-          src
-          width
-          height
         }
       }
       bio {
