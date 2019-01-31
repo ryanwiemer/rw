@@ -115,11 +115,6 @@ const GlobalStyle = createGlobalStyle`
     border-color: white;
   }
 
-  /* Hide Footer on 404 page */
-  .page--404 footer {
-    display: none;
-  }
-
   /* Web Accessibility Stuff */
 
   body:not(.user-is-tabbing) button:focus,
