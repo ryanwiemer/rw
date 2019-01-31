@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import SEO from '../components/SEO'
+import SEO from '../components/general/SEO'
 
 const Container = styled.div`
   background: #121212;

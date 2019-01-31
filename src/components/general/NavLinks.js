@@ -41,7 +41,7 @@ const Next = styled.span`
   }
 `
 
-const ProjectLinks = props => {
+const NavLinks = props => {
   return (
     <Wrapper>
       {props.previous && (
@@ -58,4 +58,4 @@ const ProjectLinks = props => {
   )
 }
 
-export default ProjectLinks
+export default NavLinks

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import posed from 'react-pose'
 import Promotion from './Promotion'
 import TagCloud from './TagCloud'
-import { staggerChildren, appear } from '../styles/poses'
+import { staggerChildren, appear } from '../../styles/poses'
 
 const Wrapper = styled(posed.div(staggerChildren))`
   width: 100%;

@@ -1,10 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import SEO from '../components/SEO'
-import Container from '../components/Container'
-import BlogList from '../components/BlogList'
-import BlogTile from '../components/BlogTile'
+import SEO from '../components/general/SEO'
+import Container from '../components/general/Container'
+import BlogList from '../components/blog/BlogList'
+import BlogTile from '../components/blog/BlogTile'
 
 const BlogPage = ({ data }) => {
   const posts = data.allContentfulPost.edges

@@ -5,8 +5,8 @@ import Helmet from 'react-helmet'
 import posed from 'react-pose'
 import Img from 'gatsby-image'
 import { appear } from '../styles/poses'
-import Container from '../components/Container'
-import SEO from '../components/SEO'
+import Container from '../components/general/Container'
+import SEO from '../components/general/SEO'
 
 const Wrapper = styled.div`
   @media screen and (min-width: ${props => props.theme.responsive.small}) {

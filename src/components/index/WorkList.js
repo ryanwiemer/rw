@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import posed from 'react-pose'
-import { appear, slideUp, staggerChildren } from '../styles/poses'
+import { appear, slideUp, staggerChildren } from '../../styles/poses'
 
 const List = styled(posed.ul(staggerChildren))`
   width: 100%;
@@ -132,7 +132,7 @@ const ProjectLink = styled(Link)`
   }
 `
 
-const Work = props => {
+const WorkList = props => {
   return (
     <List>
       {props.projects.map(({ node: project }) => (
@@ -156,4 +156,4 @@ const Work = props => {
   )
 }
 
-export default Work
+export default WorkList

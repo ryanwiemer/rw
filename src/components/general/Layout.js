@@ -2,12 +2,12 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import styled, { ThemeProvider } from 'styled-components'
 import posed, { PoseGroup } from 'react-pose'
-import favicon from '../images/favicon.ico'
-import GlobalStyle from '../styles/global'
-import theme from '../styles/theme'
-import { pageFade } from '../styles/poses'
-import Menu from '../components/Menu'
-import Footer from '../components/Footer'
+import favicon from '../../images/favicon.ico'
+import GlobalStyle from '../../styles/global'
+import theme from '../../styles/theme'
+import { pageFade } from '../../styles/poses'
+import Menu from './Menu'
+import Footer from './Footer'
 
 const Main = posed('main')(pageFade)
 

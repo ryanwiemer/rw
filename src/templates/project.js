@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Container from '../components/Container'
-import Hero from '../components/Hero'
-import ProjectDetails from '../components/ProjectDetails'
-import ProjectLinks from '../components/ProjectLinks'
-import ImageList from '../components/ImageList'
-import Video from '../components/Video'
-import SEO from '../components/SEO'
+import Container from '../components/general/Container'
+import SEO from '../components/general/SEO'
+import Hero from '../components/general/Hero'
+import NavLinks from '../components/general/NavLinks'
+import ProjectDetails from '../components/project/ProjectDetails'
+import ImageList from '../components/project/ImageList'
+import Video from '../components/project/Video'
 
 const ProjectTemplate = ({ data, pageContext }) => {
   const {
@@ -33,7 +33,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
       />
       <Hero image={cover} title={title} />
       <Container>
-        <ProjectLinks previous={previous} next={next} />
+        <NavLinks previous={previous} next={next} />
         <ProjectDetails
           description={description}
           awards={awards}
