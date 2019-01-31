@@ -5,14 +5,17 @@ import Helmet from 'react-helmet'
 import SEO from '../components/general/SEO'
 import Container from '../components/general/Container'
 
-const Content = styled.div`
-  height: 100%;
-  min-height: calc(100vh - 128px);
+const Content = styled(Container)`
+  background: #121212;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2em 0;
   a {
     font-size: 1.1em;
     border-bottom: 0.09em solid #414141;
@@ -38,16 +41,15 @@ const NotFoundPage = () => (
       <body className="page--404" />
     </Helmet>
     <SEO title="Page Not Found" description="" />
-    <Container minHeight>
-      <Content>
-        <div>
-          <Title>Page Not Found</Title>
-          <p>
-            <Link to="/">Return Home</Link>
-          </p>
-        </div>
-      </Content>
-    </Container>
+
+    <Content minHeight>
+      <div>
+        <Title>Page Not Found</Title>
+        <p>
+          <Link to="/">Return Home</Link>
+        </p>
+      </div>
+    </Content>
   </>
 )
 
