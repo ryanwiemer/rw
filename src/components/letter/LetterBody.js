@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
+import LetterStats from './LetterStats'
 import { appear } from '../../styles/poses'
 
-const Wrapper = styled(posed.div(appear))`
-  margin: 1rem 0 2rem 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+const Wrapper = styled.div`
+  width: 100%;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 65%;
   }
+`
+
+const Content = styled(posed.div(appear))`
+  margin: 0 0 2rem 0;
   p {
     font-size: 1em;
     line-height: 1.6;
@@ -87,11 +92,14 @@ const Wrapper = styled(posed.div(appear))`
 
 const LetterBody = props => {
   return (
-    <Wrapper
-      dangerouslySetInnerHTML={{
-        __html: props.body.childMarkdownRemark.html,
-      }}
-    />
+    <Wrapper>
+      <Content
+        dangerouslySetInnerHTML={{
+          __html: props.body.childMarkdownRemark.html,
+        }}
+      />
+      <LetterStats />
+    </Wrapper>
   )
 }
 
