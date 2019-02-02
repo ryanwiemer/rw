@@ -106,7 +106,7 @@ exports.createPages = ({ graphql, actions }) => {
       const tags = result.data.allContentfulLetter.edges
       tags.forEach((edge, i) => {
         createPage({
-          path: `/${edge.node.slug}/`,
+          path: `/letter/${edge.node.slug}/`,
           component: path.resolve(`./src/templates/letter.js`),
           context: {
             slug: edge.node.slug,

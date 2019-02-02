@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Container from '../components/general/Container'
 import SEO from '../components/general/SEO'
 import LetterIntro from '../components/letter/LetterIntro'
+import LetterAbout from '../components/letter/LetterAbout'
 import LetterBody from '../components/letter/LetterBody'
 import LetterTiles from '../components/letter/LetterTiles'
 
@@ -16,16 +17,17 @@ const Wrapper = styled.div`
 `
 
 const letterTemplate = ({ data, pageContext }) => {
-  const { title, body, cover, logo, faq } = data.contentfulLetter
+  const { title, body, cover, color, images } = data.contentfulLetter
 
   return (
     <>
       <SEO title={title} image={cover} />
       <Container minHeight>
-        <LetterIntro title={title} logo={logo} />
+        <LetterIntro cover={cover} />
+        <LetterAbout images={images} />
         <Wrapper>
           <LetterTiles />
-          <LetterBody body={body} faq={faq} />
+          <LetterBody body={body} color={color} />
         </Wrapper>
       </Container>
     </>
@@ -37,6 +39,7 @@ export const query = graphql`
     contentfulLetter(slug: { eq: $slug }) {
       title
       slug
+      color
       cover {
         title
         fluid(maxWidth: 1800) {
@@ -48,9 +51,9 @@ export const query = graphql`
           height
         }
       }
-      logo {
+      images {
         title
-        fluid(maxWidth: 1000) {
+        fluid(maxWidth: 1800) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }

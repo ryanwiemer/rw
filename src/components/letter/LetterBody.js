@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
-import LetterStats from './LetterStats'
 import { appear } from '../../styles/poses'
 
 const Wrapper = styled.div`
@@ -37,14 +36,20 @@ const Content = styled(posed.div(appear))`
   h1,
   h2,
   h3 {
-    font-size: 1.5em;
     line-height: 1.2;
     font-weight: bold;
     margin: 0 0 2rem 0;
+    font-size: 1.5em;
+    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+      font-size: 2.5em;
+    }
   }
   strong,
   b {
     font-weight: bold;
+    background: ${props => props.color};
+    padding: 0.25em 0.5em;
+    border-radius: 2px;
   }
   del {
     text-decoration: line-through;
@@ -52,40 +57,40 @@ const Content = styled(posed.div(appear))`
   em {
     font-style: italic;
   }
-  blockquote {
-    font-style: italic;
-    font-weight: bold;
-    margin: 0 0 2rem 0;
-  }
-  ul,
-  ol {
-    margin: 0 0 2rem 0;
-  }
+  ol,
   ul {
-    li {
-      list-style: disc;
-      list-style-position: inside;
-      line-height: 1.25;
-      &:last-child {
-        margin: 0;
-      }
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+  }
+  ol li {
+    position: relative;
+    counter-increment: my-counter;
+    margin: 0 0 1rem 1rem;
+    &:last-child {
+      margin: 0 0 0 1rem;
+    }
+    &::before {
+      position: absolute;
+      left: 0;
+      content: counter(my-counter) '. ';
+      font-weight: bold;
     }
   }
-  ol {
-    li {
-      list-style: decimal;
-      list-style-position: inside;
-      line-height: 1.25;
-      &:last-child {
-        margin: 0;
-      }
+  ul li {
+    position: relative;
+    margin: 0 0 1rem 1rem;
+    &:last-child {
+      margin: 0 0 0 1rem;
     }
-  }
-  pre {
-    margin: 0 0 2em 0 !important;
-    border-radius: 2px;
-    span {
-      background: inherit !important;
+    &::before {
+      position: absolute;
+      top: 0.7rem;
+      left: -1rem;
+      content: '';
+      height: 4px;
+      width: 4px;
+      border-radius: 50%;
+      background: gray;
     }
   }
 `
@@ -94,11 +99,11 @@ const LetterBody = props => {
   return (
     <Wrapper>
       <Content
+        {...props}
         dangerouslySetInnerHTML={{
           __html: props.body.childMarkdownRemark.html,
         }}
       />
-      <LetterStats />
     </Wrapper>
   )
 }

@@ -8,6 +8,7 @@ const Wrapper = styled(posed.div(appear))`
   margin: 0 0 2rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 32%;
+    align-self: flex-start;
     position: sticky;
     top: 1rem;
   }
@@ -42,7 +43,7 @@ const Tile = styled.div`
 `
 
 const Title = styled.h3`
-  padding: 2em 0.5em;
+  padding: 1.5em 0.5em;
   font-weight: bold;
   font-size: 1.1em;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
