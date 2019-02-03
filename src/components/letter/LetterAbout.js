@@ -23,11 +23,7 @@ const BgImg = styled(Img)`
 const Title = styled.h2`
   font-size: 3em;
   font-weight: bold;
-  margin: 0 0 1rem 0;
-`
-
-const SubTitle = styled.h2`
-  font-size: 2em;
+  margin: 0 0 2rem 0;
 `
 
 const List = styled.ul`
@@ -46,6 +42,7 @@ const Item = styled(Img)`
 const LetterAbout = props => {
   return (
     <Wrapper id="about">
+      <Title>A little bit about me</Title>
       <List>
         <Item
           fluid={props.images[0].fluid}

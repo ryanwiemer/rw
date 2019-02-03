@@ -5,41 +5,81 @@ import Img from 'gatsby-image'
 import { appear } from '../../styles/poses'
 
 const Wrapper = styled(posed.div(appear))`
+  min-height: 300px;
+  height: calc(100vh - 64px);
   margin: 0 0 4rem 0;
+  background: ${props => props.color};
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-const BgImg = styled(Img)`
-  width: 100%;
-  height: auto;
+const Title = styled.h2`
+  font-weight: bold;
+  font-size: 1.5em;
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    min-height: 300px;
-    height: calc(100vh - 128px);
-    & > img {
-      object-fit: cover !important;
-      object-position: 50% 50% !important;
-    }
+    font-size: 2em;
   }
 `
 
-const Scroll = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  width: 100%;
-  text-align: center;
-  line-height: 64px;
-  font-weight: bold;
+const Plus = styled.div`
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+  svg {
+    margin: 1rem;
+    stroke: black;
+  }
+`
+
+const Logo = styled(Img)`
+  width: 200px;
+  height: 100%;
+`
+
+const Content = styled.div`
+  display: flex row;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    display: flex;
+    align-items: center;
+  }
 `
 
 const LetterIntro = props => {
   return (
-    <Wrapper>
-      <BgImg
-        fluid={props.cover.fluid}
-        alt={props.cover.title}
-        title={props.cover.title}
-      />
-      <Scroll>Please Scroll ↓</Scroll>
+    <Wrapper {...props}>
+      <Content>
+        <Title>Ryan Wiemer</Title>
+        <Plus>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </Plus>
+        <Logo
+          fluid={props.logo.fluid}
+          alt={props.logo.title}
+          title={props.logo.title}
+        />
+      </Content>
     </Wrapper>
   )
 }

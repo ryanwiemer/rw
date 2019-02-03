@@ -17,13 +17,13 @@ const Wrapper = styled.div`
 `
 
 const letterTemplate = ({ data, pageContext }) => {
-  const { title, body, cover, color, images } = data.contentfulLetter
+  const { title, body, cover, color, images, logo } = data.contentfulLetter
 
   return (
     <>
       <SEO title={title} image={cover} />
+      <LetterIntro logo={logo} color={color} />
       <Container minHeight>
-        <LetterIntro cover={cover} />
         <LetterAbout images={images} />
         <Wrapper>
           <LetterTiles />
@@ -40,6 +40,12 @@ export const query = graphql`
       title
       slug
       color
+      logo {
+        title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+      }
       cover {
         title
         fluid(maxWidth: 1800) {
