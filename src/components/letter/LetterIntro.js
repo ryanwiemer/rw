@@ -1,85 +1,54 @@
 import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
-import Img from 'gatsby-image'
 import { appear } from '../../styles/poses'
 
 const Wrapper = styled(posed.div(appear))`
-  min-height: 300px;
-  height: calc(100vh - 64px);
-  margin: 0 0 4rem 0;
-  background: ${props => props.color};
+  height: 100%;
+  min-height: 75vh;
+  padding: 4rem 0;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  em {
+    display: inline-block;
+    font-weight: bold;
+    background: ${props => props.color};
+    padding: 0 0.5em;
+    border-radius: 2px;
+  }
 `
 
-const Title = styled.h2`
+const Title = styled.h3`
   font-weight: bold;
-  font-size: 1.5em;
-  display: block;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.1);
+  margin: 0 0 2rem 0;
+  font-size: 2em;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    font-size: 2em;
+    font-size: 2.5em;
   }
-`
-
-const Plus = styled.div`
-  display: block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.5;
-  svg {
-    margin: 1rem;
-    stroke: black;
-  }
-`
-
-const Logo = styled(Img)`
-  width: 200px;
-  height: 100%;
 `
 
 const Content = styled.div`
-  display: flex row;
+  max-width: 675px;
+  font-size: 1.25em;
+  line-height: 1.5;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    display: flex;
-    align-items: center;
+    font-size: 1.5em;
   }
 `
 
 const LetterIntro = props => {
   return (
     <Wrapper {...props}>
-      <Content>
-        <Title>Ryan Wiemer</Title>
-        <Plus>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-        </Plus>
-        <Logo
-          fluid={props.logo.fluid}
-          alt={props.logo.title}
-          title={props.logo.title}
-        />
-      </Content>
+      <div>
+        <Title>👋 Hi, I'm Ryan Wiemer</Title>
+        <Content>
+          I'm a digital marketer with a passion for web design and development.
+          This webpage is my cover letter for the open position of{' '}
+          <em>{props.position}</em> at {props.title}.
+        </Content>
+      </div>
     </Wrapper>
   )
 }

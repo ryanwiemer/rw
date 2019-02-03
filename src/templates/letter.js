@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Container from '../components/general/Container'
 import SEO from '../components/general/SEO'
+import LetterHero from '../components/letter/LetterHero'
 import LetterIntro from '../components/letter/LetterIntro'
 import LetterAbout from '../components/letter/LetterAbout'
 import LetterBody from '../components/letter/LetterBody'
@@ -17,13 +18,22 @@ const Wrapper = styled.div`
 `
 
 const letterTemplate = ({ data, pageContext }) => {
-  const { title, body, cover, color, images, logo } = data.contentfulLetter
+  const {
+    title,
+    position,
+    body,
+    cover,
+    color,
+    images,
+    logo,
+  } = data.contentfulLetter
 
   return (
     <>
       <SEO title={title} image={cover} />
-      <LetterIntro logo={logo} color={color} />
+      <LetterHero logo={logo} color={color} />
       <Container minHeight>
+        <LetterIntro color={color} title={title} position={position} />
         <LetterAbout images={images} />
         <Wrapper>
           <LetterTiles />
@@ -38,6 +48,7 @@ export const query = graphql`
   query($slug: String!) {
     contentfulLetter(slug: { eq: $slug }) {
       title
+      position
       slug
       color
       logo {

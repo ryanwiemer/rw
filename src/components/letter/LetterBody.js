@@ -46,9 +46,10 @@ const Content = styled(posed.div(appear))`
   }
   strong,
   b {
+    display: inline-block;
     font-weight: bold;
     background: ${props => props.color};
-    padding: 0.25em 0.5em;
+    padding: 0 0.25em;
     border-radius: 2px;
   }
   del {
