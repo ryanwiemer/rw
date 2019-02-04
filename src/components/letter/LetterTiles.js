@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import posed from 'react-pose'
-import { appear } from '../../styles/poses'
 
-const Wrapper = styled(posed.div(appear))`
+const Wrapper = styled.div`
   margin: 0 0 2rem 0;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: 0 0 32%;

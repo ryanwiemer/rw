@@ -1,21 +1,12 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import Container from '../components/general/Container'
 import SEO from '../components/general/SEO'
 import LetterHero from '../components/letter/LetterHero'
 import LetterIntro from '../components/letter/LetterIntro'
 import LetterAbout from '../components/letter/LetterAbout'
-import LetterBody from '../components/letter/LetterBody'
-import LetterTiles from '../components/letter/LetterTiles'
-
-const Wrapper = styled.div`
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-`
+import LetterMain from '../components/letter/LetterMain'
+import LetterContact from '../components/letter/LetterContact'
 
 const letterTemplate = ({ data, pageContext }) => {
   const {
@@ -33,12 +24,10 @@ const letterTemplate = ({ data, pageContext }) => {
       <SEO title={title} image={cover} />
       <LetterHero logo={logo} color={color} />
       <Container minHeight>
-        <LetterIntro color={color} title={title} position={position} />
+        <LetterIntro title={title} position={position} color={color} />
         <LetterAbout images={images} />
-        <Wrapper>
-          <LetterTiles />
-          <LetterBody body={body} color={color} />
-        </Wrapper>
+        <LetterMain title={title} body={body} color={color} />
+        <LetterContact color={color} />
       </Container>
     </>
   )
