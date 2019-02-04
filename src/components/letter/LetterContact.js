@@ -1,7 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  padding: 0 0 1rem;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    padding: 0 0 6rem;
+  }
+`
 
 const Title = styled.h3`
   text-transform: capitalize;
@@ -26,12 +31,61 @@ const Title = styled.h3`
   }
 `
 
+const Content = styled.p`
+  margin: 0 0 2rem 0;
+  font-size: 1em;
+  line-height: 1.6;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.1em;
+  }
+`
+
+const Email = styled.a`
+  position: relative;
+  display: block;
+  text-align: center;
+  background: ${props => props.theme.colors.tertiary};
+  padding: 2rem 3rem;
+  border-radius: 2px;
+  font-weight: bold;
+  font-size: 1.1em;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    display: inline-block;
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 1.25em;
+  }
+  &:hover {
+    text-decoration: underline;
+    span {
+      color: white;
+    }
+  }
+  span {
+    font-weight: normal;
+    color: gray;
+    font-size: 1.1rem;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+      font-size: 1.25rem;
+    }
+  }
+`
+
 const LetterQualifications = props => {
   return (
-    <Wrapper {...props}>
+    <Wrapper>
       <Title>
-        <span /> Contact
+        <span /> How to get in touch
       </Title>
+      <Content>
+        Send me an email to schedule a chat either in person or over the phone.
+      </Content>
+      <Email href="mailto:ryan@ryanwiemer.com">
+        👉 ryan@ryanwiemer.com <span>&#8599;</span>
+      </Email>
     </Wrapper>
   )
 }

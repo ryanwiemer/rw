@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import LetterQualifications from './LetterQualifications'
+import LetterContact from './LetterContact'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -54,6 +55,7 @@ const LetterBody = props => {
         }}
       />
       <LetterQualifications {...props} />
+      <LetterContact {...props} />
     </Wrapper>
   )
 }

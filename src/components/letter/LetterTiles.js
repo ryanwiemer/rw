@@ -63,9 +63,14 @@ const LetterTiles = props => {
         </a>
       </Tile>
       <Tile>
-        <Link to="/">
+        <a
+          href="https://www.ryanwiemer.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Title>View Portfolio</Title>
-        </Link>
+          <span>&#8599;</span>
+        </a>
       </Tile>
     </Wrapper>
   )

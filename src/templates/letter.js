@@ -6,7 +6,6 @@ import LetterHero from '../components/letter/LetterHero'
 import LetterIntro from '../components/letter/LetterIntro'
 import LetterAbout from '../components/letter/LetterAbout'
 import LetterMain from '../components/letter/LetterMain'
-import LetterContact from '../components/letter/LetterContact'
 
 const letterTemplate = ({ data, pageContext }) => {
   const {
@@ -27,7 +26,6 @@ const letterTemplate = ({ data, pageContext }) => {
         <LetterIntro title={title} position={position} color={color} />
         <LetterAbout images={images} />
         <LetterMain title={title} body={body} color={color} />
-        <LetterContact color={color} />
       </Container>
     </>
   )

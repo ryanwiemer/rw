@@ -73,7 +73,7 @@ const LetterAbout = props => {
             backgroundColor={'#212121'}
           />
           <Caption>
-            I'm a proud "parent" of two awesome dogs — Birch & Lemon.
+            I'm a proud dog dad of two awesome dogs — Birch & Lemon.
           </Caption>
         </Item>
         <Item>
@@ -83,8 +83,8 @@ const LetterAbout = props => {
             backgroundColor={'#212121'}
           />
           <Caption>
-            San Francisco Bay Area dweller since 2013. I currently live in
-            Oakland with my wife.
+            San Francisco Bay Area dweller since 2013. I currently call Oakland
+            home.
           </Caption>
         </Item>
         <Item>
