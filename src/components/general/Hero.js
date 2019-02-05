@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import posed from 'react-pose'
-import { appear } from '../styles/poses'
+import { appear } from '../../styles/poses'
 
 const Wrapper = styled.div`
   position: relative;

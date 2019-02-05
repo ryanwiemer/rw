@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
 import posed from 'react-pose'
-import { delayChildren, fade } from '../styles/poses'
+import { delayChildren, fade } from '../../styles/poses'
 
 const List = styled(posed.ul(delayChildren))`
   li {

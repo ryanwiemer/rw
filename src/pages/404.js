@@ -2,12 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Helmet from 'react-helmet'
-import SEO from '../components/SEO'
+import SEO from '../components/general/SEO'
+import Container from '../components/general/Container'
 
-const Container = styled.div`
+const Content = styled(Container)`
   background: #121212;
-  height: 100%;
-  min-height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
@@ -16,9 +15,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
-
-const Wrapper = styled.div`
   text-align: center;
   a {
     font-size: 1.1em;
@@ -45,14 +41,15 @@ const NotFoundPage = () => (
       <body className="page--404" />
     </Helmet>
     <SEO title="Page Not Found" description="" />
-    <Container>
-      <Wrapper>
+
+    <Content minHeight>
+      <div>
         <Title>Page Not Found</Title>
         <p>
           <Link to="/">Return Home</Link>
         </p>
-      </Wrapper>
-    </Container>
+      </div>
+    </Content>
   </>
 )
 

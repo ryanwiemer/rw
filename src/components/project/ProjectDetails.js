@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from './Button'
 import posed from 'react-pose'
-import { appear, delayChildren } from '../styles/poses'
+import { appear, delayChildren } from '../../styles/poses'
 
 const Wrapper = styled(posed.div(delayChildren))`
   display: flex;

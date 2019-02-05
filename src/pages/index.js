@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Work from '../components/Work'
-import Container from '../components/Container'
-import SEO from '../components/SEO'
+import Container from '../components/general/Container'
+import SEO from '../components/general/SEO'
+import WorkList from '../components/index/WorkList'
 
 const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
         <body className="page--work" />
       </Helmet>
       <Container minHeight>
-        <Work projects={projects} />
+        <WorkList projects={projects} />
       </Container>
     </>
   )

@@ -3,10 +3,10 @@ import { graphql } from 'gatsby'
 import moment from 'moment'
 import styled from 'styled-components'
 import orderBy from 'lodash/orderBy'
-import Container from '../components/Container'
-import BlogList from '../components/BlogList'
-import BlogTile from '../components/BlogTile'
-import SEO from '../components/SEO'
+import Container from '../components/general/Container'
+import SEO from '../components/general/SEO'
+import BlogList from '../components/blog/BlogList'
+import BlogTile from '../components/blog/BlogTile'
 
 const Title = styled.h2`
   font-weight: bold;

@@ -72,9 +72,6 @@ exports.createPages = ({ graphql, actions }) => {
           edges {
             node {
               slug
-              post {
-                id
-              }
             }
           }
         }
@@ -94,5 +91,31 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadProjects, loadPosts, loadTags])
+  const loadLetters = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulLetter {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const tags = result.data.allContentfulLetter.edges
+      tags.forEach((edge, i) => {
+        createPage({
+          path: `/letter/${edge.node.slug}/`,
+          component: path.resolve(`./src/templates/letter.js`),
+          context: {
+            slug: edge.node.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
+  return Promise.all([loadProjects, loadPosts, loadTags, loadLetters])
 }
