@@ -20,7 +20,11 @@ const letterTemplate = ({ data, pageContext }) => {
 
   return (
     <>
-      <SEO title={title} image={cover} />
+      <SEO
+        title={title}
+        image={cover}
+        description={`My cover letter for the position of ${position} at ${title}`}
+      />
       <LetterHero logo={logo} color={color} />
       <Container minHeight>
         <LetterIntro title={title} position={position} color={color} />
@@ -57,6 +61,8 @@ export const query = graphql`
       }
       images {
         title
+        description
+        id
         fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }

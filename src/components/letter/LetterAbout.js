@@ -66,37 +66,16 @@ const LetterAbout = props => {
         <span /> A little bit about myself
       </Title>
       <List>
-        <Item>
-          <BgImg
-            fluid={props.images[0].fluid}
-            alt={props.images[0].title}
-            backgroundColor={'#212121'}
-          />
-          <Caption>
-            I'm a proud dog dad of two awesome dogs — Birch & Lemon.
-          </Caption>
-        </Item>
-        <Item>
-          <BgImg
-            fluid={props.images[1].fluid}
-            alt={props.images[1].title}
-            backgroundColor={'#212121'}
-          />
-          <Caption>
-            San Francisco Bay Area transplant since 2013. I currently call
-            Oakland home.
-          </Caption>
-        </Item>
-        <Item>
-          <BgImg
-            fluid={props.images[2].fluid}
-            alt={props.images[2].title}
-            backgroundColor={'#212121'}
-          />
-          <Caption>
-            Tech gadget connoisseur and unapologetic Apple fanboy.
-          </Caption>
-        </Item>
+        {props.images.map(image => (
+          <Item key={image.id}>
+            <BgImg
+              fluid={image.fluid}
+              alt={image.title}
+              backgroundColor={'#212121'}
+            />
+            <Caption>{image.description}</Caption>
+          </Item>
+        ))}
       </List>
     </Wrapper>
   )
