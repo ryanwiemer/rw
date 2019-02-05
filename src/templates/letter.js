@@ -25,11 +25,11 @@ const letterTemplate = ({ data, pageContext }) => {
         image={cover}
         description={`My cover letter for the position of ${position} at ${title}`}
       />
-      <LetterHero logo={logo} color={color} />
+      <LetterHero logo={logo} brandColor={color} />
       <Container minHeight>
-        <LetterIntro title={title} position={position} color={color} />
+        <LetterIntro company={title} position={position} brandColor={color} />
         <LetterAbout images={images} />
-        <LetterMain title={title} body={body} color={color} />
+        <LetterMain company={title} body={body} brandColor={color} />
       </Container>
     </>
   )

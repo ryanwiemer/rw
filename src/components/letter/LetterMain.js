@@ -39,7 +39,7 @@ const LetterMain = props => {
     <>
       <Title>
         <span />
-        Why I'm Interested in {props.title}
+        Why I'm Interested in {props.company}
       </Title>
       <Wrapper>
         <LetterBody {...props} />

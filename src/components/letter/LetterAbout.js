@@ -61,7 +61,7 @@ const Caption = styled.span`
 
 const LetterAbout = props => {
   return (
-    <Wrapper id="about">
+    <Wrapper>
       <Title>
         <span /> A little bit about myself
       </Title>

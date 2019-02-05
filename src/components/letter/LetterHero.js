@@ -7,7 +7,7 @@ import { staggerChildren, appear } from '../../styles/poses'
 const Wrapper = styled(posed.div(staggerChildren))`
   min-height: 300px;
   height: calc(100vh - 64px);
-  background: ${props => props.color};
+  background: ${props => props.brandColor};
   position: relative;
   display: flex;
   justify-content: center;

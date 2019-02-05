@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   em {
     display: inline-block;
     font-weight: bold;
-    background: ${props => props.color};
+    background: ${props => props.brandColor};
     padding: 0 0.25em;
     border-radius: 2px;
   }
