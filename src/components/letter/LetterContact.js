@@ -16,12 +16,12 @@ const Title = styled.h3`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.5em;
   }
-  span:before {
+  span::before {
     content: '5';
     float: left;
     margin: 0 0.5em 0 0;
   }
-  span:after {
+  span::after {
     content: '';
     height: 1px;
     width: 40px;
@@ -45,12 +45,13 @@ const Email = styled.a`
   display: block;
   text-align: center;
   background: ${props => props.theme.colors.tertiary};
-  padding: 2rem 3rem;
+  padding: 1.5em;
   border-radius: 2px;
   font-weight: bold;
   font-size: 1.1em;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     display: inline-block;
+    padding: 1.5em 3em;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.25em;
@@ -81,7 +82,7 @@ const LetterQualifications = props => {
         <span /> How to get in touch
       </Title>
       <Content>
-        Send me an email to schedule a chat either in person or over the phone.
+        Send me an email to schedule a chat in person or over the phone.
       </Content>
       <Email href="mailto:ryan@ryanwiemer.com">
         👉 ryan@ryanwiemer.com <span>&#8599;</span>

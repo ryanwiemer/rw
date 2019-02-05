@@ -6,7 +6,7 @@
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.0",
-    "gatsby": "^2.0.111",
+    "gatsby": "^2.0.112",
     "gatsby-image": "^2.0.29",
     "gatsby-link": "^2.0.10",
     "gatsby-plugin-canonical-urls": "^2.0.10",
@@ -22,7 +22,7 @@
     "gatsby-remark-prismjs": "^3.2.4",
     "gatsby-source-contentful": "^2.0.29",
     "gatsby-source-filesystem": "^2.0.20",
-    "gatsby-transformer-remark": "^2.2.3",
+    "gatsby-transformer-remark": "^2.2.4",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "prismjs": "^1.15.0",
@@ -49,7 +49,7 @@
   "devDependencies": {
     "eslint": "^5.13.0",
     "eslint-config-gatsby-standard": "^2.1.1",
-    "prettier": "^1.16.3",
+    "prettier": "^1.16.4",
     "stylelint": "9.10.1",
     "stylelint-config-prettier": "^4.0.0",
     "stylelint-config-standard": "^18.2.0",

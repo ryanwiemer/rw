@@ -27,7 +27,7 @@ const List = styled.ul`
   justify-content: space-between;
   li {
     display: inline-block;
-    margin: 0 0 0 1.5rem;
+    margin: 0 0 0 1.25rem;
     &:first-child {
       position: relative;
       margin: 0;

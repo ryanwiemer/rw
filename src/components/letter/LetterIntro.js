@@ -28,12 +28,12 @@ const Title = styled.h3`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.5em;
   }
-  span:before {
+  span::before {
     content: '1';
     float: left;
     margin: 0 0.5em 0 0;
   }
-  span:after {
+  span::after {
     content: '';
     height: 1px;
     width: 40px;
@@ -65,8 +65,7 @@ const LetterIntro = props => {
         <Content>
           Hi, my name is Ryan Wiemer. I'm a digital marketer with a passion for
           web design and development. This webpage is my cover letter for the
-          open position of <em>{props.position} </em> at {props.title}. Keep
-          scrolling to learn more.
+          open position of <em>{props.position} </em> at {props.title}.
         </Content>
       </div>
     </Wrapper>

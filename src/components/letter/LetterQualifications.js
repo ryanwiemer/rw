@@ -18,9 +18,6 @@ const List = styled.ul`
 
 const Item = styled.li`
   font-size: 1em;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    font-size: 1.1em;
-  }
   position: relative;
   margin: 0 0 1rem 1rem;
   &:last-child {
@@ -36,6 +33,9 @@ const Item = styled.li`
     border-radius: 50%;
     background: gray;
   }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.1em;
+  }
 `
 
 const Title = styled.h3`
@@ -46,12 +46,12 @@ const Title = styled.h3`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.5em;
   }
-  span:before {
+  span::before {
     content: '4';
     float: left;
     margin: 0 0.5em 0 0;
   }
-  span:after {
+  span::after {
     content: '';
     height: 1px;
     width: 40px;

@@ -24,12 +24,12 @@ const Title = styled.h3`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 1.5em;
   }
-  span:before {
+  span::before {
     content: '2';
     float: left;
     margin: 0 0.5em 0 0;
   }
-  span:after {
+  span::after {
     content: '';
     height: 1px;
     width: 40px;
@@ -83,8 +83,8 @@ const LetterAbout = props => {
             backgroundColor={'#212121'}
           />
           <Caption>
-            San Francisco Bay Area dweller since 2013. I currently call Oakland
-            home.
+            San Francisco Bay Area transplant since 2013. I currently call
+            Oakland home.
           </Caption>
         </Item>
         <Item>

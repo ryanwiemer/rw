@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
 import Img from 'gatsby-image'
-import { appear } from '../../styles/poses'
+import { staggerChildren, appear } from '../../styles/poses'
 
-const Wrapper = styled(posed.div(appear))`
+const Wrapper = styled(posed.div(staggerChildren))`
   min-height: 300px;
   height: calc(100vh - 64px);
   background: ${props => props.color};
@@ -14,7 +14,7 @@ const Wrapper = styled(posed.div(appear))`
   align-items: center;
 `
 
-const Title = styled.h2`
+const Title = styled(posed.h2(appear))`
   font-weight: bold;
   display: block;
   text-align: center;
@@ -27,19 +27,19 @@ const Title = styled.h2`
   }
 `
 
-const Plus = styled.div`
+const Plus = styled(posed.div(appear))`
   display: block;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
   svg {
+    opacity: 0.5;
     margin: 1rem;
     stroke: black;
   }
 `
 
-const Logo = styled(Img)`
+const Logo = styled(posed.div(appear))`
   width: 200px;
   height: 100%;
   margin: 0 auto;
@@ -74,11 +74,14 @@ const LetterHero = props => {
             <line x1="5" y1="12" x2="19" y2="12" />
           </svg>
         </Plus>
-        <Logo
-          fluid={props.logo.fluid}
-          alt={props.logo.title}
-          title={props.logo.title}
-        />
+        <Logo>
+          <Img
+            fluid={props.logo.fluid}
+            alt={props.logo.title}
+            fadeIn={false}
+            critical
+          />
+        </Logo>
       </Content>
     </Wrapper>
   )

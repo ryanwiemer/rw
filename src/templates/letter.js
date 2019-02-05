@@ -40,16 +40,16 @@ export const query = graphql`
       color
       logo {
         title
-        fluid(maxWidth: 1800) {
+        fluid(maxWidth: 600) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
       cover {
         title
-        fluid(maxWidth: 1800) {
+        fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
-        ogimg: resize(width: 1800) {
+        ogimg: resize(width: 1200) {
           src
           width
           height
@@ -57,7 +57,7 @@ export const query = graphql`
       }
       images {
         title
-        fluid(maxWidth: 1800) {
+        fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid_withWebp_noBase64
         }
       }
