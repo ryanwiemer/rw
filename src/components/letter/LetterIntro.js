@@ -65,7 +65,7 @@ const LetterIntro = props => {
         <Content>
           Hi, my name is Ryan Wiemer. I'm a digital marketer with a passion for
           web design and development. This webpage is my cover letter for the
-          open position of <em>{props.position} </em> at {props.company}.
+          position of <em>{props.position} </em> at {props.company}.
         </Content>
       </div>
     </Wrapper>
