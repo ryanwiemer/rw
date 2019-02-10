@@ -55,25 +55,28 @@ const Wrapper = styled(posed.div(appear))`
   }
   ul,
   ol {
-    margin: 0 0 2rem 0;
+    margin: -1.5rem 0 2rem 0;
   }
   ul {
     li {
-      list-style: disc;
-      list-style-position: inside;
-      line-height: 1.25;
+      font-size: 1em;
+      position: relative;
+      margin: 0 0 0.5rem 1rem;
       &:last-child {
-        margin: 0;
+        margin: 0 0 0 1rem;
       }
-    }
-  }
-  ol {
-    li {
-      list-style: decimal;
-      list-style-position: inside;
-      line-height: 1.25;
-      &:last-child {
-        margin: 0;
+      &::before {
+        position: absolute;
+        top: 0.5rem;
+        left: -1rem;
+        content: '';
+        height: 4px;
+        width: 4px;
+        border-radius: 50%;
+        background: gray;
+      }
+      @media screen and (min-width: ${props => props.theme.responsive.small}) {
+        font-size: 1.1em;
       }
     }
   }
@@ -83,6 +86,9 @@ const Wrapper = styled(posed.div(appear))`
     span {
       background: inherit !important;
     }
+  }
+  video {
+    width: 100%;
   }
 `
 

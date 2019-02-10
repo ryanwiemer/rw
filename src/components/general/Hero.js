@@ -48,7 +48,7 @@ const Overflow = styled.div`
   padding: 0.5rem 0;
 `
 
-const Title = styled(posed.h2(appear))`
+const Title = styled(posed.div(appear))`
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5rem;
@@ -64,13 +64,18 @@ const Title = styled(posed.h2(appear))`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 3em;
   }
+  h2 {
+    max-width: 1000px;
+  }
 `
 
 const Hero = props => {
   return (
     <Wrapper>
       <Overflow>
-        <Title>{props.title}</Title>
+        <Title>
+          <h2>{props.title}</h2>
+        </Title>
       </Overflow>
       <BgImg
         fluid={props.image.fluid}
