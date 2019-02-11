@@ -90,6 +90,9 @@ const Wrapper = styled(posed.div(appear))`
   video {
     width: 100%;
   }
+  iframe {
+    margin: 0 0 2rem 0;
+  }
 `
 
 const PostBody = props => {
