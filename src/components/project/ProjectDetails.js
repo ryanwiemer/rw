@@ -8,8 +8,8 @@ const Wrapper = styled(posed.div(delayChildren))`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: flex-start;
-  margin: 0 0 2rem 0;
+  align-items: baseline;
+  margin: 0 0 1rem 0;
 `
 
 const Overflow = styled.span`
@@ -22,7 +22,7 @@ const Info = posed.div(appear)
 
 const Description = styled.div`
   padding: 1rem 0 2rem 0;
-  max-width: 600px;
+  max-width: 718px;
   font-size: 1em;
   line-height: 1.6;
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
@@ -42,7 +42,7 @@ const Description = styled.div`
 `
 
 const Awards = styled.ul`
-  margin: 0;
+  margin: 0 0 1.5rem 0;
   li {
     list-style: disc;
     list-style-position: inside;
@@ -52,8 +52,28 @@ const Awards = styled.ul`
   }
 `
 
+const Role = styled.ul`
+  margin: 2rem 0 1rem 0;
+  li {
+    background: ${props => props.theme.colors.tertiary};
+    padding: 0.25rem 0.5rem;
+    text-transform: capitalize;
+    border-radius: 2px;
+    display: inline-block;
+    line-height: 1.5;
+    margin: 0 0.5rem 0.5rem 0;
+    font-size: 1em;
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      font-size: 1.1em;
+    }
+  }
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    margin: 1rem 0;
+  }
+`
+
 const Resources = styled(posed.div(appear))`
-  padding: 1rem 0 2rem 0;
+  padding: 0 0 1rem 0;
   a {
     transition: 0.2s;
     margin: 0 1rem 0 0;
@@ -67,22 +87,34 @@ const ProjectDetails = props => {
   return (
     <Wrapper>
       <Info>
+        {props.role && (
+          <Role>
+            {props.role.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </Role>
+        )}
         <Description
           dangerouslySetInnerHTML={{
             __html: props.description.childMarkdownRemark.html,
           }}
         />
-        <Awards>
-          {props.awards &&
-            props.awards.map((award, index) => <li key={index}>{award}</li>)}
-        </Awards>
+        {props.awards && (
+          <Awards>
+            {props.awards.map((award, index) => (
+              <li key={index}>{award}</li>
+            ))}
+          </Awards>
+        )}
       </Info>
-      <Overflow>
-        <Resources>
-          {props.source && <Button href={props.source}>Source</Button>}
-          {props.url && <Button href={props.url}>View Site</Button>}
-        </Resources>
-      </Overflow>
+      {props.url && (
+        <Overflow>
+          <Resources>
+            {props.source && <Button href={props.source}>Source</Button>}
+            {props.url && <Button href={props.url}>View Site</Button>}
+          </Resources>
+        </Overflow>
+      )}
     </Wrapper>
   )
 }

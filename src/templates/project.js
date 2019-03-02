@@ -12,6 +12,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
   const {
     title,
     description,
+    role,
     cover,
     url,
     source,
@@ -36,6 +37,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
         <NavLinks previous={previous} next={next} />
         <ProjectDetails
           description={description}
+          role={role}
           awards={awards}
           url={url}
           source={source}
@@ -57,6 +59,7 @@ export const query = graphql`
       url
       source
       awards
+      role
       cover {
         title
         fluid(maxWidth: 1800) {
