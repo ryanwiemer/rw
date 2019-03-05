@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import posed from 'react-pose'
 import Img from 'gatsby-image'
+import Twemoji from 'react-twemoji'
 import { appear } from '../styles/poses'
 import Container from '../components/general/Container'
 import SEO from '../components/general/SEO'
@@ -123,9 +124,13 @@ const AboutPage = ({ data }) => {
                 GitHub
               </a>
             </Card>
-            <Bio
-              dangerouslySetInnerHTML={{ __html: bio.childMarkdownRemark.html }}
-            />
+            <Twemoji options={{ className: 'emoji' }} noWrapper>
+              <Bio
+                dangerouslySetInnerHTML={{
+                  __html: bio.childMarkdownRemark.html,
+                }}
+              />
+            </Twemoji>
           </Content>
         </Wrapper>
       </Container>

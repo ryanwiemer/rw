@@ -148,6 +148,16 @@ const GlobalStyle = createGlobalStyle`
     outline: 3px solid #497ecb;
   }
 
+  /* Emoji Styling */
+
+  img.emoji {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+  }
+
 `
 
 export default GlobalStyle

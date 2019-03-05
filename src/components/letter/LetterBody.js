@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Twemoji from 'react-twemoji'
 import LetterQualifications from './LetterQualifications'
 import LetterContact from './LetterContact'
 
@@ -48,12 +49,14 @@ const Content = styled.div`
 const LetterBody = props => {
   return (
     <Wrapper>
-      <Content
-        {...props}
-        dangerouslySetInnerHTML={{
-          __html: props.body.childMarkdownRemark.html,
-        }}
-      />
+      <Twemoji options={{ className: 'emoji' }} noWrapper>
+        <Content
+          {...props}
+          dangerouslySetInnerHTML={{
+            __html: props.body.childMarkdownRemark.html,
+          }}
+        />
+      </Twemoji>
       <LetterQualifications {...props} />
       <LetterContact {...props} />
     </Wrapper>

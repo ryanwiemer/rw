@@ -54,6 +54,10 @@ const Title = styled.h2`
 
 const Date = styled.span`
   color: gray;
+  font-size: 1em;
+  @media screen and (min-width: ${props => props.theme.responsive.small}) {
+    font-size: 1.1em;
+  }
 `
 const BlogTile = ({ slug, cover, title, date, ...props }) => {
   return (

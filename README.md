@@ -2,6 +2,7 @@
 
 - Copyright (c) 2019 Ryan Wiemer
 - All Rights Reserved
+- Emoji support via [Twemoji](https://github.com/twitter/twemoji)
 
 ![screenshot](screenshot.jpg 'screenshot')
 

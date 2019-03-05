@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Twemoji from 'react-twemoji'
 
 const Wrapper = styled.div`
   margin: 0 0 2rem 0;
@@ -8,6 +9,9 @@ const Wrapper = styled.div`
     align-self: flex-start;
     position: sticky;
     top: 1rem;
+  }
+  img {
+    margin: 0 0.75rem 0 0;
   }
 `
 
@@ -52,7 +56,9 @@ const LetterTiles = props => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        View Resume
+        <Twemoji options={{ className: 'emoji' }} noWrapper>
+          <p>📄View Resume</p>
+        </Twemoji>
         <span>&#8599;</span>
       </Tile>
       <Tile
@@ -60,7 +66,9 @@ const LetterTiles = props => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        View Portfolio
+        <Twemoji options={{ className: 'emoji' }} noWrapper>
+          <p>🖥️View Portfolio</p>
+        </Twemoji>
         <span>&#8599;</span>
       </Tile>
     </Wrapper>

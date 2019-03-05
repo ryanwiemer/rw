@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
+import Twemoji from 'react-twemoji'
 import { appear } from '../../styles/poses'
 require('prismjs/themes/prism-tomorrow.css')
 
@@ -97,11 +98,13 @@ const Wrapper = styled(posed.div(appear))`
 
 const PostBody = props => {
   return (
-    <Wrapper
-      dangerouslySetInnerHTML={{
-        __html: props.body.childMarkdownRemark.html,
-      }}
-    />
+    <Twemoji options={{ className: 'emoji' }} noWrapper>
+      <Wrapper
+        dangerouslySetInnerHTML={{
+          __html: props.body.childMarkdownRemark.html,
+        }}
+      />
+    </Twemoji>
   )
 }
 

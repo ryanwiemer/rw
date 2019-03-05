@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Twemoji from 'react-twemoji'
 
 const Wrapper = styled.div`
   padding: 0 0 1rem;
@@ -73,6 +74,9 @@ const Email = styled.a`
       font-size: 1.25rem;
     }
   }
+  img {
+    margin: 0 0.75rem 0 0;
+  }
 `
 
 const LetterQualifications = props => {
@@ -85,7 +89,10 @@ const LetterQualifications = props => {
         Send me an email to schedule a chat in person or over the phone.
       </Content>
       <Email href="mailto:ryan@ryanwiemer.com">
-        👉 ryan@ryanwiemer.com <span>&#8599;</span>
+        <Twemoji options={{ className: 'emoji' }} noWrapper>
+          <p>✉️ryan@ryanwiemer.com</p>
+        </Twemoji>{' '}
+        <span>&#8599;</span>
       </Email>
     </Wrapper>
   )

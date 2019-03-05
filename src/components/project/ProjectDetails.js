@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import Button from './Button'
 import posed from 'react-pose'
+import Twemoji from 'react-twemoji'
 import { appear, delayChildren } from '../../styles/poses'
+
+import Button from './Button'
 
 const Wrapper = styled(posed.div(delayChildren))`
   display: flex;
@@ -89,9 +91,11 @@ const ProjectDetails = props => {
       <Info>
         {props.role && (
           <Role>
-            {props.role.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
+            <Twemoji options={{ className: 'emoji' }} noWrapper>
+              {props.role.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </Twemoji>
           </Role>
         )}
         <Description

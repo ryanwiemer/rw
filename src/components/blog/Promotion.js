@@ -11,6 +11,9 @@ const Wrapper = styled.a`
   p {
     color: gray;
     line-height: 1.6;
+    @media screen and (min-width: ${props => props.theme.responsive.small}) {
+      font-size: 1.1em;
+    }
   }
   em {
     color: white;
@@ -31,7 +34,7 @@ const Promotion = props => {
       rel="noopener noreferrer"
     >
       <p>
-        Tell me why I'm wrong on Twitter <em>@ryanwiemer</em>
+        Read more opinions on Twitter <em>@ryanwiemer</em>
       </p>
     </Wrapper>
   )
