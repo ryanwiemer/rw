@@ -19,10 +19,12 @@ const Wrapper = styled(posed.div(delayChildren))`
 `
 
 const PostTemplate = ({ data, pageContext }) => {
-  const { title, cover, date, body, tags } = data.contentfulPost
-
+  const { title, cover, date, body, tags, slug } = data.contentfulPost
   const previous = pageContext.prev
   const next = pageContext.next
+  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `https://www.ryanwiemer.com/${slug}/`
+  )}`
 
   return (
     <>
@@ -35,7 +37,7 @@ const PostTemplate = ({ data, pageContext }) => {
       <Container>
         <NavLinks previous={previous} next={next} />
         <Wrapper>
-          <PostBody body={body} />
+          <PostBody body={body} discussUrl={discussUrl} />
           <PostSideBar date={date} tags={tags} />
         </Wrapper>
       </Container>

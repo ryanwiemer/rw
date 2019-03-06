@@ -25,9 +25,16 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
+          `gatsby-remark-prismjs`,
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              providers: {
+                exclude: ['Reddit', 'Flickr', 'Instagram', 'Twitter'],
+              },
+            },
           },
+          `gatsby-remark-responsive-iframe`,
           {
             resolve: 'gatsby-remark-images-contentful',
             options: {

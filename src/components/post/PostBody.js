@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import posed from 'react-pose'
 import Twemoji from 'react-twemoji'
+import Button from '../project/Button'
 import { appear } from '../../styles/poses'
 require('prismjs/themes/prism-tomorrow.css')
 
@@ -10,13 +11,13 @@ const Wrapper = styled(posed.div(appear))`
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: 0 0 65%;
   }
+`
+
+const Content = styled.div`
   p {
     font-size: 1em;
     line-height: 1.6;
     margin: 0 0 2rem 0;
-    &:last-child {
-      margin: 0;
-    }
     @media screen and (min-width: ${props => props.theme.responsive.small}) {
       font-size: 1.1em;
     }
@@ -98,13 +99,16 @@ const Wrapper = styled(posed.div(appear))`
 
 const PostBody = props => {
   return (
-    <Twemoji options={{ className: 'emoji' }} noWrapper>
-      <Wrapper
-        dangerouslySetInnerHTML={{
-          __html: props.body.childMarkdownRemark.html,
-        }}
-      />
-    </Twemoji>
+    <Wrapper>
+      <Twemoji options={{ className: 'emoji' }} noWrapper>
+        <Content
+          dangerouslySetInnerHTML={{
+            __html: props.body.childMarkdownRemark.html,
+          }}
+        />
+      </Twemoji>
+      <Button href={props.discussUrl}>Discuss On Twitter</Button>
+    </Wrapper>
   )
 }
 
