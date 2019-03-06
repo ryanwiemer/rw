@@ -47,10 +47,12 @@ const SEO = props => (
       name="twitter:title"
       content={props.title ? `${props.title} - ${defaultTitle}` : defaultTitle}
     />
-    <meta
-      name="twitter:image"
-      content={props.image ? props.image.fluid.src : defaultImage}
-    />
+    {props.image ? (
+      <meta
+        name="twitter:image"
+        content={props.image ? props.image.ogimg.src : defaultImage}
+      />
+    ) : null}
     <meta
       name="twitter:description"
       content={props.description ? props.description : defaultDescription}
