@@ -30,16 +30,16 @@ const SEO = props => (
       <meta property="og:url" content={location.href} />
     )}
     {props.image ? (
-      <>
-        <meta
-          property="og:image"
-          content={
-            props.image ? `https:${props.image.ogimg.src}` : defaultImage
-          }
-        />
-        <meta property="og:image:width" content={props.image.ogimg.width} />
-        <meta property="og:image:height" content={props.image.ogimg.height} />
-      </>
+      <meta
+        property="og:image"
+        content={props.image ? `https:${props.image.ogimg.src}` : defaultImage}
+      />
+    ) : null}
+    {props.image ? (
+      <meta property="og:image:width" content={props.image.ogimg.width} />
+    ) : null}
+    {props.image ? (
+      <meta property="og:image:height" content={props.image.ogimg.height} />
     ) : null}
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:creator" content="@ryanwiemer" />
