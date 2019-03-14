@@ -40,6 +40,7 @@ module.exports = {
               maxWidth: 750,
               backgroundColor: '#272727',
               linkImagesToOriginal: false,
+              withWebp: true,
             },
           },
         ],
