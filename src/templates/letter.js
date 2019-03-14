@@ -8,21 +8,12 @@ import LetterAbout from '../components/letter/LetterAbout'
 import LetterMain from '../components/letter/LetterMain'
 
 const letterTemplate = ({ data, pageContext }) => {
-  const {
-    title,
-    position,
-    body,
-    cover,
-    color,
-    images,
-    logo,
-  } = data.contentfulLetter
+  const { title, position, body, color, images, logo } = data.contentfulLetter
 
   return (
     <>
       <SEO
         title={title}
-        image={cover}
         description={`My cover letter for the position of ${position} at ${title}`}
       />
       <LetterHero logo={logo} brandColor={color} />
@@ -46,17 +37,6 @@ export const query = graphql`
         title
         fluid(maxWidth: 600) {
           ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-      }
-      cover {
-        title
-        fluid(maxWidth: 1200) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 1200) {
-          src
-          width
-          height
         }
       }
       images {
