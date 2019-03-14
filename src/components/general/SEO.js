@@ -29,12 +29,10 @@ const SEO = props => (
     {typeof window !== `undefined` && (
       <meta property="og:url" content={location.href} />
     )}
-    {props.image ? (
-      <meta
-        property="og:image"
-        content={props.image ? `https:${props.image.ogimg.src}` : defaultImage}
-      />
-    ) : null}
+    <meta
+      property="og:image"
+      content={props.image ? `https:${props.image.ogimg.src}` : defaultImage}
+    />
     {props.image ? (
       <meta property="og:image:width" content={props.image.ogimg.width} />
     ) : null}
@@ -51,12 +49,10 @@ const SEO = props => (
       name="twitter:description"
       content={props.description ? props.description : defaultDescription}
     />
-    {props.image ? (
-      <meta
-        name="twitter:image"
-        content={props.image ? `https:${props.image.ogimg.src}` : defaultImage}
-      />
-    ) : null}
+    <meta
+      name="twitter:image"
+      content={props.image ? `https:${props.image.ogimg.src}` : defaultImage}
+    />
   </Helmet>
 )
 
