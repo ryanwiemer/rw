@@ -1,121 +1,134 @@
 const path = require(`path`)
 
-exports.createPages = ({ graphql, actions }) => {
+// Schema Customization
+exports.sourceNodes = ({ actions, schema }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type Body @infer {
+      childMarkdownRemark: ChildMarkdownRemark
+    }
+    type ChildMarkdownRemark @infer {
+      html: String
+    }
+    type ContentfulLetter implements Node @infer {
+      slug: String
+      title: String
+      position: String
+      slug: String
+      color: String
+      logo: ContentfulAsset
+      images: ContentfulAsset
+      body: Body
+    }
+  `)
+}
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const loadProjects = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulProject(sort: { fields: [date], order: DESC }) {
-          edges {
-            node {
-              slug
-              date
-            }
+  // Create a page for each project
+  const projectsQuery = await graphql(`
+    {
+      allContentfulProject(sort: { fields: [date], order: DESC }) {
+        edges {
+          node {
+            slug
+            date
           }
         }
       }
-    `).then(result => {
-      const projects = result.data.allContentfulProject.edges
-      projects.forEach((edge, i) => {
-        const prev = i === 0 ? null : projects[i - 1].node
-        const next = i === projects.length - 1 ? null : projects[i + 1].node
-        createPage({
-          path: `/${edge.node.slug}/`,
-          component: path.resolve(`./src/templates/project.js`),
-          context: {
-            slug: edge.node.slug,
-            prev,
-            next,
-          },
-        })
-      })
-      resolve()
+    }
+  `)
+
+  const projects = projectsQuery.data.allContentfulProject.edges
+  projects.forEach((edge, i) => {
+    const prev = i === 0 ? null : projects[i - 1].node
+    const next = i === projects.length - 1 ? null : projects[i + 1].node
+    createPage({
+      path: `/${edge.node.slug}/`,
+      component: path.resolve(`./src/templates/project.js`),
+      context: {
+        slug: edge.node.slug,
+        prev,
+        next,
+      },
     })
   })
 
-  const loadPosts = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulPost(sort: { fields: [date], order: DESC }) {
-          edges {
-            node {
-              slug
-              date
-            }
+  // Create a page for each blog post
+  const postsQuery = await graphql(`
+    {
+      allContentfulPost(sort: { fields: [date], order: DESC }) {
+        edges {
+          node {
+            slug
+            date
           }
         }
       }
-    `).then(result => {
-      const posts = result.data.allContentfulPost.edges
-      posts.forEach((edge, i) => {
-        const prev = i === 0 ? null : posts[i - 1].node
-        const next = i === posts.length - 1 ? null : posts[i + 1].node
-        createPage({
-          path: `/${edge.node.slug}/`,
-          component: path.resolve(`./src/templates/post.js`),
-          context: {
-            slug: edge.node.slug,
-            prev,
-            next,
-          },
-        })
-      })
-      resolve()
+    }
+  `)
+
+  const posts = postsQuery.data.allContentfulPost.edges
+  posts.forEach((edge, i) => {
+    const prev = i === 0 ? null : posts[i - 1].node
+    const next = i === posts.length - 1 ? null : posts[i + 1].node
+    createPage({
+      path: `/${edge.node.slug}/`,
+      component: path.resolve(`./src/templates/post.js`),
+      context: {
+        slug: edge.node.slug,
+        prev,
+        next,
+      },
     })
   })
 
-  const loadTags = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulTag {
-          edges {
-            node {
-              slug
-            }
+  // Create a page for each tag on the blog
+  const tagsQuery = await graphql(`
+    {
+      allContentfulTag {
+        edges {
+          node {
+            slug
           }
         }
       }
-    `).then(result => {
-      const tags = result.data.allContentfulTag.edges
-      tags.forEach((edge, i) => {
-        createPage({
-          path: `/tag/${edge.node.slug}/`,
-          component: path.resolve(`./src/templates/tag.js`),
-          context: {
-            slug: edge.node.slug,
-          },
-        })
-      })
-      resolve()
+    }
+  `)
+
+  const tags = tagsQuery.data.allContentfulTag.edges
+  tags.forEach((edge, i) => {
+    createPage({
+      path: `/tag/${edge.node.slug}/`,
+      component: path.resolve(`./src/templates/tag.js`),
+      context: {
+        slug: edge.node.slug,
+      },
     })
   })
 
-  const loadLetters = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulLetter {
-          edges {
-            node {
-              slug
-            }
+  // Create a page for each letter
+  const lettersQuery = await graphql(`
+    {
+      allContentfulLetter {
+        edges {
+          node {
+            slug
           }
         }
       }
-    `).then(result => {
-      const tags = result.data.allContentfulLetter.edges
-      tags.forEach((edge, i) => {
-        createPage({
-          path: `/letter/${edge.node.slug}/`,
-          component: path.resolve(`./src/templates/letter.js`),
-          context: {
-            slug: edge.node.slug,
-          },
-        })
-      })
-      resolve()
+    }
+  `)
+
+  const letters = lettersQuery.data.allContentfulLetter.edges
+  letters.forEach((edge, i) => {
+    createPage({
+      path: `/letter/${edge.node.slug}/`,
+      component: path.resolve(`./src/templates/letter.js`),
+      context: {
+        slug: edge.node.slug,
+      },
     })
   })
-
-  return Promise.all([loadProjects, loadPosts, loadTags, loadLetters])
 }
