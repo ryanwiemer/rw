@@ -45,8 +45,7 @@
     "check-pretty": "prettier -l {,src/**/}*.{js,jsx,json,css,scss}",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "yarn run lint:css && yarn run lint:js && yarn run check-pretty",
-    "clean": "gatsby clean",
-    "share": "gatsby develop --host $(ifconfig | awk '/inet 192\\.168\\.[0-9]+\\.[0-9]+/{print $2}') --port 8000"
+    "clean": "gatsby clean"
   },
   "devDependencies": {
     "eslint": "^5.15.2",
