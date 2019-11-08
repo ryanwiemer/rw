@@ -4,8 +4,21 @@ const path = require(`path`)
 exports.sourceNodes = ({ actions, schema }) => {
   const { createTypes } = actions
   createTypes(`
+    type Body @infer {
+      childMarkdownRemark: ChildMarkdownRemark
+    }
+    type ChildMarkdownRemark @infer {
+      html: String
+    }
     type ContentfulLetter implements Node @infer {
       slug: String
+      title: String
+      position: String
+      slug: String
+      color: String
+      logo: ContentfulAsset
+      images: ContentfulAsset
+      body: Body
     }
   `)
 }

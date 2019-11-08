@@ -50,7 +50,6 @@ export const query = graphql`
       body {
         childMarkdownRemark {
           html
-          excerpt(format: PLAIN)
         }
       }
     }
