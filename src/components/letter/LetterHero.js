@@ -79,7 +79,7 @@ const LetterHero = props => {
             fluid={props.logo.fluid}
             alt={props.logo.title}
             fadeIn={false}
-            critical
+            loading="eager"
           />
         </Logo>
       </Content>
