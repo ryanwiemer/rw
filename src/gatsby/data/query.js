@@ -45,6 +45,7 @@ module.exports.data = {
         edges {
           node {
             title
+            id
             slug
             date
             url
@@ -96,6 +97,7 @@ module.exports.data = {
         edges {
           node {
             title
+            id
             slug
             date(formatString: "MMMM DD, YYYY")
             tags {
@@ -128,6 +130,7 @@ module.exports.data = {
       edges {
         node {
           title
+          id
           slug
           post {
             id
@@ -151,6 +154,7 @@ module.exports.data = {
       edges {
         node {
           title
+          id
           position
           slug
           color
