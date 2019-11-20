@@ -1,8 +1,30 @@
 const path = require(`path`)
 const query = require('./src/data/query')
 
+// Schema Customization
+exports.sourceNodes = ({ actions, schema }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type ContentfulProject implements Node @infer {
+      title: String
+    }
+    type ContentfulPost implements Node @infer {
+      title: String
+    }
+    type ContentfulTag implements Node @infer {
+      title: String
+    }
+    type ContentfulLetter implements Node @infer {
+      title: String
+    }
+  `)
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
+  // A test query used to determine if content exists or not
+  const testQuery = await graphql(query.data.test)
 
   // Create a page for each project
   const projectsQuery = await graphql(query.data.projects)
@@ -55,7 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   // Create a page for each letter
-  try {
+  if (testQuery.data.allContentfulLetter.edges.length >= 1) {
     const lettersQuery = await graphql(query.data.letters)
     const letters = lettersQuery.data.allContentfulLetter.edges
     letters.forEach((letter, i) => {
@@ -68,7 +90,7 @@ exports.createPages = async ({ graphql, actions }) => {
         },
       })
     })
-  } catch (error) {
+  } else {
     console.log('No letters created')
   }
 }

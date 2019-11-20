@@ -10,6 +10,36 @@ const Fluid = `
 `
 
 module.exports.data = {
+  test: `{
+    allContentfulProject {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    allContentfulPost {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    allContentfulTag {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+    allContentfulLetter {
+        edges {
+          node {
+            title
+          }
+        }
+      }
+  }`,
   projects: `{
       allContentfulProject(sort: { fields: [date], order: DESC }) {
         edges {
