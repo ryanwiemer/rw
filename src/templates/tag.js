@@ -21,10 +21,10 @@ const Title = styled.h2`
   }
 `
 
-const TagTemplate = ({ data }) => {
-  const { title } = data.contentfulTag
+const TagTemplate = ({ pageContext }) => {
+  const { title, post } = pageContext
   const posts = orderBy(
-    data.contentfulTag.post,
+    post,
     // eslint-disable-next-line
     [object => new moment(object.dateISO)],
     ['desc']
@@ -47,28 +47,5 @@ const TagTemplate = ({ data }) => {
     </>
   )
 }
-
-export const query = graphql`
-  query($slug: String!) {
-    contentfulTag(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      post {
-        id
-        title
-        slug
-        date(formatString: "MMMM DD, YYYY")
-        dateISO: date(formatString: "YYYY-MM-DD")
-        cover {
-          title
-          fluid(maxWidth: 1800) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-        }
-      }
-    }
-  }
-`
 
 export default TagTemplate

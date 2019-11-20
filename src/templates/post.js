@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import posed from 'react-pose'
 import Container from '../components/general/Container'
@@ -18,10 +17,8 @@ const Wrapper = styled(posed.div(delayChildren))`
   align-items: baseline;
 `
 
-const PostTemplate = ({ data, pageContext }) => {
-  const { title, cover, date, body, tags, slug } = data.contentfulPost
-  const previous = pageContext.prev
-  const next = pageContext.next
+const PostTemplate = ({ pageContext }) => {
+  const { title, cover, date, body, tags, slug, prev, next } = pageContext
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://www.ryanwiemer.com/${slug}/`
   )}`
@@ -35,7 +32,7 @@ const PostTemplate = ({ data, pageContext }) => {
       />
       <Hero title={title} image={cover} />
       <Container>
-        <NavLinks previous={previous} next={next} />
+        <NavLinks previous={prev} next={next} />
         <Wrapper>
           <PostBody body={body} discussUrl={discussUrl} />
           <PostSideBar date={date} tags={tags} />
@@ -44,38 +41,5 @@ const PostTemplate = ({ data, pageContext }) => {
     </>
   )
 }
-
-export const query = graphql`
-  query($slug: String!) {
-    contentfulPost(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      date(formatString: "MMMM DD, YYYY")
-      tags {
-        title
-        id
-        slug
-      }
-      cover {
-        title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 1800) {
-          src
-          width
-          height
-        }
-      }
-      body {
-        childMarkdownRemark {
-          html
-          excerpt(format: PLAIN)
-        }
-      }
-    }
-  }
-`
 
 export default PostTemplate

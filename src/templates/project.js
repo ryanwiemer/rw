@@ -1,5 +1,4 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import Container from '../components/general/Container'
 import SEO from '../components/general/SEO'
 import Hero from '../components/general/Hero'
@@ -8,7 +7,7 @@ import ProjectDetails from '../components/project/ProjectDetails'
 import ImageList from '../components/project/ImageList'
 import Video from '../components/project/Video'
 
-const ProjectTemplate = ({ data, pageContext }) => {
+const ProjectTemplate = ({ pageContext }) => {
   const {
     title,
     description,
@@ -20,10 +19,9 @@ const ProjectTemplate = ({ data, pageContext }) => {
     images,
     video,
     thumbnail,
-  } = data.contentfulProject
-
-  const previous = pageContext.prev
-  const next = pageContext.next
+    prev,
+    next,
+  } = pageContext
 
   return (
     <>
@@ -34,7 +32,7 @@ const ProjectTemplate = ({ data, pageContext }) => {
       />
       <Hero image={cover} title={title} />
       <Container>
-        <NavLinks previous={previous} next={next} />
+        <NavLinks previous={prev} next={next} />
         <ProjectDetails
           description={description}
           role={role}
@@ -48,56 +46,5 @@ const ProjectTemplate = ({ data, pageContext }) => {
     </>
   )
 }
-
-export const query = graphql`
-  query($slug: String!) {
-    contentfulProject(slug: { eq: $slug }) {
-      title
-      id
-      slug
-      date
-      url
-      source
-      awards
-      role
-      cover {
-        title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-        ogimg: resize(width: 1800) {
-          src
-          width
-          height
-        }
-      }
-      description {
-        childMarkdownRemark {
-          html
-          excerpt(format: PLAIN)
-        }
-      }
-      thumbnail {
-        title
-        fluid {
-          src
-        }
-      }
-      images {
-        title
-        fluid(maxWidth: 1800) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
-      }
-      video {
-        id
-        title
-        file {
-          url
-        }
-      }
-    }
-  }
-`
 
 export default ProjectTemplate
