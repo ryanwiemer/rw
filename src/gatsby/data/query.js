@@ -10,171 +10,74 @@ const Fluid = `
 `
 
 module.exports.data = {
-  test: `{
-    allContentfulProject {
-        edges {
-          node {
-            title
-          }
-        }
-      }
-    allContentfulPost {
-        edges {
-          node {
-            title
-          }
-        }
-      }
-    allContentfulTag {
-        edges {
-          node {
-            title
-          }
-        }
-      }
-    allContentfulLetter {
-        edges {
-          node {
-            title
-          }
-        }
-      }
-  }`,
-  projects: `{
-      allContentfulProject(sort: { fields: [date], order: DESC }) {
-        edges {
-          node {
-            title
-            id
-            slug
-            date
-            url
-            source
-            awards
-            role
-            cover {
-              title
-              fluid(maxWidth: 1800) {
-                ${Fluid}
-              }
-              ogimg: resize(width: 1800) {
-                src
-                width
-                height
-              }
-            }
-            description {
-              childMarkdownRemark {
-                html
-                excerpt(format: PLAIN)
-              }
-            }
-            thumbnail {
-              title
-              fluid {
-                src
-              }
-            }
-            images {
-              title
-              fluid(maxWidth: 1800) {
-                ${Fluid}
-              }
-            }
-            video {
-              id
-              title
-              file {
-                url
-              }
-            }
-          }
-        }
-      }
-    }`,
   posts: `{
-      allContentfulPost(sort: { fields: [date], order: DESC }) {
-        edges {
-          node {
-            title
-            id
-            slug
-            date(formatString: "MMMM DD, YYYY")
-            tags {
-              title
-              slug
-            }
-            cover {
-              title
-              fluid(maxWidth: 1800) {
-                ${Fluid}
-              }
-              ogimg: resize(width: 1800) {
-                src
-                width
-                height
-              }
-            }
-            body {
-              childMarkdownRemark {
-                html
-                excerpt(format: PLAIN)
-              }
-            }
-          }
-        }
-      }
-    }`,
-  tags: `{
-    allContentfulTag {
+    allContentfulPost(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title
           id
           slug
-          post {
-            id
+          date(formatString: "MMMM DD, YYYY")
+          content {
+            childMarkdownRemark {
+              html
+              excerpt(format: PLAIN)
+            }
+          }
+          cover {
             title
-            slug
-            date(formatString: "MMMM DD, YYYY")
-            dateISO: date(formatString: "YYYY-MM-DD")
-            cover {
-              title
-              fluid(maxWidth: 1800) {
-                ${Fluid}
-              }
+            fluid(maxWidth: 1800) {
+              ${Fluid}
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
             }
           }
         }
       }
     }
   }`,
-  letters: `{
-    allContentfulLetter {
+  projects: `{
+    allContentfulProject(sort: { fields: [date], order: DESC }) {
       edges {
         node {
           title
           id
-          position
           slug
-          color
-          logo {
-            title
-            fluid(maxWidth: 600) {
-              ${Fluid}
-            }
-          }
-          images {
-            title
-            description
-            id
-            fluid(maxWidth: 1200) {
-              ${Fluid}
-            }
-          }
-          body {
+          date(formatString: "MMMM DD, YYYY")
+          category
+          content {
             childMarkdownRemark {
               html
+              excerpt(format: PLAIN)
+            }
+          }
+          highlights
+          url
+          video {
+              id
+              title
+              file {
+                url
+              }
+            }
+          images {
+            title
+            fluid(maxWidth: 1800) {
+              ${Fluid}
+            }
+          }
+          cover {
+            title
+            fluid(maxWidth: 1800) {
+              ${Fluid}
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
             }
           }
         }

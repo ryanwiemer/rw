@@ -1,17 +1,17 @@
 # [ryanwiemer.com](https://www.ryanwiemer.com)
 
-- Copyright (c) 2019 Ryan Wiemer
+- Copyright (c) 2020 Ryan Wiemer
 - All Rights Reserved
-- Emoji support via [Twemoji](https://github.com/twitter/twemoji)
+- [Inter typeface](https://rsms.me/inter/) by Rasmus Andersson
 
-![screenshot](screenshot.jpg 'screenshot')
+![screenshot](screenshot.png 'screenshot')
 
-## Be Cool and Don't Steal ✌️
+## Learning In Public
 
-**I'm leaving this repo public for others to see how it is built. This is NOT an invitation to rip it off but rather to learn from it.**
+**I'm leaving this repo public for others to see how it is built. This is not intended to be a theme or copied directly but it may be interesting if you want to "look under the hood".**
 
-If you are interested in a starter template for Gatsby, Contentful and Netlify check out my **MIT LICENSED** repo: https://github.com/ryanwiemer/gatsby-starter-gcn.
+If you want a starter template for Gatsby, Contentful and Netlify check out my **MIT LICENSED** repo: https://github.com/ryanwiemer/gatsby-starter-gcn.
 
-If you still have any questions feel free to email me:
+If you still have any questions feel free to contact me:
 
-👉 **ryan@ryanwiemer.com**
+👉 **[https://www.ryanwiemer.com/contact/](https://www.ryanwiemer.com/contact/)**

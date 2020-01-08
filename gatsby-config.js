@@ -17,66 +17,45 @@ try {
 }
 
 module.exports = {
+  siteMetadata: {
+    title: 'Ryan Wiemer',
+    description: '',
+    url: 'https://www.ryanwiemer.com',
+    author: 'Ryan Wiemer',
+  },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Ryan Wiemer`,
+        short_name: `Ryan Wiemer`,
+        background_color: `#e7e6e1`,
+        theme_color: `#292929`,
+        start_url: `/`,
+        display: `standalone`,
+        icon: require.resolve('./static/favicon.png'),
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-emotion`,
+    'gatsby-plugin-theme-ui',
+    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           `gatsby-remark-prismjs`,
           {
-            resolve: `@raae/gatsby-remark-oembed`,
+            resolve: `gatsby-remark-images-contentful`,
             options: {
-              providers: {
-                exclude: ['Reddit', 'Flickr', 'Instagram', 'Twitter'],
-              },
+              maxWidth: 1000,
+              linkImagesToOriginal: false,
+              withWebp: true,
+              wrapperStyle: `max-width:100%!important`,
             },
           },
           `gatsby-remark-responsive-iframe`,
-          {
-            resolve: 'gatsby-remark-images-contentful',
-            options: {
-              maxWidth: 750,
-              backgroundColor: '#272727',
-              linkImagesToOriginal: false,
-              withWebp: true,
-            },
-          },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-manifest',
-      options: {
-        name: 'Ryan Wiemer',
-        short_name: 'Ryan Wiemer',
-        start_url: '/',
-        background_color: '#121212',
-        theme_color: '#FFFFFF',
-        display: 'minimal-ui',
-        icon: 'static/icon.png',
-      },
-    },
-    'gatsby-plugin-offline',
-    {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: `https://www.ryanwiemer.com`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        anonymize: false,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: '#FFFFFF',
-        showSpinner: false,
       },
     },
     {

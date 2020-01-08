@@ -1,55 +1,33 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import Helmet from 'react-helmet'
 import SEO from '../components/general/SEO'
-import Container from '../components/general/Container'
+import styled from '@emotion/styled'
 
-const Content = styled(Container)`
-  background: #121212;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  a {
-    font-size: 1.1em;
-    border-bottom: 0.09em solid #414141;
-    transition: 0.3s border-color;
-    &:hover {
-      border-color: white;
-    }
-    @media (hover: none) {
-      border-color: #414141 !important;
-    }
+const Wrapper = styled.div`
+  padding: 2.5em 1.5em;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    min-height: calc(100vh - 60px);
+    padding: 2.5em 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 `
 
-const Title = styled.h2`
-  font-weight: bold;
-  margin: 0 0 1rem 0;
-  font-size: 2.5em;
+const Title = styled.h1`
+  font-weight: ${props => props.theme.fontWeights.bold};
+  line-height: 1.15;
+  font-size: 1.866em;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    font-size: 2.488em;
+  }
 `
 
 const NotFoundPage = () => (
   <>
-    <Helmet>
-      <body className="page--404" />
-    </Helmet>
-    <SEO title="Page Not Found" description="" />
-
-    <Content minHeight>
-      <div>
-        <Title>Page Not Found</Title>
-        <p>
-          <Link to="/">Return Home</Link>
-        </p>
-      </div>
-    </Content>
+    <SEO title="Page Not Found" />
+    <Wrapper>
+      <Title>Page Not Found</Title>
+    </Wrapper>
   </>
 )
 

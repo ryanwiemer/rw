@@ -1,23 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import styled from '@emotion/styled'
+import { Global } from '@emotion/core'
 import Helmet from 'react-helmet'
-import styled, { ThemeProvider } from 'styled-components'
-import posed, { PoseGroup } from 'react-pose'
-import favicon from '../../images/favicon.ico'
-import GlobalStyle from '../../styles/global'
-import theme from '../../styles/theme'
-import { pageFade } from '../../styles/poses'
+import { globalStyles } from '../../styles/globalStyles.js'
+import Transition from './Transition'
 import Menu from './Menu'
-import Footer from './Footer'
-
-const Main = posed('main')(pageFade)
 
 const Skip = styled.a`
-  border-radius: 0 !important;
-  padding: 1em;
-  background: #497ecb;
+  font-family: ${props => props.theme.fonts.body};
+  padding: 0 1rem;
+  line-height: 60px;
+  background: #2867cf;
   color: white;
   z-index: 101;
-  position: absolute;
+  position: fixed;
   top: -100%;
   &:hover {
     text-decoration: underline;
@@ -29,79 +25,35 @@ const Skip = styled.a`
   }
 `
 
-function handleFirstTab(e) {
-  if (e.keyCode === 9) {
-    document.body.classList.add('user-is-tabbing')
-  }
-}
+const Root = styled.div`
+  font-family: ${props => props.theme.fonts.body};
+  padding: 60px 0 0 0;
+`
 
-class Layout extends React.Component {
-  constructor() {
-    super()
-    this.state = { loaded: false }
+const Layout = props => {
+  function handleFirstTab(e) {
+    if (e.keyCode === 9) {
+      document.body.classList.add('user-is-tabbing')
+    }
   }
+  useEffect(() => window.addEventListener('keydown', handleFirstTab), [])
 
-  componentDidMount() {
-    this.setState({ loaded: true })
-    window.addEventListener('keydown', handleFirstTab)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', handleFirstTab)
-  }
-
-  renderNoScript() {
-    return (
-      <noscript>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              #content {
-                visibility: visible !important;
-              }
-              #nav {
-                opacity: 1 !important;
-              }
-        `,
-          }}
-        />
-      </noscript>
-    )
-  }
-
-  render() {
-    const props = this.props
-    const children = this.props.children
-    const { loaded } = this.state
-
-    return (
-      <ThemeProvider theme={theme}>
-        <div className={`${loaded ? ' loaded' : 'initial'}`}>
-          <Helmet>
-            <html lang="en" />
-            <link rel="icon" href={favicon} />
-            <meta charSet="utf-8" />
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            />
-          </Helmet>
-          <Skip href="#content" id="skip-navigation">
-            Skip to content
-          </Skip>
-          <Menu />
-          <PoseGroup animateOnMount preEnterPose="initial">
-            <Main key={props.location.pathname} id="content" role="main">
-              {children}
-              <Footer />
-              {this.renderNoScript()}
-            </Main>
-          </PoseGroup>
-          <GlobalStyle />
-        </div>
-      </ThemeProvider>
-    )
-  }
+  return (
+    <>
+      <Global styles={globalStyles} />
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <Skip href="#main" id="skip-navigation">
+        Skip to content
+      </Skip>
+      <Menu />
+      <Transition {...props}>
+        <Root>{props.children}</Root>
+      </Transition>
+    </>
+  )
 }
 
 export default Layout
