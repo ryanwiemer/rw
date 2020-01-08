@@ -5,7 +5,7 @@ import Form from '../components/contact/Form'
 const ContactPage = () => {
   return (
     <>
-      <SEO title="Contact" />
+      <SEO title="Contact" description="Get in touch with Ryan" />
       <Form />
     </>
   )
