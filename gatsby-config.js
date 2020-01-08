@@ -41,6 +41,13 @@ module.exports = {
     'gatsby-plugin-theme-ui',
     `gatsby-plugin-offline`,
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS,
+        anonymize: false,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
