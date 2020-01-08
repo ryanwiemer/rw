@@ -1,48 +1,38 @@
 import React from 'react'
-import Container from '../components/general/Container'
+import Content from '../components/templates/Content'
+import Hero from '../components/templates/Hero'
+import ImageList from '../components/templates/ImageList'
 import SEO from '../components/general/SEO'
-import Hero from '../components/general/Hero'
-import NavLinks from '../components/general/NavLinks'
-import ProjectDetails from '../components/project/ProjectDetails'
-import ImageList from '../components/project/ImageList'
-import Video from '../components/project/Video'
+import Preview from '../components/templates/Preview'
+import Video from '../components/templates/Video'
+import Highlights from '../components/templates/Highlights'
 
 const ProjectTemplate = ({ pageContext }) => {
   const {
     title,
-    description,
-    role,
-    cover,
-    url,
-    source,
-    awards,
+    category,
     images,
+    cover,
+    previous,
+    content,
     video,
-    thumbnail,
-    prev,
-    next,
+    url,
+    highlights,
   } = pageContext
 
   return (
     <>
       <SEO
         title={title}
-        image={cover}
-        description={description.childMarkdownRemark.excerpt}
+        description={content.childMarkdownRemark.excerpt}
+        image={cover.ogimg.src}
       />
-      <Hero image={cover} title={title} />
-      <Container>
-        <NavLinks previous={prev} next={next} />
-        <ProjectDetails
-          description={description}
-          role={role}
-          awards={awards}
-          url={url}
-          source={source}
-        />
-        <Video video={video} thumbnail={thumbnail} />
-        <ImageList images={images} />
-      </Container>
+      <Hero title={title} category={category} image={cover} url={url} />
+      <Content markdown={content} />
+      {highlights && <Highlights highlights={highlights} />}
+      {video && <Video video={video} />}
+      <ImageList images={images} />
+      <Preview post={previous} />
     </>
   )
 }

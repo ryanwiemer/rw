@@ -1,24 +1,13 @@
 import React from 'react'
-import styled from 'styled-components'
-import posed from 'react-pose'
-import Container from '../components/general/Container'
+import Content from '../components/templates/Content'
+import Hero from '../components/templates/Hero'
+import Discuss from '../components/templates/Discuss'
+import Preview from '../components/templates/Preview'
 import SEO from '../components/general/SEO'
-import NavLinks from '../components/general/NavLinks'
-import Hero from '../components/general/Hero'
-import PostBody from '../components/post/PostBody'
-import PostSideBar from '../components/post/PostSideBar'
-import { delayChildren } from '../styles/poses'
-require('prismjs/themes/prism-tomorrow.css')
-
-const Wrapper = styled(posed.div(delayChildren))`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: baseline;
-`
 
 const PostTemplate = ({ pageContext }) => {
-  const { title, cover, date, body, tags, slug, prev, next } = pageContext
+  const { title, date, cover, previous, content, slug } = pageContext
+
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://www.ryanwiemer.com/${slug}/`
   )}`
@@ -27,17 +16,13 @@ const PostTemplate = ({ pageContext }) => {
     <>
       <SEO
         title={title}
-        image={cover}
-        description={body.childMarkdownRemark.excerpt}
+        description={content.childMarkdownRemark.excerpt}
+        image={cover.ogimg.src}
       />
-      <Hero title={title} image={cover} />
-      <Container>
-        <NavLinks previous={prev} next={next} />
-        <Wrapper>
-          <PostBody body={body} discussUrl={discussUrl} />
-          <PostSideBar date={date} tags={tags} />
-        </Wrapper>
-      </Container>
+      <Hero title={title} date={date} image={cover} />
+      <Content markdown={content} />
+      <Discuss title={title} URL={discussUrl} />
+      <Preview post={previous} />
     </>
   )
 }

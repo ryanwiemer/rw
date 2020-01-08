@@ -1,5 +1,8 @@
 # Redirect default Netlify subdomain to primary domain
 https://ryanwiemer.netlify.com/* https://www.ryanwiemer.com/:splat 301!
 
-# Redirect KNW Photography to Kirsten Noelle
+# Misc Old Links
+https://www.ryanwiemer.com/blog/ https://www.ryanwiemer.com/notes/
+https://www.ryanwiemer.com/about/ https://www.ryanwiemer.com/
+https://www.ryanwiemer.com/creating-a-flip-book-animation-with-react/ https://www.ryanwiemer.com/react-flip-book-animation/
 https://www.ryanwiemer.com/knw-photography/ https://www.ryanwiemer.com/kirsten-noelle/
