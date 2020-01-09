@@ -8,7 +8,7 @@ export default {
     secondary: '#dfdedc',
     accent: '#C29967',
     muted: '#e7e6e1',
-    code: '#c08946',
+    code: '#e7e6e1',
     modes: {
       dark: {
         text: '#ffffff',
