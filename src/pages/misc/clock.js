@@ -199,7 +199,6 @@ const Clock = () => {
   const rotateMinutes = currentMinutes * 6
   const rotateHours = currenHours * 30
   const exactMinute = Number(hour24) * 60 + Number(currentMinutes)
-
   const gradientPosition = transform(exactMinute, [0, 720, 1440], [0, -300, 0])
 
   return (
