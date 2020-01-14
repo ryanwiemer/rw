@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import SEO from '../../components/general/SEO'
 import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
+import { motion, transform } from 'framer-motion'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
@@ -26,29 +26,9 @@ const Time = styled.h2`
   }
 `
 
-const Controls = styled.div`
-  padding: 0;
-  position: fixed;
-  bottom: 1.5em;
-  left: 1.5em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    left: 2.5em;
-  }
-`
-
-const Label = styled.label`
-  cursor: pointer;
-  user-select: none;
-  opacity: ${props => (props.active ? '1' : '.25')};
-`
-
 const Circle = styled(motion.div)`
-  background: linear-gradient(
-    -60deg,
-    hsla(218, 50%, 31%, 1) 0%,
-    hsla(277, 51%, 12%, 1) 76%,
-    hsla(277, 41%, 9%, 1) 100%
-  );
+  overflow: hidden;
+  position: relative;
   z-index: -2;
   width: 300px;
   height: 300px;
@@ -64,6 +44,24 @@ const Circle = styled(motion.div)`
     min-height: 500px;
     min-width: 500px;
   }
+`
+
+const Gradient = styled(motion.div)`
+  position: absolute;
+  top: 0;
+  height: 400%;
+  width: 100%;
+  background: linear-gradient(
+    to top,
+    rgb(60, 180, 241) 0%,
+    rgb(91, 177, 228) 25%,
+    rgb(222, 210, 222) 46%,
+    rgb(222, 210, 222) 50%,
+    rgb(184, 162, 200) 59%,
+    rgb(69, 81, 155) 76%,
+    rgb(44, 39, 93) 98%,
+    rgb(32, 27, 81) 100%
+  );
 `
 
 const Hand = styled(motion.div)`
@@ -84,18 +82,20 @@ const Hand = styled(motion.div)`
     width: 100%;
     background: white;
     opacity: 0.5;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
   &::after {
     content: '';
     display: block;
     position: absolute;
-    top: 0;
-    left: -9px;
-    width: 20px;
-    height: 20px;
-    background: ${props => props.theme.colors.accent};
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background: white;
     border-radius: 50%;
-    display: none;
   }
 `
 
@@ -106,17 +106,38 @@ const SecondHand = styled(Hand)`
 `
 
 const MinuteHand = styled(Hand)`
+  width: 4px;
   &::before {
     height: 40%;
     top: 10%;
+    border-radius: 2px;
   }
 `
 
 const HourHand = styled(Hand)`
+  width: 8px;
   &::before {
     height: 30%;
     top: 20%;
+    border-radius: 4px;
   }
+`
+
+const Controls = styled.div`
+  padding: 0;
+  position: fixed;
+  bottom: 1.5em;
+  left: 1.5em;
+  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+    left: 2.5em;
+  }
+`
+
+const Button = styled.button`
+  color: ${props => props.theme.colors.text};
+  cursor: pointer;
+  user-select: none;
+  opacity: ${props => (props.active ? '1' : '.25')};
 `
 
 const Clock = () => {
@@ -125,7 +146,6 @@ const Clock = () => {
   const [minutes, setMinutes] = useState(true)
   const [hours, setHours] = useState(true)
   const [digits, setDigits] = useState(false)
-  const [full, setFull] = useState(false)
 
   function toggleSeconds() {
     setSeconds(!seconds)
@@ -138,10 +158,6 @@ const Clock = () => {
   }
   function toggleDigits() {
     setDigits(!digits)
-  }
-  function toggleFull() {
-    setFull(!full)
-    // Add fullscreen logic here
   }
 
   useEffect(() => {
@@ -161,6 +177,11 @@ const Clock = () => {
     hour12: true,
   })
 
+  const hour24 = date.toLocaleTimeString([], {
+    hour: 'numeric',
+    hour12: false,
+  })
+
   const currentSeconds = date.toLocaleTimeString([], {
     second: '2-digit',
   })
@@ -176,59 +197,35 @@ const Clock = () => {
 
   const rotateSeconds = currentSeconds * 6
   const rotateMinutes = currentMinutes * 6
-  const rotateHours = currenHours * 15
+  const rotateHours = currenHours * 30
+  const exactMinute = Number(hour24) * 60 + Number(currentMinutes)
+
+  const gradientPosition = transform(exactMinute, [0, 720, 1440], [0, -300, 0])
 
   return (
     <>
       <SEO title="Clock" description="A very simple clock made for fun" />
       <Wrapper>
         <Circle>
+          <Gradient style={{ top: `${gradientPosition}%` }} />
           {hours && <HourHand style={{ rotate: rotateHours }} />}
           {minutes && <MinuteHand style={{ rotate: rotateMinutes }} />}
           {seconds && <SecondHand style={{ rotate: rotateSeconds }} />}
           {digits && <Time>{time}</Time>}
         </Circle>
         <Controls>
-          <input
-            type="checkbox"
-            id="digits"
-            name="digits"
-            onClick={toggleDigits}
-          />
-          <Label htmlFor="digits" active={digits}>
+          <Button onClick={toggleDigits} active={digits}>
             Digits
-          </Label>
-          <input
-            type="checkbox"
-            id="hours"
-            name="hours"
-            onClick={toggleHours}
-          />
-          <Label htmlFor="hours" active={hours}>
+          </Button>
+          <Button onClick={toggleHours} active={hours}>
             Hours
-          </Label>
-          <input
-            type="checkbox"
-            id="minutes"
-            name="minutes"
-            onClick={toggleMinutes}
-          />
-          <Label htmlFor="minutes" active={minutes}>
+          </Button>
+          <Button onClick={toggleMinutes} active={minutes}>
             Minutes
-          </Label>
-          <input
-            type="checkbox"
-            id="seconds"
-            name="seconds"
-            onClick={toggleSeconds}
-          />
-          <Label htmlFor="seconds" active={seconds}>
+          </Button>
+          <Button onClick={toggleSeconds} active={seconds}>
             Seconds
-          </Label>
-          <input type="checkbox" id="full" name="full" onClick={toggleFull} />
-          <Label htmlFor="full" active={full}>
-            Fullscreen
-          </Label>
+          </Button>
         </Controls>
       </Wrapper>
     </>
