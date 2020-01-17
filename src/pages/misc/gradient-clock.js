@@ -38,7 +38,7 @@ const Circle = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     position: absolute;
     width: 45vw;
@@ -86,7 +86,7 @@ const Hand = styled(motion.div)`
     opacity: 0.5;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   }
   &::after {
     content: '';
@@ -211,7 +211,10 @@ const Clock = () => {
 
   return (
     <>
-      <SEO title="Clock" description="A very simple clock made for fun" />
+      <SEO
+        title="Gradient Clock"
+        description="A simple clock with a gradient background that roughly represents the time of day."
+      />
       <Wrapper>
         <Circle
           animate={{ opacity: [0, 1] }}
