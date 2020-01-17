@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Time = styled.h2`
+const Digits = styled.h2`
   color: white;
   display: inline-block;
   position: relative;
@@ -22,7 +22,7 @@ const Time = styled.h2`
   font-weight: ${props => props.theme.fontWeights.bold};
   line-height: 1.15;
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    font-size: 6em;
+    font-size: 5em;
   }
 `
 
@@ -199,7 +199,12 @@ const Clock = () => {
   const rotateMinutes = currentMinutes * 6
   const rotateHours = currenHours * 30
   const exactMinute = Number(hour24) * 60 + Number(currentMinutes)
-  const gradientPosition = transform(exactMinute, [0, 720, 1440], [0, -300, 0])
+  const exactSecond = exactMinute * 60 + Number(currentSeconds)
+  const gradientPosition = transform(
+    exactSecond,
+    [0, 43200, 86400],
+    [0, -300, 0]
+  )
 
   return (
     <>
@@ -210,7 +215,7 @@ const Clock = () => {
           {hours && <HourHand style={{ rotate: rotateHours }} />}
           {minutes && <MinuteHand style={{ rotate: rotateMinutes }} />}
           {seconds && <SecondHand style={{ rotate: rotateSeconds }} />}
-          {digits && <Time>{time}</Time>}
+          {digits && <Digits>{time}</Digits>}
         </Circle>
         <Controls>
           <Button onClick={toggleDigits} active={digits}>
