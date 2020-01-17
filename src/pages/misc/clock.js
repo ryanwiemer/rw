@@ -21,6 +21,7 @@ const Digits = styled.h2`
   font-size: 2em;
   font-weight: ${props => props.theme.fontWeights.bold};
   line-height: 1.15;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05);
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     font-size: 5em;
   }
@@ -37,6 +38,7 @@ const Circle = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.2);
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     position: absolute;
     width: 45vw;
@@ -84,6 +86,7 @@ const Hand = styled(motion.div)`
     opacity: 0.5;
     border-bottom-left-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
   }
   &::after {
     content: '';
@@ -210,7 +213,10 @@ const Clock = () => {
     <>
       <SEO title="Clock" description="A very simple clock made for fun" />
       <Wrapper>
-        <Circle>
+        <Circle
+          animate={{ opacity: [0, 1] }}
+          transition={{ duration: 0.25, delay: 1 }}
+        >
           <Gradient style={{ top: `${gradientPosition}%` }} />
           {hours && <HourHand style={{ rotate: rotateHours }} />}
           {minutes && <MinuteHand style={{ rotate: rotateMinutes }} />}
