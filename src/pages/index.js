@@ -15,10 +15,7 @@ const IndexPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
   return (
     <>
-      <SEO
-        title="Home"
-        description="Web developer and designer based in Oakland, California"
-      />
+      <SEO />
       <Intro />
       <Work projects={projects} />
       <Notes />

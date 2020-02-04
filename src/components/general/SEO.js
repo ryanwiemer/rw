@@ -1,102 +1,55 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-function SEO({ description, lang, meta, keywords, title, image }) {
+const SEO = ({ title, description, image }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             title
-            url
             description
-            author
+            url
+            image
           }
         }
       }
     `
   )
 
+  const defaultImage = site.siteMetadata.url + site.siteMetadata.image
   const metaDescription = description || site.siteMetadata.description
-  const metaImage = image || `${site.siteMetadata.url}/og-image.jpg`
+  const metaImage = image || defaultImage
+  const metaTititle = title || site.siteMetadata.title
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: `en`,
       }}
       title={title}
+      defaultTitle={site.siteMetadata.title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:image`,
-          content: `${metaImage}`,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:image`,
-          content: `${metaImage}`,
-        },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )
-        .concat(meta)}
-    />
+    >
+      <meta charSet="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      {/* General tags */}
+      <meta name="image" content={image} />
+      <meta name="description" content={metaDescription} />
+
+      {/* OpenGraph tags */}
+      <meta property="og:title" content={metaTititle} />
+      <meta property="og:image" content={metaImage} />
+      <meta property="og:description" content={metaDescription} />
+
+      {/* Twitter Card tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={metaTititle} />
+      <meta name="twitter:image" content={metaImage} />
+      <meta name="twitter:description" content={metaDescription} />
+    </Helmet>
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  image: PropTypes.string,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO

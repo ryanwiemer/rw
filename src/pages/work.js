@@ -5,12 +5,20 @@ import WorkList from '../components/templates/WorkList'
 
 const WorkPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
+  let ogImage
+
+  try {
+    ogImage = projects[0].node.cover.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
 
   return (
     <>
       <SEO
-        title="Selected Work"
+        title="Work"
         description="Selected design, development and project management work for web focused projects"
+        image={ogImage}
       />
       <WorkList projects={projects} />
     </>
@@ -30,6 +38,9 @@ export const query = graphql`
             title
             fluid(maxWidth: 1000) {
               ...GatsbyContentfulFluid_withWebp
+            }
+            ogimg: resize(width: 1000) {
+              src
             }
           }
           content {

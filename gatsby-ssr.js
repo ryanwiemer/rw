@@ -1,6 +1,2 @@
-import React from 'react'
-import Layout from './src/components/general/Layout'
-
-export const wrapPageElement = ({ element, props }) => {
-  return <Layout {...props}>{element}</Layout>
-}
+import CustomLayout from './src/gatsby/browser/wrapPageElement'
+export const wrapPageElement = CustomLayout

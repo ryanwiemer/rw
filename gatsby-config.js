@@ -19,9 +19,9 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'Ryan Wiemer',
-    description: '',
+    description: 'Web developer and designer based in Oakland, California',
+    image: '/og-image.jpg',
     url: 'https://www.ryanwiemer.com',
-    author: 'Ryan Wiemer',
   },
   plugins: [
     {
