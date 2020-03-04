@@ -25,21 +25,27 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `Ryan Wiemer`,
-        short_name: `Ryan Wiemer`,
-        background_color: `#e7e6e1`,
-        theme_color: `#292929`,
-        start_url: `/`,
-        display: `standalone`,
+        name: 'Ryan Wiemer',
+        short_name: 'Ryan Wiemer',
+        background_color: '#e7e6e1',
+        theme_color: '#292929',
+        start_url: '/',
+        display: 'standalone',
         icon: require.resolve('./static/favicon.png'),
       },
     },
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-emotion`,
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',
-    `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-theme-style-guide',
+      options: {
+        basePath: '/style-guide/',
+      },
+    },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -48,20 +54,20 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          `gatsby-remark-prismjs`,
+          'gatsby-remark-prismjs',
           {
-            resolve: `gatsby-remark-images-contentful`,
+            resolve: 'gatsby-remark-images-contentful',
             options: {
               maxWidth: 1000,
               linkImagesToOriginal: false,
               withWebp: true,
-              wrapperStyle: `max-width:100%!important`,
+              wrapperStyle: 'max-width:100%!important',
             },
           },
-          `gatsby-remark-responsive-iframe`,
+          'gatsby-remark-responsive-iframe',
         ],
       },
     },
