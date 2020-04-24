@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Global } from '@emotion/core'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { globalStyles } from '../../styles/globalStyles.js'
 import Transition from './Transition'
 import Menu from './Menu'
