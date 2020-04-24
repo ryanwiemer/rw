@@ -48,7 +48,7 @@
     "stylelint-processor-styled-components": "^1.9.0"
   },
   "scripts": {
-    "build": "gatsby build",
+    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "lint:js": "eslint --ext .js,.jsx .",
