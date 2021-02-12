@@ -1,6 +1,6 @@
 # [ryanwiemer.com](https://www.ryanwiemer.com)
 
-- Copyright (c) 2020 Ryan Wiemer
+- Copyright (c) 2021 Ryan Wiemer
 - All Rights Reserved
 - [Inter typeface](https://rsms.me/inter/) by Rasmus Andersson
 
