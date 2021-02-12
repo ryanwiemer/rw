@@ -7,10 +7,10 @@ import { scale } from '../../utils/utils'
 import Globe from '../../icons/Globe'
 
 const Wrapper = styled.div`
-  background: ${props => props.theme.colors.background};
+  background: ${(props) => props.theme.colors.background};
   padding: 0 1.5em;
   width: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 0.75em;
@@ -28,7 +28,7 @@ const Cover = styled(motion.div)`
   width: 100%;
   z-index: -2;
   transform-origin: center bottom;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     height: 100%;
     max-height: 70vh;
   }
@@ -37,7 +37,7 @@ const Cover = styled(motion.div)`
 const Height = styled.div`
   display: block;
   padding-bottom: 66.67%;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     height: 70vh;
     padding: 0;
   }
@@ -54,20 +54,20 @@ const BgImg = styled(Img)`
 `
 
 const Text = styled.div`
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     grid-column: 3 / span 8;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.large}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.large}) {
     grid-column: 4 / span 6;
   }
 `
 
 const Title = styled.h1`
-  font-weight: ${props => props.theme.fontWeights.bold};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
   line-height: 1.15;
   padding: 2.5rem 0 0.5rem;
   font-size: 1.866em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 2.488em;
   }
 `
@@ -86,29 +86,29 @@ const Live = styled.a`
   margin: 0 0 0.5rem 0;
   display: inline-block;
   white-space: nowrap;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   font-size: 0.9em;
   border-radius: 3px;
   svg {
     transition: 0.3s fill;
-    fill: ${props => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.text};
     margin: 0 0.5rem 0 0;
   }
   &:hover {
-    color: ${props => props.theme.colors.accent};
+    color: ${(props) => props.theme.colors.accent};
     svg {
-      fill: ${props => props.theme.colors.accent};
+      fill: ${(props) => props.theme.colors.accent};
     }
   }
   @media (hover: none) {
-    color: ${props => props.theme.colors.text} !important;
+    color: ${(props) => props.theme.colors.text} !important;
     svg {
-      fill: ${props => props.theme.colors.text} !important;
+      fill: ${(props) => props.theme.colors.text} !important;
     }
   }
 `
 
-const Hero = props => {
+const Hero = (props) => {
   return (
     <>
       <ScrollAnimation
@@ -123,7 +123,7 @@ const Hero = props => {
                 }}
               >
                 <BgImg
-                  sizes={{
+                  fluid={{
                     ...props.image.fluid,
                     aspectRatio: 3 / 2,
                   }}

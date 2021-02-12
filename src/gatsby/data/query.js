@@ -6,7 +6,6 @@ const Fluid = `
   srcSet
   srcWebp
   srcSetWebp
-  sizes
 `
 
 module.exports.data = {

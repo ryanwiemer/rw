@@ -136,7 +136,7 @@ const WorkList = (props) => {
             <ProjectLink to={`/${project.slug}/`}>
               <Img
                 alt={project.cover.title}
-                sizes={{
+                fluid={{
                   ...project.cover.fluid,
                   aspectRatio: 1 / 1,
                 }}

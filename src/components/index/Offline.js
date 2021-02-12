@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   position: relative;
   padding: 0 1.5em;
   display: block;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(12, 1fr);
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 
 const TextContainer = styled.div`
   display: none;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     display: block;
     grid-column: 3 / -3;
   }
@@ -32,23 +32,23 @@ const Text = styled(motion.p)`
   line-height: 1.5;
   font-size: 1em;
   z-index: -1;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 1.2em;
   }
   a {
     transition: 0.3s color;
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     text-decoration: underline;
     &:hover {
-      color: ${props => props.theme.colors.accent};
+      color: ${(props) => props.theme.colors.accent};
     }
     @media (hover: none) {
-      color: ${props => props.theme.colors.text} !important;
+      color: ${(props) => props.theme.colors.text} !important;
     }
   }
 `
 const PhotoContainer = styled(motion.div)`
-  @media screen and (max-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
     opacity: 1 !important;
     transform: perspective(0) rotateX(0deg) rotateY(0deg) !important;
   }
@@ -56,7 +56,7 @@ const PhotoContainer = styled(motion.div)`
 const Photo = styled(motion.div)`
   display: block;
   width: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     z-index: 1;
     width: 50%;
     margin: 0;
@@ -67,7 +67,7 @@ const Photo = styled(motion.div)`
   }
 `
 
-const Writing = props => {
+const Writing = (props) => {
   return (
     <Sticky
       cover
@@ -91,7 +91,7 @@ const Writing = props => {
                 >
                   <Img
                     alt={props.image.title}
-                    sizes={{
+                    fluid={{
                       ...props.image.fluid,
                       aspectRatio: 1.5 / 1,
                     }}

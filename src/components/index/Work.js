@@ -8,7 +8,7 @@ import { scale } from '../../utils/utils'
 
 const Wrapper = styled.div`
   display: none;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     width: 100%;
     position: relative;
     display: grid;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     grid-column: 3 / -3;
   }
 `
@@ -30,26 +30,26 @@ const Text = styled(motion.p)`
   margin: 0 auto;
   line-height: 1.5;
   font-size: 1em;
-  text-shadow: 1px 1px 0 ${props => props.theme.colors.reverseText};
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  text-shadow: 1px 1px 0 ${(props) => props.theme.colors.reverseText};
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 1.2em;
   }
   a {
     transition: 0.3s color;
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     text-decoration: underline;
     &:hover {
-      color: ${props => props.theme.colors.accent};
+      color: ${(props) => props.theme.colors.accent};
     }
     @media (hover: none) {
-      color: ${props => props.theme.colors.text} !important;
+      color: ${(props) => props.theme.colors.text} !important;
     }
   }
 `
 
 const Card = styled(motion.ul)`
   display: none;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     z-index: -1;
     width: 25%;
     display: block;
@@ -82,7 +82,7 @@ const StyledImg = styled(Img)`
   width: 100%;
 `
 
-const Work = props => {
+const Work = (props) => {
   return (
     <Sticky
       height="1500px"
@@ -112,7 +112,7 @@ const Work = props => {
                     }}
                   >
                     <StyledImg
-                      sizes={{
+                      fluid={{
                         ...project.cover.fluid,
                         aspectRatio: 1 / 1,
                       }}
