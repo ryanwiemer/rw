@@ -67,12 +67,14 @@ const Preview = (props) => {
       {props.post && (
         <Wrapper>
           <StyledLink to={`/${props.post.slug}/`}>
-            <Img
-              fluid={{
-                ...props.post.cover.fluid,
-                aspectRatio: 2 / 1,
-              }}
-            />
+            {props.post.cover && (
+              <Img
+                fluid={{
+                  ...props.post.cover.fluid,
+                  aspectRatio: 2 / 1,
+                }}
+              />
+            )}
             <Text>
               <SubTitle>Next</SubTitle>
               <Title>{props.post.title}</Title>

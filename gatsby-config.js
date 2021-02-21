@@ -39,6 +39,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',
+    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-theme-style-guide',
       options: {

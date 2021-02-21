@@ -111,42 +111,46 @@ const Live = styled.a`
 const Hero = (props) => {
   return (
     <>
-      <ScrollAnimation
-        render={({ progress }) => {
-          let zoom = scale(progress, 1, 1.05)
-          return (
-            <>
-              <Height />
-              <Cover
-                style={{
-                  scale: zoom,
-                }}
-              >
-                <BgImg
-                  fluid={{
-                    ...props.image.fluid,
-                    aspectRatio: 3 / 2,
+      {props.image && (
+        <ScrollAnimation
+          render={({ progress }) => {
+            let zoom = scale(progress, 1, 1.05)
+            return (
+              <>
+                <Height />
+                <Cover
+                  style={{
+                    scale: zoom,
                   }}
-                  alt={props.image.title}
-                />
-              </Cover>
-            </>
-          )
-        }}
-      />
-      <Wrapper>
-        <Text>
-          <Title>{props.title}</Title>
-          {props.url && (
-            <Live href={props.url} target="_blank" rel="noopener noreferrer">
-              <Globe />
-              {props.url}
-            </Live>
-          )}
-          {props.date && <Date>{props.date}</Date>}
-          {props.category && <Category>{props.category}</Category>}
-        </Text>
-      </Wrapper>
+                >
+                  <BgImg
+                    fluid={{
+                      ...props.image.fluid,
+                      aspectRatio: 3 / 2,
+                    }}
+                    alt={props.image.title}
+                  />
+                </Cover>
+              </>
+            )
+          }}
+        />
+      )}
+      {props.image && (
+        <Wrapper>
+          <Text>
+            <Title>{props.title}</Title>
+            {props.url && (
+              <Live href={props.url} target="_blank" rel="noopener noreferrer">
+                <Globe />
+                {props.url}
+              </Live>
+            )}
+            {props.date && <Date>{props.date}</Date>}
+            {props.category && <Category>{props.category}</Category>}
+          </Text>
+        </Wrapper>
+      )}
     </>
   )
 }
