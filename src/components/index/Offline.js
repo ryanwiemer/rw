@@ -22,6 +22,7 @@ const Wrapper = styled.div`
 const TextContainer = styled.div`
   display: none;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    z-index: 2;
     display: block;
     grid-column: 3 / -3;
   }
@@ -103,7 +104,7 @@ const Writing = (props) => {
                   When not online I can usually be found exploring the Bay Area
                   with my wife{' '}
                   <a
-                    href="https://www.kirstennoelle.com/"
+                    href="https://www.kirstennoelle.com/about/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

@@ -8,7 +8,7 @@ import { scale } from '../../utils/utils'
 const Wrapper = styled.div`
   width: 100%;
   padding: 2.5em 1.5em 1.5em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     margin: -60px 0 0 0;
     min-height: calc(100vh - 60px);
     display: grid;
@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 `
 
 const Container = styled(motion.div)`
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     padding: 0;
     grid-column: 1 / -1;
     display: grid;
@@ -30,9 +30,9 @@ const Container = styled(motion.div)`
 
 const Big = styled.h1`
   font-size: 2em;
-  font-weight: ${props => props.theme.fontWeights.bold};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
   line-height: 1.15;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 6em;
   }
 `
@@ -42,8 +42,8 @@ const Scroll = styled(motion.div)`
   font-size: 0.9em;
   margin: 1rem 0 0 0;
   display: none;
-  color: ${props => props.theme.colors.text};
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  color: ${(props) => props.theme.colors.text};
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     display: inline-block;
   }
 `
@@ -51,23 +51,23 @@ const Scroll = styled(motion.div)`
 const Mobile = styled(motion.div)`
   display: block;
   margin: 2em 0 1em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     display: none;
   }
   a {
     transition: 0.3s color;
-    color: ${props => props.theme.colors.text};
+    color: ${(props) => props.theme.colors.text};
     text-decoration: underline;
     &:hover {
-      color: ${props => props.theme.colors.accent};
+      color: ${(props) => props.theme.colors.accent};
     }
     @media (hover: none) {
-      color: ${props => props.theme.colors.text} !important;
+      color: ${(props) => props.theme.colors.text} !important;
     }
   }
 `
 
-const Intro = props => {
+const Intro = (props) => {
   return (
     <Sticky
       height="1000px"
