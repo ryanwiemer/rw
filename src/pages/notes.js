@@ -35,7 +35,6 @@ export const query = graphql`
           title
           id
           slug
-          pinned
           date(formatString: "MMMM DD, YYYY")
           cover {
             title

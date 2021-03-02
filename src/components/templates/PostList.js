@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
-import Pin from '../../icons/Pin'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
@@ -99,22 +98,6 @@ const Date = styled.p`
   }
 `
 
-const Pinned = styled.div`
-  color: ${(props) => props.theme.colors.accent};
-  font-size: 0.9em;
-  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-    grid-area: date;
-  }
-  span {
-    background: ${(props) => props.theme.colors.muted};
-    padding: 0.25em 0.5em;
-    border-radius: 3px;
-  }
-  svg {
-    fill: ${(props) => props.theme.colors.accent};
-  }
-`
-
 const WorkList = (props) => {
   return (
     <Wrapper>
@@ -130,14 +113,6 @@ const WorkList = (props) => {
                 {post.content.childMarkdownRemark.excerpt}
               </Description>
               {post.date && <Date>{post.date}</Date>}
-              {post.pinned === true && (
-                <Pinned>
-                  <span>
-                    <Pin />
-                    Pinned
-                  </span>
-                </Pinned>
-              )}
             </PostLink>
           </Item>
         ))}
