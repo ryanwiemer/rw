@@ -7,8 +7,6 @@ const NotesPage = ({ data }) => {
   const posts = data.allContentfulPost.edges
   let ogImage
 
-  console.log(posts)
-
   try {
     ogImage = posts[0].node.cover.ogimg.src
   } catch (error) {

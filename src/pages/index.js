@@ -13,8 +13,6 @@ const IndexPage = ({ data }) => {
     ogImage = null
   }
 
-  console.log(text)
-
   return (
     <>
       <SEO image={ogImage} />
