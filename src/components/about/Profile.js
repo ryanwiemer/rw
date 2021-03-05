@@ -7,7 +7,6 @@ import Sticky from './Sticky'
 import { scale } from '../../utils/utils'
 
 const Wrapper = styled.div`
-  display: none;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     width: 100%;
     position: relative;
@@ -51,7 +50,7 @@ const Card = styled(motion.ul)`
   display: none;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     z-index: -1;
-    width: 25%;
+    width: 50%;
     display: block;
     margin: 0;
     position: absolute;
@@ -60,23 +59,7 @@ const Card = styled(motion.ul)`
   }
 `
 
-const Item = styled(motion.li)`
-  animation: flip 10s linear 0.01s infinite;
-  @keyframes flip {
-    0% {
-      transform: rotate3d(1, 0, 0, 0deg) rotate3d(0, 1, 0, -40deg)
-        rotate3d(0, 0, 1, -20deg);
-    }
-    50% {
-      transform: rotate3d(1, 0, 0, -180deg) rotate3d(0, 1, 0, -40deg)
-        rotate3d(0, 0, 1, -20deg);
-    }
-    100% {
-      transform: rotate3d(1, 0, 0, -360deg) rotate3d(0, 1, 0, -40deg)
-        rotate3d(0, 0, 1, -20deg);
-    }
-  }
-`
+const Item = styled(motion.li)``
 
 const StyledImg = styled(Img)`
   width: 100%;
@@ -96,40 +79,35 @@ const Work = (props) => {
         let translateY = '-50%'
         return (
           <>
-            <Wrapper className="work">
+            <Wrapper>
+              <Container>
+                <Text
+                  style={{
+                    opacity: fadeOut,
+                  }}
+                >
+                  {props.title}
+                </Text>
+              </Container>
               <Card
                 style={{
-                  scale: magnify,
                   translateY: translateY,
                   translateX: translateX,
                 }}
               >
-                {props.projects.map(({ node: project }) => (
-                  <Item
-                    key={project.id}
-                    style={{
-                      opacity: fadeOut,
-                    }}
-                  >
-                    <StyledImg
-                      fluid={{
-                        ...project.cover.fluid,
-                        aspectRatio: 1 / 1,
-                      }}
-                    />
-                  </Item>
-                ))}
-              </Card>
-              <Container>
-                <Text
+                <Item
                   style={{
-                    opacity: fadeIn,
+                    opacity: fadeOut,
                   }}
                 >
-                  I'm passionate about helping clients make{' '}
-                  <Link to="/work/">cool things</Link> on the web.
-                </Text>
-              </Container>
+                  <StyledImg
+                    fluid={{
+                      ...props.cover.fluid,
+                      aspectRatio: 1 / 1,
+                    }}
+                  />
+                </Item>
+              </Card>
             </Wrapper>
           </>
         )

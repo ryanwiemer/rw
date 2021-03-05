@@ -1,12 +1,13 @@
 import React from 'react'
 import SEO from '../components/general/SEO'
-import Bio from '../components/about/Bio'
+import Content from '../components/templates/Content'
+import Profile from '../components/about/Profile'
 import { graphql } from 'gatsby'
 
 const AboutPage = ({ data }) => {
   const title = data.contentfulPage.title
   const cover = data.contentfulPage.cover
-  const content = data.contentfulPage.content.childMarkdownRemark
+  const content = data.contentfulPage.content
 
   let ogImage
   try {
@@ -18,7 +19,8 @@ const AboutPage = ({ data }) => {
   return (
     <>
       <SEO title={title} description={content.excerpt} image={ogImage} />
-      <Bio title={title} cover={cover} content={content} />
+      <Profile cover={cover} title={title} />
+      <Content markdown={content} />
     </>
   )
 }

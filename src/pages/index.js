@@ -1,12 +1,6 @@
 import React from 'react'
 import SEO from '../components/general/SEO'
 import Intro from '../components/index/Intro'
-import Work from '../components/index/Work'
-import Notes from '../components/index/Notes'
-import LatestPost from '../components/index/LatestPost'
-import Offline from '../components/index/Offline'
-import Contact from '../components/index/Contact'
-
 import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => {

@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
-import Sticky from './Sticky'
 import { Link } from 'gatsby'
-import { scale } from '../../utils/utils'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -19,7 +16,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Container = styled(motion.div)`
+const Container = styled.div`
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     grid-gap: 0.75em;
     padding: 0;
@@ -36,20 +33,6 @@ const Title = styled.h1`
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 3em;
     max-width: 800px;
-  }
-`
-
-const Box = styled.div`
-  width: 400px;
-  height: 400px;
-  background: gray;
-  display: none;
-  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-  }
-`
-
-const Text = styled.div`
-  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
   }
 `
 
@@ -73,7 +56,6 @@ const Intro = (props) => {
     <>
       <Wrapper>
         <Container>
-          <Box />
           <Title
             dangerouslySetInnerHTML={{
               __html: props.text,
