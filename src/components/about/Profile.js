@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     grid-template-columns: repeat(12, 1fr);
     justify-items: center;
     grid-gap: 0.75em;
-    padding: 2.5em 3em;
+    padding: 2.5em 3em 0;
   }
 `
 

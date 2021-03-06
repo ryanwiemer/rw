@@ -22,21 +22,26 @@ const Container = styled.div`
     justify-items: center;
     align-items: center;
     grid-gap: 0.75em;
-    padding: 2.5em 3em;
+    padding: 2.5rem 3rem;
     z-index: -1;
   }
 `
 
 const Title = styled(motion.h2)`
-  grid-column: 1 / -1;
   display: inline-block;
-  margin: 0 auto;
   line-height: 1.2;
   letter-spacing: -0.01em;
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 1.866em;
+  padding: 2.5rem 1.5rem 1.5rem;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 3em;
+    margin: 0 auto;
+    grid-column: 1 / -1;
+  }
+  @media screen and (max-width: ${(props) => props.theme.responsive.medium}) {
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 `
 

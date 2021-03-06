@@ -44,6 +44,21 @@ const Wrapper = styled.div`
     }
   }
 
+  .emoji {
+    display: inline-block;
+    padding: 0 0.5rem 0 0;
+  }
+
+  .card {
+    display: inline-block;
+    font-weight: ${(props) => props.theme.fontWeights.bold};
+    background: ${(props) => props.theme.colors.muted};
+    padding: 2rem;
+    float: left;
+    width: 100%;
+    border-radius: 3px;
+  }
+
   h1,
   h2,
   h3,
