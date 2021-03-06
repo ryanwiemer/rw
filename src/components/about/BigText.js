@@ -45,7 +45,7 @@ const Title = styled(motion.h2)`
   }
 `
 
-const Emoji = styled(motion.span)`
+const Emoji = styled(motion.div)`
   display: inline-block;
   margin: 0 1rem 0 0;
 `

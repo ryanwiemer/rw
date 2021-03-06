@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { motion } from 'framer-motion'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -60,8 +61,9 @@ const Button = styled(Link)`
   }
 `
 
-const Notification = styled.span`
+const Notification = styled(motion.div)`
   background: ${(props) => props.theme.colors.accent};
+  overflow: hidden;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
@@ -69,33 +71,58 @@ const Notification = styled.span`
   display: flex;
   color: white;
   position: absolute;
-  top: -0.75em;
-  right: -0.75em;
-  font-size: 0.75em;
-  width: 1.75em;
-  height: 1.75em;
-  border: 1px solid white;
+  top: -1em;
+  right: -1em;
+  font-size: 0.65em;
+  width: 2em;
+  height: 2em;
+  border: 1px solid ${(props) => props.theme.colors.background};
   border-radius: 50%;
-  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-  }
 `
 
+const Number = styled(motion.span)``
+
 const Intro = (props) => {
+  const [counter, setCounter] = useState(1)
+
+  useEffect(() => {
+    const timer =
+      counter < 5 && setInterval(() => setCounter(counter + 1), 4000)
+    return () => clearInterval(timer)
+  }, [counter])
+
   return (
-    <>
-      <Wrapper>
-        <Container>
-          <Title
-            dangerouslySetInnerHTML={{
-              __html: props.text,
+    <Wrapper>
+      <Container>
+        <Title
+          dangerouslySetInnerHTML={{
+            __html: props.text,
+          }}
+        />
+        <Button to="/about/">
+          Learn more{' '}
+          <Notification
+            initial={{ opacity: 0, zoom: 0.75 }}
+            animate={{ opacity: 1, zoom: 1 }}
+            transition={{
+              duration: 0.25,
+              delay: 1.5,
             }}
-          />
-          <Button to="/about/">
-            Learn more <Notification>1</Notification>
-          </Button>
-        </Container>
-      </Wrapper>
-    </>
+          >
+            <Number
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.25,
+                delay: 1.5,
+              }}
+            >
+              {counter}
+            </Number>
+          </Notification>
+        </Button>
+      </Container>
+    </Wrapper>
   )
 }
 
