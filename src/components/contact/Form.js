@@ -159,7 +159,7 @@ const Form = (props) => {
     },
     exit: {
       opacity: 0,
-      transition: { duration: duration },
+      transition: { duration: 0 },
     },
   }
 

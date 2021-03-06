@@ -24,30 +24,59 @@ const Container = styled.div`
   }
 `
 
-const Title = styled.h1`
+const Title = styled.h2`
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 1.866em;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    margin: 0 0 2rem 0;
     font-size: 3em;
     max-width: 800px;
   }
 `
 
 const Button = styled(Link)`
+  position: relative;
+  font-size: 1em;
   display: inline-block;
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  font-size: 1.25em;
-  transition: 0.3s color;
-  color: ${(props) => props.theme.colors.text};
-  text-decoration: underline;
+  text-decoration: none;
+  transition: 0.3s background, 0.3s color;
+  background: ${(props) => props.theme.colors.primary};
+  padding: 0.5em 2em;
+  border-radius: 3px;
+  color: ${(props) => props.theme.colors.reverseText};
   &:hover {
-    color: ${(props) => props.theme.colors.accent};
+    background: ${(props) => props.theme.colors.accent};
+    color: white;
   }
   @media (hover: none) {
-    color: ${(props) => props.theme.colors.text} !important;
+    background: ${(props) => props.theme.colors.primary} !important;
+    color: ${(props) => props.theme.colors.reverseText} !important;
+  }
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    font-size: 1.15em;
+  }
+`
+
+const Notification = styled.span`
+  background: ${(props) => props.theme.colors.accent};
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  color: white;
+  position: absolute;
+  top: -0.75em;
+  right: -0.75em;
+  font-size: 0.75em;
+  width: 1.75em;
+  height: 1.75em;
+  border: 1px solid white;
+  border-radius: 50%;
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
   }
 `
 
@@ -61,7 +90,9 @@ const Intro = (props) => {
               __html: props.text,
             }}
           />
-          <Button to="/about/"> Learn more</Button>
+          <Button to="/about/">
+            Learn more <Notification>1</Notification>
+          </Button>
         </Container>
       </Wrapper>
     </>

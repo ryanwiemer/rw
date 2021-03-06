@@ -49,14 +49,23 @@ const Wrapper = styled.div`
     padding: 0 0.5rem 0 0;
   }
 
-  .card {
+  .button {
     display: inline-block;
-    font-weight: ${(props) => props.theme.fontWeights.bold};
-    background: ${(props) => props.theme.colors.muted};
-    padding: 2rem;
-    float: left;
-    width: 100%;
+    text-decoration: none;
+    transition: 0.3s background, 0.3s color;
+    background: ${(props) => props.theme.colors.primary};
+    padding: 0.5em 2em;
+    margin: 0 0 1.5rem 0 !important;
     border-radius: 3px;
+    color: ${(props) => props.theme.colors.reverseText};
+    &:hover {
+      background: ${(props) => props.theme.colors.accent};
+      color: white;
+    }
+    @media (hover: none) {
+      background: ${(props) => props.theme.colors.primary} !important;
+      color: ${(props) => props.theme.colors.reverseText} !important;
+    }
   }
 
   h1,
