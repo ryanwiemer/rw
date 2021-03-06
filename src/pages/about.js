@@ -2,6 +2,7 @@ import React from 'react'
 import SEO from '../components/general/SEO'
 import Content from '../components/templates/Content'
 import Profile from '../components/about/Profile'
+import BigText from '../components/about/BigText'
 import { graphql } from 'gatsby'
 
 const AboutPage = ({ data }) => {
@@ -18,8 +19,9 @@ const AboutPage = ({ data }) => {
 
   return (
     <>
-      <SEO title={title} description={content.excerpt} image={ogImage} />
-      <Profile cover={cover} title={title} />
+      <SEO title="About" description={content.excerpt} image={ogImage} />
+      <BigText title={title} />
+      <Profile cover={cover} />
       <Content markdown={content} />
     </>
   )

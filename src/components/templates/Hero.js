@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
 import { motion } from 'framer-motion'
-import ScrollAnimation from './ScrollAnimation'
+import ScrollAnimation from '../general/ScrollAnimation'
 import { scale } from '../../utils/utils'
 import Globe from '../../icons/Globe'
 
