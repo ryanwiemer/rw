@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   margin: 0 0 2em 0;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-    margin: 0 0 4em 0;
+    margin: 0 0 2em 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 1.5em;
@@ -25,36 +25,35 @@ const Title = styled.h1`
   letter-spacing: -0.01em;
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 1.866em;
+  margin: 0 0 2rem 0;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 2.488em;
-    grid-column: span 1;
+    grid-column: span 12;
+    margin: 0 0 4rem 0;
   }
 `
 
-const Aside = styled.p`
-  font-size: 0.9em;
-  background: ${(props) => props.theme.colors.muted};
-  padding: 1em;
-  border-radius: 3px;
-  font-size: 1em;
-  margin: 1rem 0 0 0;
-  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-    margin: 0;
-    font-size: 1em;
-    grid-column: span 2;
+const Row = styled.div`
+  grid-column: span 12;
+  width: 100%;
+  border-top: 1px solid ${(props) => props.theme.colors.secondary};
+  border-bottom: 1px solid ${(props) => props.theme.colors.secondary};
+`
+
+const Button = styled.button`
+  cursor: pointer;
+  padding: 0;
+  margin: 0 2rem 0 0;
+  padding: 1rem 0;
+  border-bottom: 2px solid
+    ${(props) => (props.active ? props.theme.colors.accent : 'transparent')};
+  transition: 0.3s color;
+  color: ${(props) => props.theme.colors.text};
+  &:hover {
+    color: ${(props) => props.theme.colors.accent};
   }
-  em {
-    font-weight: ${(props) => props.theme.fontWeights.bold};
-  }
-  a {
-    transition: 0.3s color;
-    color: ${(props) => props.theme.colors.text};
-    &:hover {
-      color: ${(props) => props.theme.colors.accent};
-    }
-    @media (hover: none) {
-      color: ${(props) => props.theme.colors.text} !important;
-    }
+  @media (hover: none) {
+    color: ${(props) => props.theme.colors.text} !important;
   }
 `
 
@@ -119,30 +118,44 @@ const ProjectLink = styled(Link)`
   }
 `
 
-const Button = styled.button`
-  background: gray;
-`
-
 const WorkList = (props) => {
   const [projects, setProjects] = useState(props.projects)
+  const [selected, setSelected] = useState('All')
 
   const filter = (value) => {
-    props.projects.filter((project) => project.node.category == value)
+    setSelected(value)
+    value != 'All'
+      ? setProjects(
+          props.projects.filter((project) => project.node.category === value)
+        )
+      : setProjects(props.projects)
   }
 
   const categories = [
     ...new Set(props.projects.map((item) => item.node.category)),
   ]
 
-  console.log(categories)
-
   return (
     <Wrapper>
       <Header>
         <Title>Selected Work</Title>
-        {categories.map((category, index) => (
-          <Button key={index}>{category}</Button>
-        ))}
+        <Row>
+          <Button
+            active={selected == 'All' ? true : false}
+            onClick={() => filter('All')}
+          >
+            All
+          </Button>
+          {categories.map((category, index) => (
+            <Button
+              active={selected == category ? true : false}
+              onClick={() => filter(category)}
+              key={index}
+            >
+              {category}
+            </Button>
+          ))}
+        </Row>
       </Header>
       <List>
         {projects.map(({ node: project }) => (
