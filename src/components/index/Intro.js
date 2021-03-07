@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
+import Bell from '../../icons/Bell'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -80,17 +81,9 @@ const Notification = styled(motion.div)`
   border-radius: 50%;
 `
 
-const Number = styled(motion.span)``
+const Badge = styled(motion.div)``
 
 const Intro = (props) => {
-  const [counter, setCounter] = useState(1)
-
-  useEffect(() => {
-    const timer =
-      counter < 5 && setInterval(() => setCounter(counter + 1), 4000)
-    return () => clearInterval(timer)
-  }, [counter])
-
   return (
     <Wrapper>
       <Container>
@@ -109,16 +102,16 @@ const Intro = (props) => {
               delay: 1.5,
             }}
           >
-            <Number
+            <Badge
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.25,
-                delay: 1.5,
+                delay: 1.75,
               }}
             >
-              {counter}
-            </Number>
+              <Bell />
+            </Badge>
           </Notification>
         </Button>
       </Container>

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
+import { motion, AnimateSharedLayout } from 'framer-motion'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
@@ -40,13 +41,12 @@ const Row = styled.div`
   border-bottom: 1px solid ${(props) => props.theme.colors.secondary};
 `
 
-const Button = styled.button`
+const Button = styled(motion.button)`
+  position: relative;
   cursor: pointer;
   padding: 0;
   margin: 0 2rem 0 0;
   padding: 1rem 0;
-  border-bottom: 2px solid
-    ${(props) => (props.active ? props.theme.colors.accent : 'transparent')};
   transition: 0.3s color;
   color: ${(props) => props.theme.colors.text};
   &:hover {
@@ -55,6 +55,14 @@ const Button = styled.button`
   @media (hover: none) {
     color: ${(props) => props.theme.colors.text} !important;
   }
+`
+
+const Underline = styled(motion.div)`
+  background: ${(props) => props.theme.colors.accent};
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
 `
 
 const List = styled.ul`
@@ -70,7 +78,7 @@ const List = styled.ul`
   }
 `
 
-const Item = styled.li`
+const Item = styled(motion.li)`
   margin: 0 0 2em 0;
 `
 
@@ -132,29 +140,32 @@ const WorkList = (props) => {
   }
 
   const categories = [
-    ...new Set(props.projects.map((item) => item.node.category)),
+    ...new Set(props.projects.map((item) => item.node.category).reverse()),
   ]
+
+  const spring = {
+    type: 'spring',
+    stiffness: 500,
+    damping: 30,
+  }
 
   return (
     <Wrapper>
       <Header>
         <Title>Selected Work</Title>
         <Row>
-          <Button
-            active={selected == 'All' ? true : false}
-            onClick={() => filter('All')}
-          >
-            All
-          </Button>
-          {categories.map((category, index) => (
-            <Button
-              active={selected == category ? true : false}
-              onClick={() => filter(category)}
-              key={index}
-            >
-              {category}
+          <AnimateSharedLayout>
+            <Button onClick={() => filter('All')}>
+              All
+              {selected == 'All' && <Underline layoutId="underline" />}
             </Button>
-          ))}
+            {categories.map((category, index) => (
+              <Button onClick={() => filter(category)} key={index}>
+                {category}
+                {selected == category && <Underline layoutId="underline" />}
+              </Button>
+            ))}
+          </AnimateSharedLayout>
         </Row>
       </Header>
       <List>
