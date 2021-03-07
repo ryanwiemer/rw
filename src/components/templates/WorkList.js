@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
@@ -119,19 +119,33 @@ const ProjectLink = styled(Link)`
   }
 `
 
+const Button = styled.button`
+  background: gray;
+`
+
 const WorkList = (props) => {
+  const [projects, setProjects] = useState(props.projects)
+
+  const filter = (value) => {
+    props.projects.filter((project) => project.node.category == value)
+  }
+
+  const categories = [
+    ...new Set(props.projects.map((item) => item.node.category)),
+  ]
+
+  console.log(categories)
+
   return (
     <Wrapper>
       <Header>
         <Title>Selected Work</Title>
-        <Aside>
-          <em>Note:</em> This is only a small sample of client work and personal
-          projects. To learn more please get in{' '}
-          <Link to="/contact/">contact</Link>. 😀
-        </Aside>
+        {categories.map((category, index) => (
+          <Button key={index}>{category}</Button>
+        ))}
       </Header>
       <List>
-        {props.projects.map(({ node: project }) => (
+        {projects.map(({ node: project }) => (
           <Item key={project.id}>
             <ProjectLink to={`/${project.slug}/`}>
               <Img
