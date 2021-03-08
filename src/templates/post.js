@@ -8,6 +8,13 @@ import SEO from '../components/general/SEO'
 const PostTemplate = ({ pageContext }) => {
   const { title, date, cover, previous, content, slug } = pageContext
 
+  let ogImage
+  try {
+    ogImage = cover.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://www.ryanwiemer.com/${slug}/`
   )}`
@@ -17,7 +24,7 @@ const PostTemplate = ({ pageContext }) => {
       <SEO
         title={title}
         description={content.childMarkdownRemark.excerpt}
-        image={cover.ogimg.src}
+        image={ogImage}
       />
       <Hero title={title} date={date} image={cover} />
       <Content markdown={content} />

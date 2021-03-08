@@ -1,27 +1,22 @@
 import React from 'react'
 import SEO from '../components/general/SEO'
 import Intro from '../components/index/Intro'
-import Work from '../components/index/Work'
-import Notes from '../components/index/Notes'
-import LatestPost from '../components/index/LatestPost'
-import Offline from '../components/index/Offline'
-import Contact from '../components/index/Contact'
-
 import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => {
-  const page = data.contentfulPage
-  const post = data.allContentfulPost.edges[0].node
-  const projects = data.allContentfulProject.edges
+  const text = data.contentfulPage.content.childMarkdownRemark.html
+  const cover = data.contentfulPage.cover
+  let ogImage
+  try {
+    ogImage = cover.ogimg.src
+  } catch (error) {
+    ogImage = null
+  }
+
   return (
     <>
-      <SEO />
-      <Intro />
-      <Work projects={projects} />
-      <Notes />
-      <LatestPost post={post} />
-      <Offline image={page.cover} />
-      <Contact />
+      <SEO image={ogImage} />
+      <Intro text={text} />
     </>
   )
 }
@@ -33,30 +28,15 @@ export const query = graphql`
       slug
       cover {
         title
-        fluid(maxWidth: 1600) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
         }
       }
-    }
-    allContentfulPost(limit: 1, sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          date(formatString: "MMMM DD, YYYY")
-        }
-      }
-    }
-    allContentfulProject(limit: 1, sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
-          id
-          cover {
-            title
-            fluid(maxWidth: 750) {
-              ...GatsbyContentfulFluid_withWebp
-            }
-          }
+      content {
+        childMarkdownRemark {
+          html
         }
       }
     }

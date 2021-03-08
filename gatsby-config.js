@@ -19,7 +19,7 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'Ryan Wiemer',
-    description: 'Web developer and designer based in Oakland, California',
+    description: 'Digital marketer based in Oakland, California',
     image: '/og-image.jpg',
     url: 'https://www.ryanwiemer.com',
   },
@@ -39,6 +39,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',
+    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-theme-style-guide',
       options: {
@@ -49,7 +50,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
+        trackingId: process.env.GOOGLE_ANALYTICS || 'UA-XXXXXXXX-X',
         anonymize: false,
       },
     },

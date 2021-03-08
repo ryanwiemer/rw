@@ -9,7 +9,7 @@ import Refresh from '../../icons/Refresh'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     padding: 2.5em 3em;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   margin: 0 0 2em 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     margin: 0 0 4em 0;
     grid-column: 1 / -1;
     display: grid;
@@ -30,10 +30,10 @@ const Header = styled.div`
 
 const Title = styled.h1`
   line-height: 1.15;
-  letter-spacing: -0.01em;
-  font-weight: ${props => props.theme.fontWeights.bold};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 1.866em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    line-height: 1.15;
     font-size: 2.488em;
     grid-column: span 2;
   }
@@ -41,32 +41,32 @@ const Title = styled.h1`
 
 const FormContainer = styled(motion.form)`
   margin: 0 0 2em 0;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     grid-column: 5 / span 8;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0.75em;
     max-width: 750px;
   }
-  @media screen and (min-width: ${props => props.theme.responsive.large}) {
+  @media screen and (min-width: ${(props) => props.theme.responsive.large}) {
     grid-column: 7 / span 6;
   }
 `
 
 const Submit = styled.button`
   transition: 0.3s background, 0.3s color;
-  background: ${props => props.theme.colors.primary};
+  background: ${(props) => props.theme.colors.primary};
   padding: 0.5em 2em;
   border-radius: 3px;
-  color: ${props => props.theme.colors.reverseText};
+  color: ${(props) => props.theme.colors.reverseText};
   cursor: pointer;
   &:hover {
-    background: ${props => props.theme.colors.accent};
+    background: ${(props) => props.theme.colors.accent};
     color: white;
   }
   @media (hover: none) {
-    background: ${props => props.theme.colors.primary} !important;
-    color: ${props => props.theme.colors.reverseText} !important;
+    background: ${(props) => props.theme.colors.primary} !important;
+    color: ${(props) => props.theme.colors.reverseText} !important;
   }
 `
 
@@ -76,7 +76,7 @@ const Reset = styled(motion.button)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${props => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.text};
   cursor: pointer;
   position: absolute;
   top: 0.75em;
@@ -86,7 +86,7 @@ const Reset = styled(motion.button)`
   svg {
     opacity: 1;
     transition: transform 0.5s, opacity 0.5s;
-    fill: ${props => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.text};
   }
   &:hover {
     svg {
@@ -96,7 +96,7 @@ const Reset = styled(motion.button)`
   }
 `
 
-const Form = props => {
+const Form = (props) => {
   const initialState = {
     name: '',
     email: '',
@@ -116,28 +116,30 @@ const Form = props => {
     setTimeout(clearState(), 250)
   }
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     event.persist()
-    setInputs(inputs => ({
+    setInputs((inputs) => ({
       ...inputs,
       [event.target.name]: event.target.value,
     }))
   }
 
-  const encode = data => {
+  const encode = (data) => {
     return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
       .join('&')
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({ 'form-name': 'contact-form', name, email, message }),
     })
       .then(handleSuccess)
-      .catch(error => alert(error))
+      .catch((error) => alert(error))
     event.preventDefault()
   }
 
@@ -157,7 +159,7 @@ const Form = props => {
     },
     exit: {
       opacity: 0,
-      transition: { duration: duration },
+      transition: { duration: 0 },
     },
   }
 

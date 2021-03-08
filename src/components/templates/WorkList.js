@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
 const Header = styled.div`
   margin: 0 0 2em 0;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-    margin: 0 0 4em 0;
+    margin: 0 0 2em 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 1.5em;
@@ -25,37 +26,44 @@ const Title = styled.h1`
   letter-spacing: -0.01em;
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: 1.866em;
+  margin: 0 0 2rem 0;
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     font-size: 2.488em;
-    grid-column: span 1;
+    grid-column: span 12;
+    margin: 0 0 4rem 0;
   }
 `
 
-const Aside = styled.p`
-  font-size: 0.9em;
-  background: ${(props) => props.theme.colors.muted};
-  padding: 1em;
-  border-radius: 3px;
-  font-size: 1em;
-  margin: 1rem 0 0 0;
-  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
-    margin: 0;
-    font-size: 1em;
-    grid-column: span 2;
+const Row = styled.div`
+  grid-column: span 12;
+  width: 100%;
+  border-top: 1px solid ${(props) => props.theme.colors.secondary};
+  border-bottom: 1px solid ${(props) => props.theme.colors.secondary};
+`
+
+const Button = styled(motion.button)`
+  position: relative;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 2rem 0 0;
+  padding: 1rem 0;
+  transition: 0.3s color;
+  color: ${(props) => props.theme.colors.text};
+  transform: translate3d(0px 0px 0px) !important;
+  &:hover {
+    color: ${(props) => props.theme.colors.accent};
   }
-  em {
-    font-weight: ${(props) => props.theme.fontWeights.bold};
+  @media (hover: none) {
+    color: ${(props) => props.theme.colors.text} !important;
   }
-  a {
-    transition: 0.3s color;
-    color: ${(props) => props.theme.colors.text};
-    &:hover {
-      color: ${(props) => props.theme.colors.accent};
-    }
-    @media (hover: none) {
-      color: ${(props) => props.theme.colors.text} !important;
-    }
-  }
+`
+
+const Underline = styled(motion.div)`
+  background: ${(props) => props.theme.colors.accent};
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
 `
 
 const List = styled.ul`
@@ -71,7 +79,7 @@ const List = styled.ul`
   }
 `
 
-const Item = styled.li`
+const Item = styled(motion.li)`
   margin: 0 0 2em 0;
 `
 
@@ -120,35 +128,71 @@ const ProjectLink = styled(Link)`
 `
 
 const WorkList = (props) => {
+  const [projects, setProjects] = useState(props.projects)
+  const [selected, setSelected] = useState('All')
+
+  const filter = (value) => {
+    setSelected(value)
+    value != 'All'
+      ? setProjects(
+          props.projects.filter((project) => project.node.category === value)
+        )
+      : setProjects(props.projects)
+  }
+
+  const categories = [
+    ...new Set(props.projects.map((item) => item.node.category).reverse()),
+  ]
+
   return (
     <Wrapper>
       <Header>
         <Title>Selected Work</Title>
-        <Aside>
-          <em>Note:</em> This is only a small sample of client work and personal
-          projects. To learn more please get in{' '}
-          <Link to="/contact/">contact</Link>. 😀
-        </Aside>
+        <Row>
+          <AnimateSharedLayout>
+            <AnimatePresence>
+              <Button onClick={() => filter('All')}>
+                All
+                {selected == 'All' && <Underline layoutId="underline" />}
+              </Button>
+              {categories.map((category, index) => (
+                <Button onClick={() => filter(category)} key={index}>
+                  {category}
+                  {selected == category && <Underline layoutId="underline" />}
+                </Button>
+              ))}
+            </AnimatePresence>
+          </AnimateSharedLayout>
+        </Row>
       </Header>
       <List>
-        {props.projects.map(({ node: project }) => (
-          <Item key={project.id}>
-            <ProjectLink to={`/${project.slug}/`}>
-              <Img
-                alt={project.cover.title}
-                sizes={{
-                  ...project.cover.fluid,
-                  aspectRatio: 1 / 1,
-                }}
-              />
-              <Heading>{project.title}</Heading>
-              <Description>
-                {project.content.childMarkdownRemark.excerpt}
-              </Description>
-              <Category>{project.category}</Category>
-            </ProjectLink>
-          </Item>
-        ))}
+        <AnimateSharedLayout>
+          <AnimatePresence>
+            {projects.map(({ node: project }) => (
+              <Item
+                key={project.id}
+                layoutId={project.id}
+                exit={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                <ProjectLink to={`/${project.slug}/`}>
+                  <Img
+                    alt={project.cover.title}
+                    fluid={{
+                      ...project.cover.fluid,
+                      aspectRatio: 1 / 1,
+                    }}
+                  />
+                  <Heading>{project.title}</Heading>
+                  <Description>
+                    {project.content.childMarkdownRemark.excerpt}
+                  </Description>
+                  <Category>{project.category}</Category>
+                </ProjectLink>
+              </Item>
+            ))}
+          </AnimatePresence>
+        </AnimateSharedLayout>
       </List>
     </Wrapper>
   )

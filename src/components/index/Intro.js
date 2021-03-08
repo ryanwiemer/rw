@@ -1,15 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { motion } from 'framer-motion'
-import Sticky from './Sticky'
 import { Link } from 'gatsby'
-import { scale } from '../../utils/utils'
+import { motion } from 'framer-motion'
+import Bell from '../../icons/Bell'
 
 const Wrapper = styled.div`
   width: 100%;
   padding: 2.5em 1.5em 1.5em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    margin: -60px 0 0 0;
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     min-height: calc(100vh - 60px);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -20,100 +18,105 @@ const Wrapper = styled.div`
   }
 `
 
-const Container = styled(motion.div)`
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
+const Container = styled.div`
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    grid-gap: 0.75em;
     padding: 0;
     grid-column: 1 / -1;
-    display: grid;
   }
 `
 
-const Big = styled.h1`
-  font-size: 2em;
-  font-weight: ${props => props.theme.fontWeights.bold};
-  line-height: 1.15;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    font-size: 6em;
+const Title = styled.p`
+  margin: 0 0 1.5rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  font-size: 1.866em;
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    margin: 0 0 2rem 0;
+    font-size: 3em;
+    max-width: 800px;
   }
 `
 
-const Scroll = styled(motion.div)`
-  justify-self: start;
-  font-size: 0.9em;
-  margin: 1rem 0 0 0;
+const Button = styled(Link)`
+  position: relative;
+  font-size: 1em;
+  display: inline-block;
+  text-decoration: none;
+  transition: 0.3s background, 0.3s color;
+  background: ${(props) => props.theme.colors.primary};
+  padding: 0.5em 2em;
+  border-radius: 3px;
+  color: ${(props) => props.theme.colors.reverseText};
+  &:hover {
+    background: ${(props) => props.theme.colors.accent};
+    color: white;
+  }
+  @media (hover: none) {
+    background: ${(props) => props.theme.colors.primary} !important;
+    color: ${(props) => props.theme.colors.reverseText} !important;
+  }
+  @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
+    font-size: 1.15em;
+  }
+`
+
+const Notification = styled(motion.div)`
+  background: ${(props) => props.theme.colors.accent};
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  text-align: center;
+  display: flex;
+  color: white;
+  position: absolute;
+  top: -1em;
+  right: -1em;
+  font-size: 0.65em;
+  width: 2em;
+  height: 2em;
+  border: 1px solid ${(props) => props.theme.colors.background};
+  border-radius: 50%;
   display: none;
-  color: ${props => props.theme.colors.text};
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    display: inline-block;
-  }
 `
 
-const Mobile = styled(motion.div)`
-  display: block;
-  margin: 2em 0 1em;
-  @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    display: none;
-  }
-  a {
-    transition: 0.3s color;
-    color: ${props => props.theme.colors.text};
-    text-decoration: underline;
-    &:hover {
-      color: ${props => props.theme.colors.accent};
-    }
-    @media (hover: none) {
-      color: ${props => props.theme.colors.text} !important;
-    }
-  }
-`
+const Badge = styled(motion.div)``
 
-const Intro = props => {
+const Intro = (props) => {
   return (
-    <Sticky
-      height="1000px"
-      top="60px"
-      cover
-      disableOnMobile
-      render={({ progress }) => {
-        let fade = scale(progress, 1, 0)
-
-        return (
-          <>
-            <Wrapper>
-              <Container style={{ opacity: fade }} exit={{ opacity: 1 }}>
-                <Big>Hi, I'm Ryan.</Big>
-                <Scroll
-                  animate={{ y: 5, opacity: 0.5 }}
-                  transition={{
-                    yoyo: Infinity,
-                    duration: 2,
-                    ease: 'easeInOut',
-                  }}
-                >
-                  <span>↓</span> Scroll to learn more.
-                </Scroll>
-
-                <Mobile aria-hidden="true">
-                  I'm passionate about helping clients make{' '}
-                  <Link to="/work/">cool things</Link> on the web. Occasionally
-                  I <Link to="/notes/">write</Link> about web development, tech
-                  and more. When not online I can usually be found exploring the
-                  Bay Area with my wife{' '}
-                  <a
-                    href="https://www.kirstennoelle.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Kirsten
-                  </a>{' '}
-                  and our two dogs.
-                </Mobile>
-              </Container>
-            </Wrapper>
-          </>
-        )
-      }}
-    />
+    <Wrapper>
+      <Container>
+        <Title
+          dangerouslySetInnerHTML={{
+            __html: props.text,
+          }}
+        />
+        <Button to="/about/">
+          Learn more
+          <Notification
+            initial={{ opacity: 0, zoom: 0.75 }}
+            animate={{ opacity: 1, zoom: 1 }}
+            transition={{
+              duration: 0.25,
+              delay: 1.5,
+            }}
+          >
+            <Badge
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.25,
+                delay: 1.75,
+              }}
+            >
+              <Bell />
+            </Badge>
+          </Notification>
+        </Button>
+      </Container>
+    </Wrapper>
   )
 }
 
