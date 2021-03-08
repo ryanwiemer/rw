@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 import Img from 'gatsby-image'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
@@ -49,6 +49,7 @@ const Button = styled(motion.button)`
   padding: 1rem 0;
   transition: 0.3s color;
   color: ${(props) => props.theme.colors.text};
+  transform: translate3d(0px 0px 0px) !important;
   &:hover {
     color: ${(props) => props.theme.colors.accent};
   }
@@ -143,28 +144,24 @@ const WorkList = (props) => {
     ...new Set(props.projects.map((item) => item.node.category).reverse()),
   ]
 
-  const spring = {
-    type: 'spring',
-    stiffness: 500,
-    damping: 30,
-  }
-
   return (
     <Wrapper>
       <Header>
         <Title>Selected Work</Title>
         <Row>
           <AnimateSharedLayout>
-            <Button onClick={() => filter('All')}>
-              All
-              {selected == 'All' && <Underline layoutId="underline" />}
-            </Button>
-            {categories.map((category, index) => (
-              <Button onClick={() => filter(category)} key={index}>
-                {category}
-                {selected == category && <Underline layoutId="underline" />}
+            <AnimatePresence>
+              <Button onClick={() => filter('All')}>
+                All
+                {selected == 'All' && <Underline layoutId="underline" />}
               </Button>
-            ))}
+              {categories.map((category, index) => (
+                <Button onClick={() => filter(category)} key={index}>
+                  {category}
+                  {selected == category && <Underline layoutId="underline" />}
+                </Button>
+              ))}
+            </AnimatePresence>
           </AnimateSharedLayout>
         </Row>
       </Header>
