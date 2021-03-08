@@ -166,24 +166,33 @@ const WorkList = (props) => {
         </Row>
       </Header>
       <List>
-        {projects.map(({ node: project }) => (
-          <Item key={project.id}>
-            <ProjectLink to={`/${project.slug}/`}>
-              <Img
-                alt={project.cover.title}
-                fluid={{
-                  ...project.cover.fluid,
-                  aspectRatio: 1 / 1,
-                }}
-              />
-              <Heading>{project.title}</Heading>
-              <Description>
-                {project.content.childMarkdownRemark.excerpt}
-              </Description>
-              <Category>{project.category}</Category>
-            </ProjectLink>
-          </Item>
-        ))}
+        <AnimateSharedLayout>
+          <AnimatePresence>
+            {projects.map(({ node: project }) => (
+              <Item
+                key={project.id}
+                layoutId={project.id}
+                exit={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+              >
+                <ProjectLink to={`/${project.slug}/`}>
+                  <Img
+                    alt={project.cover.title}
+                    fluid={{
+                      ...project.cover.fluid,
+                      aspectRatio: 1 / 1,
+                    }}
+                  />
+                  <Heading>{project.title}</Heading>
+                  <Description>
+                    {project.content.childMarkdownRemark.excerpt}
+                  </Description>
+                  <Category>{project.category}</Category>
+                </ProjectLink>
+              </Item>
+            ))}
+          </AnimatePresence>
+        </AnimateSharedLayout>
       </List>
     </Wrapper>
   )
