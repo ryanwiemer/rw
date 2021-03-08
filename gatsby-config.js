@@ -19,7 +19,7 @@ try {
 module.exports = {
   siteMetadata: {
     title: 'Ryan Wiemer',
-    description: 'Web developer and designer based in Oakland, California',
+    description: 'Digital marketer based in Oakland, California',
     image: '/og-image.jpg',
     url: 'https://www.ryanwiemer.com',
   },

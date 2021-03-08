@@ -17,7 +17,7 @@ const WorkPage = ({ data }) => {
     <>
       <SEO
         title="Work"
-        description="Selected design, development and project management work for web focused projects"
+        description="Selected work by digital marketer Ryan Wiemer"
         image={ogImage}
       />
       <WorkList projects={projects} />
