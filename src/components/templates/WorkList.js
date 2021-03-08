@@ -42,10 +42,11 @@ const Row = styled.div`
 `
 
 const Button = styled(motion.button)`
+  font-size: 0.9em;
   position: relative;
   cursor: pointer;
   padding: 0;
-  margin: 0 2rem 0 0;
+  margin: 0 1rem 0 0;
   padding: 1rem 0;
   transition: 0.3s color;
   color: ${(props) => props.theme.colors.text};
@@ -55,6 +56,12 @@ const Button = styled(motion.button)`
   }
   @media (hover: none) {
     color: ${(props) => props.theme.colors.text} !important;
+  }
+
+  @media screen and (min-width: ${(props) => props.theme.responsive.small}) {
+    font-size: 1em;
+    margin: 0 2rem 0 0;
+    font-size: 1em;
   }
 `
 
