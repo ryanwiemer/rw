@@ -26,7 +26,7 @@ const Container = styled.div`
   }
 `
 
-const Title = styled.h2`
+const Title = styled.p`
   margin: 0 0 1.5rem 0;
   line-height: 1.2;
   letter-spacing: -0.01em;
@@ -79,6 +79,7 @@ const Notification = styled(motion.div)`
   height: 2em;
   border: 1px solid ${(props) => props.theme.colors.background};
   border-radius: 50%;
+  display: none;
 `
 
 const Badge = styled(motion.div)``
@@ -93,7 +94,7 @@ const Intro = (props) => {
           }}
         />
         <Button to="/about/">
-          Learn more{' '}
+          Learn more
           <Notification
             initial={{ opacity: 0, zoom: 0.75 }}
             animate={{ opacity: 1, zoom: 1 }}

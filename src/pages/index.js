@@ -4,7 +4,7 @@ import Intro from '../components/index/Intro'
 import { graphql } from 'gatsby'
 
 const IndexPage = ({ data }) => {
-  const text = data.contentfulPage.content.childMarkdownRemark.rawMarkdownBody
+  const text = data.contentfulPage.content.childMarkdownRemark.html
   const cover = data.contentfulPage.cover
   let ogImage
   try {
@@ -37,7 +37,6 @@ export const query = graphql`
       content {
         childMarkdownRemark {
           html
-          rawMarkdownBody
         }
       }
     }

@@ -27,7 +27,7 @@ const Container = styled.div`
   }
 `
 
-const Title = styled(motion.h2)`
+const Title = styled(motion.h1)`
   display: inline-block;
   line-height: 1.2;
   letter-spacing: -0.01em;

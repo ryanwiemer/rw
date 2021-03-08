@@ -3,12 +3,11 @@ import styled from '@emotion/styled'
 
 const SVG = styled.svg`
   padding: 0;
-  width: 0.75rem;
+  width: 1em;
   position: relative;
-  top: 2px;
-  left: 2px;
+  top: 1px;
+  left: 0;
   fill: white;
-  margin: 0 0.25rem 0 0;
 `
 
 const Bell = (props) => {
