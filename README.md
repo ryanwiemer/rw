@@ -1,10 +1,7 @@
 # [ryanwiemer.com](https://www.ryanwiemer.com)
 
-- Copyright (c) 2021 Ryan Wiemer
-- All Rights Reserved
+- © Copyright 2021 Ryan Wiemer
 - [Inter typeface](https://rsms.me/inter/) by Rasmus Andersson
-
-![screenshot](screenshot.png 'screenshot')
 
 ## Learning In Public
 
