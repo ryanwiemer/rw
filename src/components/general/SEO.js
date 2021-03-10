@@ -10,7 +10,7 @@ const SEO = ({ title, description, image }) => {
           siteMetadata {
             title
             description
-            url
+            siteUrl
             image
           }
         }
@@ -18,7 +18,7 @@ const SEO = ({ title, description, image }) => {
     `
   )
 
-  const defaultImage = site.siteMetadata.url + site.siteMetadata.image
+  const defaultImage = site.siteMetadata.siteUrl + site.siteMetadata.image
   const metaDescription = description || site.siteMetadata.description
   const metaImage = image || defaultImage
   const metaTititle = title || site.siteMetadata.title

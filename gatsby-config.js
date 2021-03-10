@@ -21,7 +21,7 @@ module.exports = {
     title: 'Ryan Wiemer',
     description: 'Digital marketer based in Oakland, California',
     image: '/og-image.jpg',
-    url: 'https://www.ryanwiemer.com',
+    siteUrl: 'https://www.ryanwiemer.com',
   },
   plugins: [
     {
@@ -40,12 +40,7 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-twitter',
-    {
-      resolve: 'gatsby-theme-style-guide',
-      options: {
-        basePath: '/style-guide/',
-      },
-    },
+    'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-google-analytics',
