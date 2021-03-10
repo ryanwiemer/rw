@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 const Container = styled.div`
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
     width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     bottom: 0;
