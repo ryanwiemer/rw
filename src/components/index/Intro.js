@@ -2,7 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
-import Bell from '../../icons/Bell'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -62,28 +61,6 @@ const Button = styled(Link)`
   }
 `
 
-const Notification = styled(motion.div)`
-  background: ${(props) => props.theme.colors.accent};
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100%;
-  text-align: center;
-  display: flex;
-  color: white;
-  position: absolute;
-  top: -1em;
-  right: -1em;
-  font-size: 0.65em;
-  width: 2em;
-  height: 2em;
-  border: 1px solid ${(props) => props.theme.colors.background};
-  border-radius: 50%;
-  display: none;
-`
-
-const Badge = styled(motion.div)``
-
 const Intro = (props) => {
   return (
     <Wrapper>
@@ -93,28 +70,7 @@ const Intro = (props) => {
             __html: props.text,
           }}
         />
-        <Button to="/about/">
-          Learn more
-          <Notification
-            initial={{ opacity: 0, zoom: 0.75 }}
-            animate={{ opacity: 1, zoom: 1 }}
-            transition={{
-              duration: 0.25,
-              delay: 1.5,
-            }}
-          >
-            <Badge
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.25,
-                delay: 1.75,
-              }}
-            >
-              <Bell />
-            </Badge>
-          </Notification>
-        </Button>
+        <Button to="/about/">Learn more</Button>
       </Container>
     </Wrapper>
   )
