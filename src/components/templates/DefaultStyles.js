@@ -54,8 +54,8 @@ const Wrapper = styled.div`
     text-decoration: none;
     transition: 0.3s background, 0.3s color;
     background: ${(props) => props.theme.colors.primary};
-    padding: 0.5em 2em;
-    margin: 0 0 1.5rem 0 !important;
+    padding: 0.5em 1.5em;
+    margin: 0 0.5rem 0.5rem 0 !important;
     border-radius: 3px;
     color: ${(props) => props.theme.colors.reverseText};
     &:hover {

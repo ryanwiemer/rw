@@ -5715,10 +5715,10 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^3.10.0:
-  version "3.10.2"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-3.10.2.tgz#757bfc2633aa2c1453a8bb857d4753cd0d7cb737"
-  integrity sha512-qJX8y8OfsU9ZMZJyRLGOfo3IT4fiR7JNcshMyIno6A2z5NYP/ELPVPvD7D70neJJEYFzsjNXp1/nHjvOaM95ww==
+framer-motion@^3.10.3:
+  version "3.10.3"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-3.10.3.tgz#a5478a449e0511bf397cf44f84ea771d79c531f9"
+  integrity sha512-tHh5MzqSplBZ+j3Z+lZ78e4olckA8E5zJrexSpjUcaxtIFLgpUD227R+qksZw+cP3nvoT22NrlkXG3OUEJOWWw==
   dependencies:
     framesync "5.2.0"
     hey-listen "^1.0.8"
@@ -5949,10 +5949,10 @@ gatsby-plugin-google-analytics@^3.0.0:
     "@babel/runtime" "^7.12.5"
     minimatch "3.0.4"
 
-gatsby-plugin-image@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.0.0.tgz#100ab670549c1b4b742034d09944c19b6a5cd4ee"
-  integrity sha512-qPfydip7atF+rlESv1HLDmbwmmQvC8aU7W6GwO62hWcuGcIFJD3lcn6B8xF55f4rxE99vxbO5gUwRUwj+fUH1A==
+gatsby-plugin-image@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-1.0.1.tgz#b2b46ec7b2203c05b3511e1440100bcd3d2af68a"
+  integrity sha512-Aa8CV+bt5kboHDWPaZZ9OWDDnlZp7Ut+cx5nMfoXAq5fPgAFtausiLzyBfsYcikjZxgYIc4VBXaUJoi0I7sjTA==
   dependencies:
     "@babel/parser" "^7.12.5"
     "@babel/traverse" "^7.12.5"
@@ -6171,10 +6171,10 @@ gatsby-remark-responsive-iframe@^3.0.0:
     lodash "^4.17.20"
     unist-util-visit "^1.4.1"
 
-gatsby-source-contentful@^5.0.0:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/gatsby-source-contentful/-/gatsby-source-contentful-5.0.2.tgz#d6100a1431b70b8dd3a8115e5bce5cd64e19dd39"
-  integrity sha512-QVsklYz5iVV0uCS8h7bxB2QA+hLzBFunYk4yX4VUl9h4qWVdVOUrAFL6FtWOtdKJZebeseIgI/lGV9ff6+TUSQ==
+gatsby-source-contentful@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-source-contentful/-/gatsby-source-contentful-5.0.3.tgz#eec526d026949c61a901b620573180256a309972"
+  integrity sha512-GSuS2uXY8yygvVDEFYtiLlHZ7zK+W59VxQAyeaqYCwBTUbCg+yT+bM+i1nr0aVeQSC+3RpxfGsUi/WzqIc1MmQ==
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@contentful/rich-text-react-renderer" "^14.1.2"
@@ -6187,7 +6187,7 @@ gatsby-source-contentful@^5.0.0:
     contentful "^8.1.7"
     fs-extra "^9.1.0"
     gatsby-core-utils "^2.0.0"
-    gatsby-plugin-image "^1.0.0"
+    gatsby-plugin-image "^1.0.1"
     gatsby-plugin-utils "^1.0.0"
     gatsby-source-filesystem "^3.0.0"
     is-online "^8.5.1"
