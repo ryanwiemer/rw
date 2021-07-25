@@ -2,16 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import SEO from '../components/general/SEO'
 import WorkList from '../components/templates/WorkList'
+import { getSrc } from 'gatsby-plugin-image'
 
 const WorkPage = ({ data }) => {
   const projects = data.allContentfulProject.edges
-  let ogImage
-
-  try {
-    ogImage = projects[0].node.cover.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
+  const ogImage = getSrc(projects[0].node.cover)
 
   return (
     <>
@@ -36,10 +31,7 @@ export const query = graphql`
           category
           cover {
             title
-            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1.5)
-            ogimg: resize(width: 1000) {
-              src
-            }
+            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1)
           }
           content {
             childMarkdownRemark {

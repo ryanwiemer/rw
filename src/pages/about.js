@@ -4,18 +4,13 @@ import Content from '../components/templates/Content'
 import Profile from '../components/about/Profile'
 import BigText from '../components/about/BigText'
 import { graphql } from 'gatsby'
+import { getSrc } from 'gatsby-plugin-image'
 
 const AboutPage = ({ data }) => {
   const title = data.contentfulPage.title
   const cover = data.contentfulPage.cover
   const content = data.contentfulPage.content
-
-  let ogImage
-  try {
-    ogImage = cover.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
+  const ogImage = getSrc(cover)
 
   return (
     <>
@@ -40,11 +35,6 @@ export const query = graphql`
           aspectRatio: 1
           quality: 100
         )
-        ogimg: resize(width: 1800) {
-          src
-          width
-          height
-        }
       }
       content {
         childMarkdownRemark {

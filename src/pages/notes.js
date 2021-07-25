@@ -2,16 +2,11 @@ import React from 'react'
 import SEO from '../components/general/SEO'
 import PostList from '../components/templates/PostList'
 import { graphql } from 'gatsby'
+import { getSrc } from 'gatsby-plugin-image'
 
 const NotesPage = ({ data }) => {
   const posts = data.allContentfulPost.edges
-  let ogImage
-
-  try {
-    ogImage = posts[0].node.cover.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
+  const ogImage = getSrc(posts[0].node.cover)
 
   return (
     <>
@@ -36,10 +31,7 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           cover {
             title
-            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1.5)
-            ogimg: resize(width: 1000) {
-              src
-            }
+            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 2)
           }
           content {
             childMarkdownRemark {

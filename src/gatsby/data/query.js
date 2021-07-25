@@ -15,12 +15,7 @@ module.exports.data = {
           }
           cover {
             title
-            gatsbyImageData(width: 1800, placeholder: NONE, aspectRatio: 1.5)
-            ogimg: resize(width: 1800) {
-              src
-              width
-              height
-            }
+            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 2)
           }
         }
       }
@@ -56,12 +51,7 @@ module.exports.data = {
           }
           cover {
             title
-            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 1.5)
-            ogimg: resize(width: 1800) {
-              src
-              width
-              height
-            }
+            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 2)
           }
         }
       }

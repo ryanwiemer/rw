@@ -68,7 +68,10 @@ const Preview = (props) => {
         <Wrapper>
           <StyledLink to={`/${props.post.slug}/`}>
             {props.post.cover && (
-              <GatsbyImage image={props.post.cover.gatsbyImageData} />
+              <GatsbyImage
+                image={props.post.cover.gatsbyImageData}
+                alt={props.post.cover.title}
+              />
             )}
             <Text>
               <SubTitle>Next</SubTitle>
