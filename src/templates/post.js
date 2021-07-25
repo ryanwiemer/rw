@@ -4,17 +4,11 @@ import Hero from '../components/templates/Hero'
 import Discuss from '../components/templates/Discuss'
 import Preview from '../components/templates/Preview'
 import SEO from '../components/general/SEO'
+import { getSrc } from 'gatsby-plugin-image'
 
 const PostTemplate = ({ pageContext }) => {
   const { title, date, cover, previous, content, slug } = pageContext
-
-  let ogImage
-  try {
-    ogImage = cover.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
-
+  const ogImage = getSrc(cover)
   const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `https://www.ryanwiemer.com/${slug}/`
   )}`

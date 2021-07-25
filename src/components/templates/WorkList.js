@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
 const Wrapper = styled.div`
@@ -45,7 +45,6 @@ const Button = styled(motion.button)`
   font-size: 0.9em;
   position: relative;
   cursor: pointer;
-  padding: 0;
   margin: 0 1rem 0 0;
   padding: 1rem 0;
   transition: 0.3s color;
@@ -61,7 +60,6 @@ const Button = styled(motion.button)`
   @media screen and (min-width: ${(props) => props.theme.responsive.small}) {
     font-size: 1em;
     margin: 0 2rem 0 0;
-    font-size: 1em;
   }
 `
 
@@ -183,12 +181,9 @@ const WorkList = (props) => {
                 animate={{ opacity: 1 }}
               >
                 <ProjectLink to={`/${project.slug}/`}>
-                  <Img
+                  <GatsbyImage
                     alt={project.cover.title}
-                    fluid={{
-                      ...project.cover.fluid,
-                      aspectRatio: 1 / 1,
-                    }}
+                    image={project.cover.gatsbyImageData}
                   />
                   <Heading>{project.title}</Heading>
                   <Description>

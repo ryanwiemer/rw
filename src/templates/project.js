@@ -6,6 +6,7 @@ import SEO from '../components/general/SEO'
 import Preview from '../components/templates/Preview'
 import Video from '../components/templates/Video'
 import Highlights from '../components/templates/Highlights'
+import { getSrc } from 'gatsby-plugin-image'
 
 const ProjectTemplate = ({ pageContext }) => {
   const {
@@ -20,12 +21,14 @@ const ProjectTemplate = ({ pageContext }) => {
     highlights,
   } = pageContext
 
+  const ogImage = getSrc(cover)
+
   return (
     <>
       <SEO
         title={title}
         description={content.childMarkdownRemark.excerpt}
-        image={cover.ogimg.src}
+        image={ogImage}
       />
       <Hero title={title} category={category} image={cover} url={url} />
       <Content markdown={content} />

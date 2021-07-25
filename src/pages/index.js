@@ -2,16 +2,12 @@ import React from 'react'
 import SEO from '../components/general/SEO'
 import Intro from '../components/index/Intro'
 import { graphql } from 'gatsby'
+import { getSrc } from 'gatsby-plugin-image'
 
 const IndexPage = ({ data }) => {
   const text = data.contentfulPage.content.childMarkdownRemark.internal.content
   const cover = data.contentfulPage.cover
-  let ogImage
-  try {
-    ogImage = cover.ogimg.src
-  } catch (error) {
-    ogImage = null
-  }
+  const ogImage = getSrc(cover)
 
   return (
     <>
@@ -28,11 +24,6 @@ export const query = graphql`
       slug
       cover {
         title
-        ogimg: resize(width: 1800) {
-          src
-          width
-          height
-        }
       }
       content {
         childMarkdownRemark {

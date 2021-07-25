@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import Link from 'gatsby-link'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Wrapper = styled.div`
   background: ${(props) => props.theme.colors.muted};
@@ -68,11 +68,9 @@ const Preview = (props) => {
         <Wrapper>
           <StyledLink to={`/${props.post.slug}/`}>
             {props.post.cover && (
-              <Img
-                fluid={{
-                  ...props.post.cover.fluid,
-                  aspectRatio: 2 / 1,
-                }}
+              <GatsbyImage
+                image={props.post.cover.gatsbyImageData}
+                alt={props.post.cover.title}
               />
             )}
             <Text>

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import { Helmet } from 'react-helmet'
 import { globalStyles } from '../../styles/globalStyles.js'
 import Transition from './Transition'
 import Menu from './Menu'
 
 const Skip = styled.a`
-  font-family: ${props => props.theme.fonts.body};
+  font-family: ${(props) => props.theme.fonts.body};
   padding: 0 1rem;
   line-height: 60px;
   background: #2867cf;
@@ -26,11 +26,11 @@ const Skip = styled.a`
 `
 
 const Root = styled.div`
-  font-family: ${props => props.theme.fonts.body};
+  font-family: ${(props) => props.theme.fonts.body};
   padding: 60px 0 0 0;
 `
 
-const Layout = props => {
+const Layout = (props) => {
   function handleFirstTab(e) {
     if (e.keyCode === 9) {
       document.body.classList.add('user-is-tabbing')
