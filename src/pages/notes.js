@@ -31,7 +31,11 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           cover {
             title
-            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 2)
+            gatsbyImageData(
+              width: 1000
+              placeholder: BLURRED
+              aspectRatio: 1.75
+            )
           }
           content {
             childMarkdownRemark {

@@ -15,7 +15,7 @@ module.exports.data = {
           }
           cover {
             title
-            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 2)
+            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 1.75)
           }
         }
       }
@@ -51,7 +51,7 @@ module.exports.data = {
           }
           cover {
             title
-            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 2)
+            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 1.75)
           }
         }
       }
