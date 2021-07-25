@@ -34,9 +34,12 @@ export const query = graphql`
       slug
       cover {
         title
-        fluid(maxWidth: 1600) {
-          ...GatsbyContentfulFluid_withWebp_noBase64
-        }
+        gatsbyImageData(
+          width: 1800
+          placeholder: BLURRED
+          aspectRatio: 1
+          quality: 100
+        )
         ogimg: resize(width: 1800) {
           src
           width

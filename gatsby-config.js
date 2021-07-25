@@ -36,6 +36,7 @@ module.exports = {
         icon: require.resolve('./static/favicon.png'),
       },
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-theme-ui',

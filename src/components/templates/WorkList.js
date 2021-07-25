@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 
 const Wrapper = styled.div`
@@ -183,12 +183,9 @@ const WorkList = (props) => {
                 animate={{ opacity: 1 }}
               >
                 <ProjectLink to={`/${project.slug}/`}>
-                  <Img
+                  <GatsbyImage
                     alt={project.cover.title}
-                    fluid={{
-                      ...project.cover.fluid,
-                      aspectRatio: 1 / 1,
-                    }}
+                    image={project.cover.gatsbyImageData}
                   />
                   <Heading>{project.title}</Heading>
                   <Description>

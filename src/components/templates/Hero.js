@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
 import ScrollAnimation from '../general/ScrollAnimation'
 import { scale } from '../../utils/utils'
@@ -43,7 +43,7 @@ const Height = styled.div`
   }
 `
 
-const BgImg = styled(Img)`
+const BgImg = styled(GatsbyImage)`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -124,10 +124,7 @@ const Hero = (props) => {
                   }}
                 >
                   <BgImg
-                    fluid={{
-                      ...props.image.fluid,
-                      aspectRatio: 3 / 2,
-                    }}
+                    image={props.image.gatsbyImageData}
                     alt={props.image.title}
                   />
                 </Cover>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const Wrapper = styled.div`
   @media screen and (min-width: ${(props) => props.theme.responsive.medium}) {
@@ -26,12 +26,7 @@ const Profile = (props) => {
   return (
     <Wrapper>
       <Card>
-        <Img
-          fluid={{
-            ...props.cover.fluid,
-            aspectRatio: 1 / 1,
-          }}
-        />
+        <GatsbyImage image={props.cover.gatsbyImageData} alt="Ryan Wiemer" />
       </Card>
     </Wrapper>
   )

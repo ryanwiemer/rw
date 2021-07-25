@@ -36,9 +36,7 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           cover {
             title
-            fluid(maxWidth: 1000) {
-              ...GatsbyContentfulFluid_withWebp_noBase64
-            }
+            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1.5)
             ogimg: resize(width: 1000) {
               src
             }

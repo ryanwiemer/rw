@@ -1,14 +1,3 @@
-// https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-const Fluid = `
-  base64
-  aspectRatio
-  src
-  srcSet
-  srcWebp
-  srcSetWebp
-  sizes
-`
-
 module.exports.data = {
   posts: `{
     allContentfulPost(sort: { fields: [date], order: DESC }) {
@@ -26,9 +15,7 @@ module.exports.data = {
           }
           cover {
             title
-            fluid(maxWidth: 1800) {
-              ${Fluid}
-            }
+            gatsbyImageData(width: 1800, placeholder: NONE, aspectRatio: 1.5)
             ogimg: resize(width: 1800) {
               src
               width
@@ -65,15 +52,11 @@ module.exports.data = {
             }
           images {
             title
-            fluid(maxWidth: 1800) {
-              ${Fluid}
-            }
+            gatsbyImageData(width: 1800, placeholder: BLURRED)
           }
           cover {
             title
-            fluid(maxWidth: 1800) {
-              ${Fluid}
-            }
+            gatsbyImageData(width: 1800, placeholder: BLURRED, aspectRatio: 1.5)
             ogimg: resize(width: 1800) {
               src
               width

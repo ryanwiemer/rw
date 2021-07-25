@@ -1,4 +1,4 @@
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import VariableFont from '../fonts/Inter-upright.woff2'
 
 export const globalStyles = css`
