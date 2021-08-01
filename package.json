@@ -1,7 +1,7 @@
 {
   "name": "rw",
   "description": "Ryan Wiemer's online portfolio",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "keywords": [
     "rw"
@@ -45,6 +45,9 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-processor-styled-components": "^1.9.0"
+  },
+  "engines": {
+    "node": ">=10.13.0"
   },
   "scripts": {
     "build": "gatsby build",
