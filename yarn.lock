@@ -6435,14 +6435,14 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^5.0.2:
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-5.0.2.tgz#968ac1815eab9ac9b6ae4b83010f88d023376b98"
-  integrity sha512-9noBJ3CxSE8MCe0Dj0MqCXBnPFjaOMyx4q6zqV3CWqvsPZSUxsyUaF6Ds3FhFOAABQFesFYCX968Wf48Lalztw==
+framer-motion@^5.2.1:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/framer-motion/-/framer-motion-5.2.1.tgz#5cfa59984649d73e3741d7bf189918f34fd3635e"
+  integrity sha512-igeMZaa0FnaB4NkCE+/ENGSuSvhRhUVFJCwWg/FGQn+CwnLPI/XjO6Zim8m+pN+4wBNlaesBRpqOQbq/VH7mew==
   dependencies:
     framesync "6.0.1"
     hey-listen "^1.0.8"
-    popmotion "10.0.2"
+    popmotion "11.0.0"
     style-value-types "5.0.0"
     tslib "^2.1.0"
   optionalDependencies:
@@ -7000,10 +7000,10 @@ gatsby-worker@^1.1.0:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.1.0.tgz#127fac566621a859fa4aa239df3c44cf909dec3c"
-  integrity sha512-P0qjThvYxhJGZP8UoTdDUE8bH6T/UUQZpN+XhtLtqIAbInrsJncaNhM0CLrlhVQgYya13MCW5Dy+ZGqzAOMs5g==
+gatsby@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.1.1.tgz#e3c5276519c9308efd77c6cb677b92836658a40c"
+  integrity sha512-emFa7udQ0P3xPS7GSo1C1FauH1uuw7PHlT0KXMBf0mQS/MVHzeDAnlfZluIXpKlNO6g93p16HOzk4g9EhlpY/Q==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/core" "^7.15.5"
@@ -10662,10 +10662,10 @@ pngjs@^3.0.0, pngjs@^3.3.3:
   resolved "https://registry.yarnpkg.com/pngjs/-/pngjs-3.4.0.tgz#99ca7d725965fb655814eaf65f38f12bbdbf555f"
   integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
 
-popmotion@10.0.2:
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-10.0.2.tgz#edb87efb2ba39505d07f79d3ca8cc4b1cbe101bf"
-  integrity sha512-8vgx02LL7Odk/kwSGigAnlPRLJK+Dfked571ZAHGzkxPNWThkU5mQX0xPmibIMAULZehWBV7hGN7LSCpaV3cfw==
+popmotion@11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/popmotion/-/popmotion-11.0.0.tgz#910e2e7077d9aeba520db8744d40bb5354992212"
+  integrity sha512-kJDyaG00TtcANP5JZ51od+DCqopxBm2a/Txh3Usu23L9qntjY5wumvcVf578N8qXEHR1a+jx9XCv8zOntdYalQ==
   dependencies:
     framesync "^6.0.1"
     hey-listen "^1.0.8"
