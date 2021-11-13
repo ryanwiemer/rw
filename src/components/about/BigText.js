@@ -69,7 +69,8 @@ const BigText = (props) => {
                 <Emoji
                   animate={{ rotate: 25 }}
                   transition={{
-                    yoyo: Infinity,
+                    repeat: Infinity,
+                    repeatType: 'reverse',
                     duration: 2,
                     ease: 'easeInOut',
                   }}
