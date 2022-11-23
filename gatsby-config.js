@@ -41,10 +41,12 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS || 'UA-XXXXXXXX-X',
-        anonymize: false,
+        trackingIds: [process.env.GOOGLE_ANALYTICS],
+        pluginConfig: {
+          head: true,
+        },
       },
     },
     {
