@@ -39,13 +39,15 @@ module.exports = {
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-twitter',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [process.env.GOOGLE_ANALYTICS],
+        trackingIds: [
+          process.env.GOOGLE_ANALYTICS || 'GA-TRACKING_ID', // Google Analytics / GA
+        ],
         pluginConfig: {
           head: true,
+          delayOnRouteUpdate: 350, // Delays processing pageview events on route update (in milliseconds)
         },
       },
     },
@@ -72,5 +74,6 @@ module.exports = {
       options: contentfulConfig,
     },
     'gatsby-plugin-netlify',
+    'gatsby-plugin-remove-serviceworker',
   ],
 }

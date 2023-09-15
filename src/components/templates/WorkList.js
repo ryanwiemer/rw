@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import Link from 'gatsby-link'
+import { Link } from "gatsby"
 import styled from '@emotion/styled'
 import { GatsbyImage } from 'gatsby-plugin-image'
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const Wrapper = styled.div`
   padding: 2.5em 1.5em;
@@ -154,7 +154,6 @@ const WorkList = (props) => {
       <Header>
         <Title>Selected Work</Title>
         <Row>
-          <AnimateSharedLayout>
             <AnimatePresence>
               <Button onClick={() => filter('All')}>
                 All
@@ -167,11 +166,9 @@ const WorkList = (props) => {
                 </Button>
               ))}
             </AnimatePresence>
-          </AnimateSharedLayout>
         </Row>
       </Header>
       <List>
-        <AnimateSharedLayout>
           <AnimatePresence>
             {projects.map(({ node: project }) => (
               <Item
@@ -194,7 +191,6 @@ const WorkList = (props) => {
               </Item>
             ))}
           </AnimatePresence>
-        </AnimateSharedLayout>
       </List>
     </Wrapper>
   )

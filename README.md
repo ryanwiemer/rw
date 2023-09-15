@@ -1,6 +1,6 @@
 # [ryanwiemer.com](https://www.ryanwiemer.com)
 
-- © Copyright 2021 Ryan Wiemer
+- © Copyright 2023 Ryan Wiemer
 - [Inter typeface](https://rsms.me/inter/) by Rasmus Andersson
 
 ## Learning In Public
@@ -9,6 +9,6 @@
 
 If you want a starter template for Gatsby, Contentful and Netlify check out my **MIT LICENSED** repo: https://github.com/ryanwiemer/gatsby-starter-gcn.
 
-If you still have any questions feel free to contact me:
+If you still have any questions feel free to reach out via my contact form:
 
 👉 **[https://www.ryanwiemer.com/contact/](https://www.ryanwiemer.com/contact/)**
