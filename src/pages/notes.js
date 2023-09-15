@@ -20,33 +20,27 @@ const NotesPage = ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query {
-    allContentfulPost(limit: 1000, sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
+export const query = graphql`{
+  allContentfulPost(limit: 1000, sort: {date: DESC}) {
+    edges {
+      node {
+        title
+        id
+        slug
+        date(formatString: "MMMM DD, YYYY")
+        cover {
           title
-          id
-          slug
-          date(formatString: "MMMM DD, YYYY")
-          cover {
-            title
-            gatsbyImageData(
-              width: 1000
-              placeholder: BLURRED
-              aspectRatio: 1.75
-            )
-          }
-          content {
-            childMarkdownRemark {
-              html
-              excerpt(format: PLAIN)
-            }
+          gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1.75)
+        }
+        content {
+          childMarkdownRemark {
+            html
+            excerpt(format: PLAIN)
           }
         }
       }
     }
   }
-`
+}`
 
 export default NotesPage

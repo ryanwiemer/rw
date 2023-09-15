@@ -11,9 +11,8 @@ const Transition = ({ children, location }) => {
     enter: {
       opacity: 1,
       transition: {
-        duration: duration,
-        delay: duration,
         when: 'beforeChildren',
+        duration: duration,
       },
     },
     exit: {
@@ -23,7 +22,7 @@ const Transition = ({ children, location }) => {
   }
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
       <motion.main
         key={location.pathname}
         variants={variants}

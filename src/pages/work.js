@@ -20,29 +20,27 @@ const WorkPage = ({ data }) => {
   )
 }
 
-export const query = graphql`
-  query {
-    allContentfulProject(limit: 1000, sort: { fields: [date], order: DESC }) {
-      edges {
-        node {
+export const query = graphql`{
+  allContentfulProject(limit: 1000, sort: {date: DESC}) {
+    edges {
+      node {
+        title
+        id
+        slug
+        category
+        cover {
           title
-          id
-          slug
-          category
-          cover {
-            title
-            gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1)
-          }
-          content {
-            childMarkdownRemark {
-              html
-              excerpt(format: PLAIN)
-            }
+          gatsbyImageData(width: 1000, placeholder: BLURRED, aspectRatio: 1)
+        }
+        content {
+          childMarkdownRemark {
+            html
+            excerpt(format: PLAIN)
           }
         }
       }
     }
   }
-`
+}`
 
 export default WorkPage
