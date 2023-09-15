@@ -9,6 +9,6 @@
 
 If you want a starter template for Gatsby, Contentful and Netlify check out my **MIT LICENSED** repo: https://github.com/ryanwiemer/gatsby-starter-gcn.
 
-If you still have any questions feel free to contact me:
+If you still have any questions feel free to reach out via my contact form:
 
 👉 **[https://www.ryanwiemer.com/contact/](https://www.ryanwiemer.com/contact/)**
