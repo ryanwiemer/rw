@@ -1,3 +1,5 @@
+const adapter = require('gatsby-adapter-netlify')
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -19,6 +21,7 @@ module.exports = {
     image: '/og-image.jpg',
     siteUrl: 'https://www.ryanwiemer.com',
   },
+  adapter: adapter.default(),
   plugins: [
     {
       resolve: 'gatsby-plugin-manifest',
@@ -32,7 +35,6 @@ module.exports = {
         icon: require.resolve('./static/favicon.png'),
       },
     },
-    'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',

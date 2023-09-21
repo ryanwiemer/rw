@@ -1,7 +1,7 @@
 {
   "name": "rw",
   "description": "Ryan Wiemer's online portfolio",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "keywords": [
     "rw"
@@ -17,8 +17,8 @@
     "babel-plugin-styled-components": "^2.1.4",
     "framer-motion": "^10.16.4",
     "gatsby": "^5.12.4",
+    "gatsby-adapter-netlify": "^1.0.0",
     "gatsby-plugin-emotion": "^8.12.0",
-    "gatsby-plugin-gatsby-cloud": "^5.12.0",
     "gatsby-plugin-google-gtag": "5.12.0",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-manifest": "^5.12.0",
