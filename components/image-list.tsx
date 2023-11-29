@@ -40,7 +40,6 @@ export default function ImageList({ images }: { images: any }) {
             >
               {isVideo ? (
                 <video
-                  src={image.url}
                   className={`w-full h-auto rounded-xl ${
                     image.description?.includes('full') ? '' : 'border-2'
                   }`}
@@ -49,7 +48,9 @@ export default function ImageList({ images }: { images: any }) {
                   autoPlay
                   muted
                   playsInline
-                />
+                >
+                  <source src={image.url} type="video/mp4" />
+                </video>
               ) : (
                 <ContentfulImage
                   alt={image.title}
