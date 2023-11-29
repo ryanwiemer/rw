@@ -110,8 +110,10 @@ export default function IntroPromo({
               autoPlay
               muted
               playsInline
-              src={currentVideo}
-            />
+              key={currentVideo}
+            >
+              <source src={currentVideo} type="video/mp4" />
+            </video>
             <button
               onClick={close}
               className="absolute top-0 right-0 text-black bg-[#efefef] p-2 rounded-bl-lg rounded-tr-lg"
