@@ -1,6 +1,7 @@
 {
   "name": "rw",
   "description": "Ryan Wiemer's online portfolio",
+  "license": "UNLICENSED",
   "version": "3.0.0",
   "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
   "keywords": [
@@ -20,8 +21,6 @@
     "@contentful/rich-text-types": "^16.2.1",
     "@plaiceholder/next": "^3.0.0",
     "@radix-ui/react-aspect-ratio": "^1.0.3",
-    "@radix-ui/react-hover-card": "^1.0.7",
-    "@radix-ui/react-slot": "^1.0.2",
     "@tailwindcss/typography": "0.5.10",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.39",

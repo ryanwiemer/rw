@@ -15,10 +15,6 @@ export async function GET(request: Request) {
   const project = await getPreviewProjectBySlug(slug)
   const page = await getPreviewPageBySlug(slug)
 
-  if (!project || !page) {
-    return new Response('Invalid slug', { status: 401 })
-  }
-
   draftMode().enable()
 
   if (project) {
