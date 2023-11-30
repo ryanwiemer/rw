@@ -3,8 +3,6 @@ import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import Footer from '../components/footer'
 import Menu from '../components/menu'
-import { draftMode } from 'next/headers'
-import ExitDraftMode from '../components/exit-draft-mode'
 import { ThemeProvider } from '@/components/theme-provider'
 import ScrollBehavior from '@/components/scroll-behavior'
 
@@ -38,11 +36,6 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {draftMode().isEnabled && (
-            <p className="bg-yellow-200 py-4 px-[6vw] fixed w-50 bottom-0 right-0">
-              Draft mode is on! <ExitDraftMode className="underline" />
-            </p>
-          )}
           <Menu />
           <main className="min-h-[calc(100svh-81px)] relative z-10">
             {children}
