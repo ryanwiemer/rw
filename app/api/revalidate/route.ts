@@ -10,7 +10,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Revalidate the cache for all of the data pulled from Contentful in lib/api.ts
-  revalidateTag('contentfulData')
+  revalidateTag('posts')
 
   return NextResponse.json({ revalidated: true, now: Date.now() })
 }
