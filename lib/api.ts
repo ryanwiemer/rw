@@ -88,7 +88,7 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
         }`,
       },
       body: JSON.stringify({ query }),
-      next: { tags: ['contentfulData'] },
+      next: { tags: ['posts'] },
     }
   ).then((response) => response.json())
 }
