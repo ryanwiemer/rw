@@ -19,6 +19,10 @@ module.exports = {
   generateIndexSitemap: false,
   generateRobotsTxt: true,
   robotsTxtOptions: {
-    policies: process.env.STAGE === 'true' ? stagePolicies : prodPolicies,
+    policies:
+      process.env.CONTENTFUL_ENVIRONMENT === 'stage' ||
+      process.env.CONTENTFUL_ENVIRONMENT === 'dev'
+        ? stagePolicies
+        : prodPolicies,
   },
 }
