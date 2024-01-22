@@ -60,7 +60,7 @@ export default function IntroPromo({
 
   return (
     <motion.section
-      className="relative container min-h-[100svh] grid grid-cols-12 gap-6 place-content-between md:items-end md:place-content-end pt-[25vh] pb-10"
+      className="relative container min-h-[100svh] grid grid-cols-12 gap-6 place-content-between md:items-end md:place-content-end pt-[25vh] pb-10 overflow-hidden"
       style={{ opacity: fade }}
     >
       <div className="grid col-span-12 md:col-span-8">
