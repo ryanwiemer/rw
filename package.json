@@ -42,7 +42,6 @@
     "postcss": "8.4.33",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-wrap-balancer": "^1.1.0",
     "sharp": "0.32.6",
     "tailwind-gradient-mask-image": "^1.1.0",
     "tailwind-merge": "^2.2.0",
