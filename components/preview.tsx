@@ -11,6 +11,7 @@ import ContentfulImage from '../lib/contentful-image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useWindowSize } from '@uidotdev/usehooks'
+import { ArrowRight } from 'lucide-react'
 
 export default function Preview({
   heading,
@@ -31,6 +32,7 @@ export default function Preview({
   const { scrollYProgress: pageScrollProgress } = useScroll()
 
   //Navigate to the next project once scrolled to the bottom (only on desktop screen sizes)
+  /*
   const router = useRouter()
   const screen = useWindowSize()
 
@@ -49,27 +51,32 @@ export default function Preview({
       screen.width >= 768 &&
       handleLinkNavigation(url)
   })
+  */
 
-  // Prefetch the next project once scrolled to the middle of the screen (only on desktop screen sizes)
+  // Prefetch the next project (only on desktop screen sizes)
+  const router = useRouter()
+  const screen = useWindowSize()
+
   function handlePrefetch(url: string) {
     router.prefetch(url)
   }
   const [isPrefetched, setIsPrefetched] = useState(false)
   useMotionValueEvent(scrollYProgress, 'change', (latest) => {
     if (
-      latest >= 0.5 &&
+      latest >= 0.1 &&
       screen?.width &&
       screen.width >= 768 &&
       !isPrefetched
     ) {
       handlePrefetch(url)
       setIsPrefetched(true)
+      console.log('test')
     }
   })
 
   // Subtle visual effect on scroll
-  const slide = useTransform(scrollYProgress, [0, 0.5], ['0%', '-100%'])
-  const slide2 = useTransform(scrollYProgress, [0, 0.5], ['200%', '-100%'])
+  const slide = useTransform(scrollYProgress, [0, 0.6], ['0%', '-100%'])
+  const slide2 = useTransform(scrollYProgress, [0, 0.6], ['200%', '-100%'])
 
   return (
     <>
@@ -80,13 +87,17 @@ export default function Preview({
               Next up
             </motion.span>
             <motion.span style={{ y: slide2 }} className="block absolute">
-              <span className="hidden md:block">Keep scrolling</span>
-              <span className="block md:hidden">Click below</span>
+              <span className="block">Click to view</span>
             </motion.span>
           </div>
-          <motion.div className="text-4xl md:text-6xl font-extrabold tracking-tight">
+          <motion.div className="text-4xl md:text-6xl font-extrabold tracking-tight group">
             <Link ref={ref} href={url}>
               {heading}
+              <ArrowRight
+                size={40}
+                strokeWidth={2.5}
+                className="text-muted-foreground md:group-hover:translate-x-1 transition-all duration-500 inline-block align-middle ml-2 md:ml-4 relative -top-[1px]"
+              />
             </Link>
           </motion.div>
         </div>
@@ -94,7 +105,7 @@ export default function Preview({
       <Link
         ref={ref}
         href={url}
-        className="relative z-20 h-[50vh] md:h-[100svh] grid items-center overflow-hidden"
+        className="md:hover:opacity-80 transition-all duration-300 relative z-20 h-[50vh] md:h-[50svh] grid items-center overflow-hidden"
       >
         <div className="absolute inset-0 bg-black" />
         <motion.div className="absolute inset-0">
