@@ -70,7 +70,6 @@ export default function Preview({
     ) {
       handlePrefetch(url)
       setIsPrefetched(true)
-      console.log('test')
     }
   })
 
