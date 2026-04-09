@@ -45,7 +45,7 @@ export default function ProjectList({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.2, 0.65, 0.3, 0.9],
+        ease: [0.2, 0.65, 0.3, 0.9] as [number, number, number, number],
       },
     },
   }

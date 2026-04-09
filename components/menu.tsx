@@ -16,7 +16,7 @@ function useMenuAnimation(isOpen: boolean) {
             'nav',
             { opacity: 1, x: 0 },
             {
-              ease: [0.08, 0.65, 0.53, 0.96],
+              ease: [0.08, 0.65, 0.53, 0.96] as [number, number, number, number],
             },
           ],
           [
