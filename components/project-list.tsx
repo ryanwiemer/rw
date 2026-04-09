@@ -21,11 +21,11 @@ export default function ProjectList({
 
   const filter = (value: any) => {
     setSelected(value)
-    setProjects(items.filter((project: any) => project.category === value))
-
-    value != 'All'
-      ? setProjects(items.filter((project: any) => project.category === value))
-      : setProjects(items)
+    if (value !== 'All') {
+      setProjects(items.filter((project: any) => project.category === value))
+    } else {
+      setProjects(items)
+    }
   }
 
   const categories = [
