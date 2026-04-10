@@ -23,7 +23,7 @@ export default function AnimatedText({
   word,
 }: {
   text: string | string[]
-  el?: keyof JSX.IntrinsicElements
+  el?: keyof React.JSX.IntrinsicElements
   className?: string
   word?: boolean
 }) {

@@ -90,7 +90,7 @@ export default function Preview({
             </motion.span>
           </div>
           <motion.div className="text-4xl md:text-6xl font-extrabold tracking-tight group">
-            <Link ref={ref} href={url}>
+            <Link href={url}>
               {heading}
               <ArrowRight
                 size={40}
@@ -115,7 +115,7 @@ export default function Preview({
             sizes="100vw"
             placeholder="blur"
             blurDataURL={image.base64}
-            className="object-cover -z-2 opacity-70"
+            className="object-cover opacity-70"
             src={image.url}
           />
         </motion.div>
