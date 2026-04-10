@@ -7,12 +7,12 @@ interface ModeToggleProps {
 }
 
 export function ModeToggle({ blend }: ModeToggleProps) {
-  const { setTheme, theme } = useTheme()
+  const { setTheme, resolvedTheme } = useTheme()
 
   return (
     <button
       className="hover:opacity-70 transition-opacity duration-300 relative top-[3px] h-[1.2rem] w-[1.2rem] mix-blend-difference dark:-rotate-180"
-      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle dark mode"
     >
       <svg
