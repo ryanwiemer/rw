@@ -21,11 +21,11 @@ export default function ProjectList({
 
   const filter = (value: any) => {
     setSelected(value)
-    setProjects(items.filter((project: any) => project.category === value))
-
-    value != 'All'
-      ? setProjects(items.filter((project: any) => project.category === value))
-      : setProjects(items)
+    if (value !== 'All') {
+      setProjects(items.filter((project: any) => project.category === value))
+    } else {
+      setProjects(items)
+    }
   }
 
   const categories = [
@@ -45,7 +45,7 @@ export default function ProjectList({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.2, 0.65, 0.3, 0.9],
+        ease: [0.2, 0.65, 0.3, 0.9] as [number, number, number, number],
       },
     },
   }

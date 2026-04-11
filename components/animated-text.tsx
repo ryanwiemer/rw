@@ -11,7 +11,7 @@ const defaultVariants = {
     y: 0,
     transition: {
       duration: 0.75,
-      ease: [0.2, 0.65, 0.3, 0.9],
+      ease: [0.2, 0.65, 0.3, 0.9] as [number, number, number, number],
     },
   },
 }
@@ -23,7 +23,7 @@ export default function AnimatedText({
   word,
 }: {
   text: string | string[]
-  el?: keyof JSX.IntrinsicElements
+  el?: keyof React.JSX.IntrinsicElements
   className?: string
   word?: boolean
 }) {

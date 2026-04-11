@@ -4,7 +4,7 @@ import AnimatedText from '@/components/animated-text'
 import ContactDetails from '@/components/contact-details'
 
 export async function generateMetadata() {
-  const { isEnabled } = draftMode()
+  const { isEnabled } = await draftMode()
   const page = await getPageBySlug('contact', isEnabled)
   return {
     title: page.title,
@@ -16,7 +16,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { isEnabled } = draftMode()
+  const { isEnabled } = await draftMode()
   const page = await getPageBySlug('contact', isEnabled)
 
   return (

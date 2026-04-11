@@ -46,7 +46,7 @@ export default function WorkPromo({ projects }: { projects?: any }) {
         ref={ref}
         variants={gridVariants}
         animate={mutedGrid ? 'muted' : 'regular'}
-        className="grid grid-cols-12 gap-4 overflow-hidden h-[75svh] -mb-[100px]"
+        className="relative grid grid-cols-12 gap-4 overflow-hidden h-[75svh] -mb-[100px]"
       >
         <motion.div
           className="relative -top-[0%] flex flex-col gap-4 col-span-6 md:col-span-4"
