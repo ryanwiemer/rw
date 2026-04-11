@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, type Variants } from 'framer-motion'
 import ContentfulImage from '../lib/contentful-image'
 import AnimatedText from './animated-text'
 import { AspectRatio } from './ui/aspect-ratio'
@@ -15,7 +15,7 @@ export default function HeroAlt({
   images?: any
 }) {
   //Marquee effect on the images
-  const marqueeVariants = {
+  const marqueeVariants: Variants = {
     animate: {
       x: ['0%', '-100%'],
       transition: {

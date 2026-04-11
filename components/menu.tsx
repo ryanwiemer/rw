@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { stagger, useAnimate, motion } from 'framer-motion'
 import { ModeToggle } from './mode-toggle'
@@ -8,15 +8,22 @@ import { ArrowUpRight } from 'lucide-react'
 
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate()
+  const hasMounted = useRef(false)
 
   useEffect(() => {
+    // Skip the initial close animation — CSS classes control the initial state
+    if (!hasMounted.current) {
+      hasMounted.current = true
+      return
+    }
+
     const menuAnimations = isOpen
       ? [
           [
             'nav',
             { opacity: 1, x: 0 },
             {
-              ease: [0.08, 0.65, 0.53, 0.96],
+              ease: [0.08, 0.65, 0.53, 0.96] as [number, number, number, number],
             },
           ],
           [
@@ -85,7 +92,7 @@ export default function Menu() {
         </Link>
         <motion.button
           onClick={toggle}
-          className="fixed right-[1.4rem] top-6 z-50 h-7 w-14 text-xl text-white mix-blend-difference md:!hidden"
+          className="fixed right-[1.4rem] top-6 z-50 h-7 w-14 text-xl text-white mix-blend-difference md:hidden!"
           aria-label="Toggle menu"
         >
           <span className="absolute left-0 right-0 top-0 bottom-0 overflow-hidden">
@@ -119,10 +126,10 @@ export default function Menu() {
           style={{
             pointerEvents: isOpen ? 'auto' : 'none',
           }}
-          className="z-40 opacity-0 will-change-transform grid items-end py-6 fixed md:relative top-0 right-0 left-0 bottom-0 text-left bg-background md:!opacity-100 md:!translate-x-0 md:!pointer-events-auto md:!right-0 md:!bottom-auto md:!left-auto md:!bg-transparent md:mix-blend-difference"
+          className="z-40 opacity-0 will-change-transform grid items-end py-6 fixed md:relative top-0 right-0 left-0 bottom-0 text-left bg-background md:opacity-100! md:[transform:none]! md:pointer-events-auto! md:right-0! md:bottom-auto! md:left-auto! md:bg-transparent! md:mix-blend-difference"
         >
           <ul className="w-full grid gap-6 items-center px-6 text-foreground md:text-white text-4xl font-medium md:text-base md:flex md:font-normal md:gap-6 md:px-0">
-            <li className="md:!opacity-100 md:!filter-none md:!scale-100">
+            <li className="md:opacity-100! md:[transform:none]! md:filter-none!">
               <Link
                 href="/"
                 className={`inline-block hover:opacity-70 transition-opacity duration-300 ease-in-out ${
@@ -133,7 +140,7 @@ export default function Menu() {
                 Home
               </Link>
             </li>
-            <li className="md:!opacity-100 md:!filter-none md:!scale-100">
+            <li className="md:opacity-100! md:[transform:none]! md:filter-none!">
               <Link
                 href="/about"
                 className={`inline-block hover:opacity-70 transition-opacity duration-300 ease-in-out ${
@@ -144,7 +151,7 @@ export default function Menu() {
                 About
               </Link>
             </li>
-            <li className="md:!opacity-100 md:!filter-none md:!scale-100">
+            <li className="md:opacity-100! md:[transform:none]! md:filter-none!">
               <Link
                 href="/work"
                 className={`inline-block hover:opacity-70 transition-opacity duration-300 ease-in-out ${
@@ -155,7 +162,7 @@ export default function Menu() {
                 Work
               </Link>
             </li>
-            <li className="md:!opacity-100 md:!filter-none md:!scale-100">
+            <li className="md:opacity-100! md:[transform:none]! md:filter-none!">
               <Link
                 href="/contact"
                 className={`inline-block hover:opacity-70 transition-opacity duration-300 ease-in-out ${
@@ -166,11 +173,11 @@ export default function Menu() {
                 Contact
               </Link>
             </li>
-            <li className="hidden md:!opacity-100 md:inline-block md:!filter-none md:!scale-100">
+            <li className="hidden md:opacity-100! md:inline-block md:[transform:none]! md:filter-none!">
               <ModeToggle blend />
             </li>
           </ul>
-          <ul className="flex gap-6 px-6 text-foreground leading-1 md:!hidden">
+          <ul className="flex gap-6 px-6 text-foreground leading-1 md:hidden!">
             <li>
               <a
                 className="text-base"

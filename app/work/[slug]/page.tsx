@@ -18,10 +18,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const { isEnabled } = draftMode()
-  const { project } = await getProjectAndNextProject(params.slug, isEnabled)
+  const { slug } = await params
+  const { isEnabled } = await draftMode()
+  const { project } = await getProjectAndNextProject(slug, isEnabled)
 
   return {
     title: project.title,
@@ -35,46 +36,48 @@ export async function generateMetadata({
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const { isEnabled } = draftMode()
+  const { slug } = await params
+  const { isEnabled } = await draftMode()
   const { project, nextProject } = await getProjectAndNextProject(
-    params.slug,
+    slug,
     isEnabled
   )
 
   // Generate the base64 for the blur-up effect for the cover image
-  const coverBuffer = await fetch(project.cover.url).then(async (res) => {
-    return Buffer.from(await res.arrayBuffer())
-  })
-  const { base64: coverBase64 } = await getPlaiceholder(coverBuffer, {
-    size: 10,
-  })
-  project.cover.base64 = coverBase64
+  try {
+    const coverBuffer = await fetch(project.cover.url).then(async (res) =>
+      Buffer.from(await res.arrayBuffer())
+    )
+    const { base64: coverBase64 } = await getPlaiceholder(coverBuffer, { size: 10 })
+    project.cover.base64 = coverBase64
+  } catch {}
 
   // Generate the base64 for the blur-up effect for each image
   await Promise.all(
     project.imagesCollection.items.map(async (image: any) => {
       if (!image.url.endsWith('.mp4')) {
-        const buffer = await fetch(image.url).then(async (res) => {
-          return Buffer.from(await res.arrayBuffer())
-        })
-        const { base64 } = await getPlaiceholder(buffer, { size: 10 })
-        image.base64 = base64
+        try {
+          const buffer = await fetch(image.url).then(async (res) =>
+            Buffer.from(await res.arrayBuffer())
+          )
+          const { base64 } = await getPlaiceholder(buffer, { size: 10 })
+          image.base64 = base64
+        } catch {}
       }
     })
   )
+
   // Generate the base64 for the blur-up effect for the next project's cover image
   if (nextProject) {
-    const nextCoverBuffer = await fetch(nextProject.cover.url).then(
-      async (res) => {
-        return Buffer.from(await res.arrayBuffer())
-      }
-    )
-    const { base64: nextCoverBase64 } = await getPlaiceholder(nextCoverBuffer, {
-      size: 10,
-    })
-    nextProject.cover.base64 = nextCoverBase64
+    try {
+      const nextCoverBuffer = await fetch(nextProject.cover.url).then(
+        async (res) => Buffer.from(await res.arrayBuffer())
+      )
+      const { base64: nextCoverBase64 } = await getPlaiceholder(nextCoverBuffer, { size: 10 })
+      nextProject.cover.base64 = nextCoverBase64
+    } catch {}
   }
 
   return (

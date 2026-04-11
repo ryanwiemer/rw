@@ -26,7 +26,7 @@ export default function ImageList({ images }: { images: any }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{
-              ease: 'linear',
+              ease: 'linear' as const,
               duration: 0.5,
               y: { duration: 0.5 },
             }}

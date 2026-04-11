@@ -15,7 +15,7 @@ export async function GET(request: Request) {
   const project = await getPreviewProjectBySlug(slug)
   const page = await getPreviewPageBySlug(slug)
 
-  draftMode().enable()
+  ;(await draftMode()).enable()
 
   if (project) {
     redirect(`/work/${project.slug}`)

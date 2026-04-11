@@ -4,7 +4,7 @@ import { redirect } from 'next/navigation'
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
 
-  draftMode().disable()
+  ;(await draftMode()).disable()
 
   redirect(searchParams.get('redirect') || '/')
 }

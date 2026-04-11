@@ -1,10 +1,10 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
 import AnimatedText from './animated-text'
 import { AspectRatio } from './ui/aspect-ratio'
-import { MicOffIcon, XIcon, MonitorOffIcon } from 'lucide-react'
+import { MicOff, X, MonitorOff } from 'lucide-react'
 import { useWindowSize } from '@uidotdev/usehooks'
 
 export default function IntroPromo({
@@ -45,7 +45,7 @@ export default function IntroPromo({
     setIsClosed(false)
   }
 
-  const tileVariants = {
+  const tileVariants: Variants = {
     hidden: {
       opacity: 0,
     },
@@ -79,7 +79,7 @@ export default function IntroPromo({
             aria-label="Click to reconnect"
           >
             <span>
-              <MonitorOffIcon className="inline mr-1 text-red-600" size={14} />{' '}
+              <MonitorOff className="inline mr-1 text-red-600" size={14} />{' '}
               Click to reconnect
             </span>
           </button>
@@ -119,10 +119,10 @@ export default function IntroPromo({
               className="absolute top-0 right-0 text-black bg-[#efefef] p-2 rounded-bl-lg rounded-tr-lg"
               aria-label="Click to close video"
             >
-              <XIcon size={18} />
+              <X size={18} />
             </button>
             <span className="rounded-bl-lg rounded-tr-lg text-sm absolute bottom-0 left-0 bg-[#efefef] p-1 text-black">
-              <MicOffIcon
+              <MicOff
                 className="inline-block relative -top-[2px] text-red-600 mr-1"
                 size={14}
               />

@@ -52,11 +52,11 @@ export default function Hero({
             fill
             placeholder="blur"
             blurDataURL={image?.base64}
-            className="object-cover z-2"
+            className="object-cover"
             src={image?.url}
           />
         </motion.div>
-        <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 bg-black bg-opacity-30" />
+        <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 bg-black/30" />
         <div className="grid items-end container py-10 absolute top-0 bottom-0 left-0 right-0 text-white">
           <motion.div>
             {heading && (

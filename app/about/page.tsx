@@ -5,7 +5,7 @@ import { Markdown } from '@/lib/markdown'
 import { getPlaiceholder } from 'plaiceholder'
 
 export async function generateMetadata() {
-  const { isEnabled } = draftMode()
+  const { isEnabled } = await draftMode()
   const page = await getPageBySlug('about', isEnabled)
   return {
     title: page.title,
@@ -17,18 +17,20 @@ export async function generateMetadata() {
 }
 
 export default async function Page() {
-  const { isEnabled } = draftMode()
+  const { isEnabled } = await draftMode()
   const page = await getPageBySlug('about', isEnabled)
 
   // Generate the base64 for the blur-up effect for each image
   await Promise.all(
     page.imagesCollection.items.map(async (image: any) => {
       if (!image.url.endsWith('.mp4')) {
-        const buffer = await fetch(image.url).then(async (res) => {
-          return Buffer.from(await res.arrayBuffer())
-        })
-        const { base64 } = await getPlaiceholder(buffer, { size: 10 })
-        image.base64 = base64
+        try {
+          const buffer = await fetch(image.url).then(async (res) =>
+            Buffer.from(await res.arrayBuffer())
+          )
+          const { base64 } = await getPlaiceholder(buffer, { size: 10 })
+          image.base64 = base64
+        } catch {}
       }
     })
   )
